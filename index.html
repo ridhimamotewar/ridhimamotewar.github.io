@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ridhima Motewar · Paint My Story</title>
+<meta name="description" content="Paint My Story — the personal portfolio of Ridhima Motewar, styled as a luxury futuristic nail art studio." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%92%85%3C/text%3E%3C/svg%3E" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<canvas id="sparkle-canvas" aria-hidden="true"></canvas>
+
+<!-- ========== TOP BAR ========== -->
+<header class="topbar">
+  <button class="brand" data-goto="studio" aria-label="Back to the studio">
+    <span class="brand-drop" aria-hidden="true"></span>
+    <span class="brand-name">Ridhima Motewar</span>
+    <span class="brand-sub">Paint My Story</span>
+  </button>
+  <nav class="topnav" aria-label="Sections">
+    <button data-goto="creativity">Creativity</button>
+    <button data-goto="innovation">Innovation</button>
+    <button data-goto="projects">Projects</button>
+    <button data-goto="leadership">Leadership</button>
+    <button data-goto="about">About&nbsp;Me</button>
+    <button data-goto="contact" class="nav-cta">Contact</button>
+  </nav>
+</header>
+
+<main>
+
+<!-- ========== STUDIO / HOME ========== -->
+<section id="studio" class="panel studio active">
+  <div class="studio-hero">
+    <p class="eyebrow">The Studio of</p>
+    <h1 class="studio-title">Ridhima&nbsp;Motewar</h1>
+    <p class="studio-tag">Every story deserves a flawless finish.<br/>Pick a shade to begin.</p>
+  </div>
+
+  <div class="vanity-scene" aria-label="Vanity table with nail polish bottles — each bottle opens a section">
+    <div class="studio-glow" aria-hidden="true"></div>
+    <div class="bottle-row">
+
+      <button class="bottle" data-goto="creativity" aria-label="Open Creativity section" style="--polish:#e8899f; --polish-deep:#c85a78; --polish-lite:#ffc9d6;">
+        <span class="cap" aria-hidden="true"><span class="cap-body"></span><span class="brush-stem"></span></span>
+        <span class="glass" aria-hidden="true">
+          <span class="liquid"></span><span class="shimmer"></span><span class="shine"></span>
+          <span class="bottle-label">Creativity</span>
+        </span>
+        <span class="bottle-name" aria-hidden="true">Creativity</span>
+      </button>
+
+      <button class="bottle" data-goto="innovation" aria-label="Open Innovation section" style="--polish:#7fb6d9; --polish-deep:#4a86ad; --polish-lite:#c8e4f5;">
+        <span class="cap" aria-hidden="true"><span class="cap-body"></span><span class="brush-stem"></span></span>
+        <span class="glass" aria-hidden="true">
+          <span class="liquid"></span><span class="shimmer"></span><span class="shine"></span>
+          <span class="bottle-label">Innovation</span>
+        </span>
+        <span class="bottle-name" aria-hidden="true">Innovation</span>
+      </button>
+
+      <button class="bottle" data-goto="projects" aria-label="Open Projects section" style="--polish:#d9b36c; --polish-deep:#b08a3e; --polish-lite:#f4ddab;">
+        <span class="cap" aria-hidden="true"><span class="cap-body"></span><span class="brush-stem"></span></span>
+        <span class="glass" aria-hidden="true">
+          <span class="liquid"></span><span class="shimmer"></span><span class="shine"></span>
+          <span class="bottle-label">Projects</span>
+        </span>
+        <span class="bottle-name" aria-hidden="true">Projects</span>
+      </button>
+
+      <button class="bottle" data-goto="leadership" aria-label="Open Leadership section" style="--polish:#8d5a8f; --polish-deep:#63356a; --polish-lite:#d3aed6;">
+        <span class="cap" aria-hidden="true"><span class="cap-body"></span><span class="brush-stem"></span></span>
+        <span class="glass" aria-hidden="true">
+          <span class="liquid"></span><span class="shimmer"></span><span class="shine"></span>
+          <span class="bottle-label">Leadership</span>
+        </span>
+        <span class="bottle-name" aria-hidden="true">Leadership</span>
+      </button>
+
+      <button class="bottle" data-goto="about" aria-label="Open About Me section" style="--polish:#efe3d8; --polish-deep:#cbb59f; --polish-lite:#fffaf3;">
+        <span class="cap" aria-hidden="true"><span class="cap-body"></span><span class="brush-stem"></span></span>
+        <span class="glass" aria-hidden="true">
+          <span class="liquid"></span><span class="shimmer"></span><span class="shine"></span>
+          <span class="bottle-label">About&nbsp;Me</span>
+        </span>
+        <span class="bottle-name" aria-hidden="true">About Me</span>
+      </button>
+
+      <button class="bottle" data-goto="contact" aria-label="Open Contact section" style="--polish:#b3a3dd; --polish-deep:#8471b8; --polish-lite:#e2d8fb;">
+        <span class="cap" aria-hidden="true"><span class="cap-body"></span><span class="brush-stem"></span></span>
+        <span class="glass" aria-hidden="true">
+          <span class="liquid"></span><span class="shimmer"></span><span class="shine"></span>
+          <span class="bottle-label">Contact</span>
+        </span>
+        <span class="bottle-name" aria-hidden="true">Contact</span>
+      </button>
+
+    </div>
+    <div class="vanity-table" aria-hidden="true"><div class="table-gloss"></div></div>
+  </div>
+
+  <!-- Polish & Reveal -->
+  <div class="reveal-bar">
+    <h2 class="section-heading"><span>Polish &amp; Reveal</span></h2>
+    <p class="section-sub">Drag the brush across a bare nail to uncover what's hiding beneath.</p>
+    <div class="reveal-nails">
+      <figure class="reveal-nail" data-polish="#e8899f">
+        <div class="nail-shape">
+          <div class="nail-secret">
+            <span class="secret-kicker">Hidden fact</span>
+            <p>I sketch every interface on paper first — pixels come second, always.</p>
+          </div>
+          <canvas class="nail-canvas" aria-label="Scratch to reveal a hidden fact"></canvas>
+        </div>
+        <figcaption>Fact № 1</figcaption>
+      </figure>
+      <figure class="reveal-nail" data-polish="#d9b36c">
+        <div class="nail-shape">
+          <div class="nail-secret">
+            <span class="secret-kicker">Project peek</span>
+            <p>My favorite build shipped to 2,000+ users in its first month. Find it in the gallery.</p>
+          </div>
+          <canvas class="nail-canvas" aria-label="Scratch to reveal a project preview"></canvas>
+        </div>
+        <figcaption>Sneak peek</figcaption>
+      </figure>
+      <figure class="reveal-nail" data-polish="#b3a3dd">
+        <div class="nail-shape">
+          <div class="nail-secret">
+            <span class="secret-kicker">Personal note</span>
+            <p>Fueled by filter coffee, lo-fi playlists, and an ever-growing polish collection.</p>
+          </div>
+          <canvas class="nail-canvas" aria-label="Scratch to reveal a personal note"></canvas>
+        </div>
+        <figcaption>Off the clock</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CREATIVITY ========== -->
+<section id="creativity" class="panel" aria-hidden="true">
+  <div class="panel-inner">
+    <button class="back-btn" data-goto="studio">← Back to the studio</button>
+    <p class="eyebrow">Shade № 01 · Rosé Muse</p>
+    <h2 class="panel-title">Creativity</h2>
+    <p class="panel-lede">Craft is a habit, not an accident. These are the places where I let ideas dry into something glossy.</p>
+    <div class="swatch-grid">
+      <article class="swatch-card">
+        <div class="swatch-dot" style="--polish:#e8899f"></div>
+        <h3>Visual Design</h3>
+        <p>Interfaces, brand systems, and illustration studies — obsessed with type, texture, and negative space.</p>
+      </article>
+      <article class="swatch-card">
+        <div class="swatch-dot" style="--polish:#7fb6d9"></div>
+        <h3>Generative Art</h3>
+        <p>Code-made canvases: particle fields, flow lines, and palettes sampled from real polish collections.</p>
+      </article>
+      <article class="swatch-card">
+        <div class="swatch-dot" style="--polish:#d9b36c"></div>
+        <h3>Storytelling</h3>
+        <p>Writing, micro-copy, and pitch decks that make technical work feel human and worth caring about.</p>
+      </article>
+      <article class="swatch-card">
+        <div class="swatch-dot" style="--polish:#b3a3dd"></div>
+        <h3>Nail Artistry</h3>
+        <p>Yes, really — hand-painted sets are my weekend meditation, and the inspiration for this entire site.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ========== INNOVATION ========== -->
+<section id="innovation" class="panel" aria-hidden="true">
+  <div class="panel-inner">
+    <button class="back-btn" data-goto="studio">← Back to the studio</button>
+    <p class="eyebrow">Shade № 02 · Chrome Horizon</p>
+    <h2 class="panel-title">Innovation</h2>
+    <p class="panel-lede">Where I've pushed past the base coat — experiments, hackathons, and ideas that became real.</p>
+    <ol class="timeline">
+      <li>
+        <span class="timeline-year">2025</span>
+        <h3>AI-Assisted Design Tooling</h3>
+        <p>Prototyped an internal tool that turns rough wireframes into styled components, cutting handoff time roughly in half.</p>
+      </li>
+      <li>
+        <span class="timeline-year">2024</span>
+        <h3>Hackathon — 1st Place</h3>
+        <p>Led a team of four to a winning build in 36 hours: an accessibility layer that re-themes any site for low-vision users.</p>
+      </li>
+      <li>
+        <span class="timeline-year">2023</span>
+        <h3>Open Source Contribution</h3>
+        <p>Shipped performance patches to a popular UI library — animation jank fixed for thousands of downstream apps.</p>
+      </li>
+      <li>
+        <span class="timeline-year">2022</span>
+        <h3>First Patent-Pending Idea</h3>
+        <p>Co-authored a filing for a gesture-driven interaction model born from a late-night prototype.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ========== PROJECTS ========== -->
+<section id="projects" class="panel" aria-hidden="true">
+  <div class="panel-inner wide">
+    <button class="back-btn" data-goto="studio">← Back to the studio</button>
+    <p class="eyebrow">Shade № 03 · Gilded Hour</p>
+    <h2 class="panel-title">The Nail Art Gallery</h2>
+    <p class="panel-lede">Each design is a project. Tap one to read the full case study.</p>
+    <div class="gallery" id="project-gallery"><!-- cards injected by script.js --></div>
+  </div>
+</section>
+
+<!-- ========== LEADERSHIP ========== -->
+<section id="leadership" class="panel" aria-hidden="true">
+  <div class="panel-inner">
+    <button class="back-btn" data-goto="studio">← Back to the studio</button>
+    <p class="eyebrow">Shade № 04 · Velvet Plum</p>
+    <h2 class="panel-title">Leadership</h2>
+    <p class="panel-lede">Steady hands paint clean lines. Roles where I've set direction and brought people along.</p>
+    <div class="lead-grid">
+      <article class="lead-card">
+        <span class="lead-badge">2024 — present</span>
+        <h3>Design Lead, Product Team</h3>
+        <p>Guiding a cross-functional pod of six; introduced a critique ritual that doubled design iteration speed.</p>
+      </article>
+      <article class="lead-card">
+        <span class="lead-badge">2023 — 2024</span>
+        <h3>President, Tech &amp; Design Society</h3>
+        <p>Grew membership from 40 to 180, ran a speaker series, and mentored first-time hackathon teams.</p>
+      </article>
+      <article class="lead-card">
+        <span class="lead-badge">2022 — 2023</span>
+        <h3>Workshop Instructor</h3>
+        <p>Taught intro UI/UX and creative coding to 200+ students across weekend cohorts.</p>
+      </article>
+      <article class="lead-card">
+        <span class="lead-badge">Ongoing</span>
+        <h3>Mentor &amp; Community Builder</h3>
+        <p>One-on-one portfolio reviews and career chats for early-career designers and developers.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ========== ABOUT ========== -->
+<section id="about" class="panel" aria-hidden="true">
+  <div class="panel-inner">
+    <button class="back-btn" data-goto="studio">← Back to the studio</button>
+    <p class="eyebrow">Shade № 05 · Pearl Base</p>
+    <h2 class="panel-title">About Me</h2>
+    <div class="about-layout">
+      <div class="about-portrait" aria-hidden="true"><span>RM</span></div>
+      <div class="about-copy">
+        <p class="panel-lede">I'm Ridhima — a designer-engineer who believes software should feel as considered as a hand-painted manicure.</p>
+        <p>I work at the intersection of code and craft: building interfaces, prototyping interactions, and sweating the last 2% that makes something feel finished. When I'm not shipping, I'm painting tiny canvases — ten of them, on my own hands.</p>
+        <h3 class="mini-heading">The kit I reach for</h3>
+        <ul class="skill-swatches">
+          <li style="--polish:#e8899f">JavaScript / TypeScript</li>
+          <li style="--polish:#7fb6d9">React &amp; modern CSS</li>
+          <li style="--polish:#d9b36c">Figma &amp; design systems</li>
+          <li style="--polish:#8d5a8f">Python</li>
+          <li style="--polish:#b3a3dd">Motion &amp; micro-interactions</li>
+          <li style="--polish:#cbb59f">Storytelling &amp; writing</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CONTACT ========== -->
+<section id="contact" class="panel" aria-hidden="true">
+  <div class="panel-inner">
+    <button class="back-btn" data-goto="studio">← Back to the studio</button>
+    <p class="eyebrow">Shade № 06 · Lilac Hour</p>
+    <h2 class="panel-title">Book an Appointment</h2>
+    <p class="panel-lede">The studio door is always open — for roles, collaborations, or just to talk shop.</p>
+    <div class="contact-cards">
+      <a class="contact-card" href="mailto:motewar.ridhima@gmail.com">
+        <span class="contact-icon" aria-hidden="true">✉</span>
+        <h3>Email</h3>
+        <p>motewar.ridhima@gmail.com</p>
+      </a>
+      <a class="contact-card" href="https://www.linkedin.com/" target="_blank" rel="noopener">
+        <span class="contact-icon" aria-hidden="true">in</span>
+        <h3>LinkedIn</h3>
+        <p>Connect professionally</p>
+      </a>
+      <a class="contact-card" href="https://github.com/ridhimamotewar" target="_blank" rel="noopener">
+        <span class="contact-icon" aria-hidden="true">&lt;/&gt;</span>
+        <h3>GitHub</h3>
+        <p>See the source of my work</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ========== PAINT TRANSITION OVERLAY ========== -->
+<div id="paint-overlay" aria-hidden="true">
+  <div class="paint-swath">
+    <svg class="swath-edge" viewBox="0 0 120 800" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 0 H38 C70 40 24 90 58 140 C92 190 30 240 66 300 C98 350 26 410 60 470 C94 530 32 590 64 650 C90 700 40 750 52 800 H0 Z"/>
+    </svg>
+    <svg class="paint-brush" viewBox="0 0 60 200" aria-hidden="true">
+      <rect x="22" y="0" width="16" height="90" rx="8" class="brush-handle"/>
+      <rect x="19" y="86" width="22" height="18" rx="4" class="brush-ferrule"/>
+      <path d="M20 102 C18 140 24 168 30 178 C36 168 42 140 40 102 Z" class="brush-bristles"/>
+    </svg>
+  </div>
+</div>
+
+<!-- ========== PROJECT MODAL ========== -->
+<div id="project-modal" class="modal-backdrop" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <button class="modal-close" aria-label="Close case study">×</button>
+    <div class="modal-art" aria-hidden="true"></div>
+    <div class="modal-body">
+      <p class="eyebrow modal-shade"></p>
+      <h3 id="modal-title"></h3>
+      <p class="modal-desc"></p>
+      <h4 class="mini-heading">Tools &amp; techniques</h4>
+      <ul class="modal-tools"></ul>
+      <h4 class="mini-heading">Impact</h4>
+      <ul class="modal-impact"></ul>
+    </div>
+  </div>
+</div>
+
+<!-- ========== CHATBOT ========== -->
+<button id="chat-fab" aria-label="Open chat — Ask the Nail Artist AI">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c-1.1 0-2 .9-2 2v1.3C7.6 6.2 6 8.4 6 11v6l-1.5 2.2c-.4.6 0 1.8.8 1.8h13.4c.8 0 1.2-1.2.8-1.8L18 17v-6c0-2.6-1.6-4.8-4-5.7V4c0-1.1-.9-2-2-2z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+  <span>Ask the Nail Artist</span>
+</button>
+
+<aside id="chat-panel" hidden aria-label="Ask the Nail Artist AI chat">
+  <header class="chat-header">
+    <div class="chat-avatar" aria-hidden="true">💅</div>
+    <div>
+      <strong>The Nail Artist AI</strong>
+      <span class="chat-status">In the studio · replies instantly</span>
+    </div>
+    <button id="chat-close" aria-label="Close chat">×</button>
+  </header>
+  <div id="chat-messages" role="log" aria-live="polite"></div>
+  <div id="chat-chips"></div>
+  <form id="chat-form">
+    <input id="chat-input" type="text" placeholder="Ask about Ridhima, her projects, skills…" autocomplete="off" maxlength="200" />
+    <button type="submit" aria-label="Send message">➤</button>
+  </form>
+</aside>
+
+<footer class="site-footer">
+  <p>© 2026 Ridhima Motewar · Hand-painted with code · <button class="linklike" data-goto="contact">Say hello</button></p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
