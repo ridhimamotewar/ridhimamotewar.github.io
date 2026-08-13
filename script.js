@@ -21,6 +21,21 @@ const SITE_CONTENT = {
         "Three production agents shipped in a single internship",
         "Recurring FP&A workflows automated end to end",
       ],
+      tech: [
+        "One agent per workflow — three narrowly scoped agents instead of a single general-purpose assistant, so each one can be validated against a known-good manual result.",
+        "Python orchestration around LLM APIs: the agents pull the source data, reconcile it, and assemble the outputs analysts previously stitched together by hand.",
+        "Analyst-in-the-loop by design — the agents produce the draft, the FP&A team reviews and approves before anything is used.",
+        "Benchmarked against the manual process it replaced: 2+ analyst-weeks recovered.",
+      ],
+      diagram: {
+        caption: "The shape of each agent: source data in, reviewed deliverable out.",
+        steps: [
+          { t: "Source data", s: "Financial systems & reports" },
+          { t: "Agent run", s: "Python + LLM tool calls" },
+          { t: "Reconcile", s: "Cross-check and assemble" },
+          { t: "Analyst review", s: "Human approves the draft" },
+        ],
+      },
       art: { base: "#dfe3ea", accent: "#8fa3b8", style: "chrome" },
     },
     {
@@ -36,6 +51,21 @@ const SITE_CONTENT = {
         "Sub-1s response time from eye input to spoken output",
         "Full presentation flow: slides, live Q&A, and transcripts",
       ],
+      tech: [
+        "The entire interface runs on three eye-driven inputs plus a blink for navigation — no keyboard, no mouse, no caregiver required mid-presentation.",
+        "A Flask backend orchestrates the agent workflow: interpret the gaze input, decide the next presentation action, then generate the speech to say.",
+        "Full presentation loop, not just text-to-speech — slide advancement, live Q&A answers, and a running transcript of everything said.",
+        "Sub-1-second budget from eye input to audio out. That latency ceiling drove every architectural decision, because a pause longer than a second reads as a failure to the audience.",
+      ],
+      diagram: {
+        caption: "From a glance to a spoken sentence in under a second.",
+        steps: [
+          { t: "Eye input", s: "3 gaze targets + blink" },
+          { t: "Flask backend", s: "Routes intent" },
+          { t: "Agent workflow", s: "Picks the next action" },
+          { t: "AI speech", s: "Generated & spoken aloud" },
+        ],
+      },
       art: { base: "#e6e3f5", accent: "#b3a3dd", style: "holo" },
     },
     {
@@ -51,6 +81,21 @@ const SITE_CONTENT = {
         "Top 3 Finalist, Congressional App Challenge",
         "OCR, object recognition, and multimodal prompting in one flow",
       ],
+      tech: [
+        "React Native with Expo — one codebase serving both platforms, because splitting effort across two native apps wasn't realistic for the schools waiting on it.",
+        "Python ML pipelines behind three distinct capabilities: OCR for reading text aloud, object recognition for describing surroundings, and multimodal prompting for open-ended questions about what the camera sees.",
+        "Camera frame in, spoken description out — the whole interaction is designed to work without ever looking at the screen.",
+        "Validated with the people who'd actually use it: 20+ schools for the blind approved it for their students.",
+      ],
+      diagram: {
+        caption: "One camera frame, three ways to understand it.",
+        steps: [
+          { t: "Camera frame", s: "React Native capture" },
+          { t: "ML pipeline", s: "OCR · objects · multimodal" },
+          { t: "Description", s: "Plain-language answer" },
+          { t: "Spoken aloud", s: "Screen never needed" },
+        ],
+      },
       art: { base: "#f6ede6", accent: "#d9b36c", style: "french" },
     },
     {
@@ -65,6 +110,19 @@ const SITE_CONTENT = {
         "Patent-pending design, approved across 17 California cities",
         "$14.6K raised through fundraisers, donations, and partnerships",
         "11 community drives serving 800+ underprivileged individuals",
+      ],
+      tech: [
+        "Split-plan layout: a self-cleaning wet side (36 × 60 in) kept separate from a dry changing side (48 × 60 in), so sanitation runs between users instead of relying on staff.",
+        "Full unit at 84 in long × 96 in wide × 96 in tall (114 in with plumbing) — deliberately sized to tow and site in real city lots.",
+        "Accessibility built into the dimensions: a 32-inch door and a fold-down bench 17 in off the ground for transfer.",
+        "Floor sloped 1:48 to the drain — the maximum gentle grade that still drains — over an 18-inch crawl space housing the plumbing and cleaning system.",
+        "CAD prototyping straight through regulatory approval in 17 California cities.",
+      ],
+      media: [
+        {
+          img: "assets/projects/lunar-floorplan.png",
+          caption: "The unit's floor plan and dimensions — wet side, dry side, and equipment bay.",
+        },
       ],
       art: { base: "#fdf6ec", accent: "#e3c98f", style: "pearl" },
     },
@@ -81,6 +139,21 @@ const SITE_CONTENT = {
         "Benchmarked four frontier model families head to head",
         "Delivered as a working framework, not just a report",
       ],
+      tech: [
+        "Three scoring dimensions, each with its own rubric: actionability (did the agent actually do the thing), accuracy (was it right), and personalization (did it account for this user).",
+        "The same task suite run across frontier models from OpenAI, Anthropic, Google, and xAI, so results are directly comparable rather than anecdotal.",
+        "Built to scale: adding a new model or a new task means adding a row, not rewriting the harness.",
+        "Delivered as a working evaluation framework the team could keep running — not a slide deck of one-off observations.",
+      ],
+      diagram: {
+        caption: "One task suite, four model families, three rubrics — scored the same way every time.",
+        steps: [
+          { t: "Task suite", s: "Shared shopping scenarios" },
+          { t: "Model runs", s: "OpenAI · Anthropic · Google · xAI" },
+          { t: "Rubric scoring", s: "Actionability · accuracy · personalization" },
+          { t: "Comparison", s: "Ranked, repeatable results" },
+        ],
+      },
       art: { base: "#efe0ee", accent: "#8d5a8f", style: "velvet" },
     },
     {
@@ -96,6 +169,21 @@ const SITE_CONTENT = {
         "Full model architecture and implementation roadmap delivered",
         "Automated a manual, high-stakes advisory workflow",
       ],
+      tech: [
+        "Historical portfolio performance as the training signal — the firm's own track record, rather than generic market data, driving what gets recommended to a new client.",
+        "Full model architecture plus a phased implementation roadmap, so adoption could happen incrementally instead of as one risky cutover.",
+        "Designed to sit inside the advisor's existing workflow: the model ranks and suggests, the advisor still decides.",
+        "Projected 77.2% ROI on firm-wide adoption.",
+      ],
+      diagram: {
+        caption: "Turning the firm's own track record into a starting point for every new client.",
+        steps: [
+          { t: "Historical portfolios", s: "Past performance data" },
+          { t: "Feature modeling", s: "What drove returns" },
+          { t: "Recommendation", s: "Ranked allocations" },
+          { t: "Advisor decides", s: "Model suggests, human signs off" },
+        ],
+      },
       art: { base: "#fbe9ef", accent: "#e8899f", style: "floral" },
     },
     {
@@ -110,6 +198,21 @@ const SITE_CONTENT = {
         "Hands-on work supporting The Boring Company",
         "One of Penn's flagship student engineering teams",
         "Robotics-honed fabrication instincts at real-world scale",
+      ],
+      tech: [
+        "CAD and fabrication work with Penn Hyperloop, one of the university's flagship student engineering teams, building for The Boring Company.",
+        "The same loop carried over from four years of FIRST Robotics: model it in CAD, machine it, test it, find where it fails, revise the model.",
+        "Hands-on shop work — the parts get made, not just drawn.",
+      ],
+      media: [
+        {
+          img: "assets/projects/robotics-cad.png",
+          caption: "CAD assembly from her FIRST Robotics builds — the design discipline she brings to Hyperloop.",
+        },
+        {
+          img: "assets/projects/shop-fabrication.jpg",
+          caption: "In the shop, machining a part.",
+        },
       ],
       art: { base: "#dce4ec", accent: "#5b7a94", style: "ombre" },
     },
@@ -154,9 +257,14 @@ const SITE_CONTENT = {
           "On campus she's Vice President of Product Space @ Penn (teaching 18 Product Fellows, and she ran Penn's first Product-A-Thon), an officer with the Volunteer Income Tax Association ($3M in refunds delivered), an engineer with Penn Hyperloop doing work for The Boring Company, and part of Girls into VC and the M&T Board. She also co-founded Lunar Llamas, a 501c3 serving 800+ people, and captained a FIRST Robotics team that won $10K in grants from NASA and Google. 🖌️",
       },
       {
-        keys: ["award", "win", "won", "competition", "hackathon", "finalist", "prize", "achievement", "honor"],
+        keys: ["award", "win", "won", "competition", "hackathon", "finalist", "prize", "achievement", "honor", "deca"],
         reply:
-          "The trophy shelf: Track Winner at the Anthropic Hackathon (Ode), Top 3 Finalist in the Congressional App Challenge (Echo Eyes), Winner of the Wharton Undergraduate Public Policy Competition, and Finalist in both the National McKinsey and Accenture case competitions. 🏆",
+          "The trophy shelf: Track Winner at the Anthropic Hackathon (Ode), Top 3 Finalist in the Congressional App Challenge (Echo Eyes), Winner of the Wharton Undergraduate Public Policy Competition, Finalist in both the National McKinsey and Accenture case competitions, and 5th in the world at DECA's international competition. 🏆",
+      },
+      {
+        keys: ["innovation", "patent", "experiment", "ai agent", "timeline", "journey", "story so far"],
+        reply:
+          "Her timeline runs through the About Me section — CoreWeave agents in 2026, Penn M&T, the Anthropic Hackathon win, graduating salutatorian, Echo Eyes, and founding Lunar Llamas with its patent-pending design back in 2020. Tap the pearl About Me bottle for the full run. ✨",
       },
       {
         keys: ["contact", "email", "reach", "hire", "hiring", "connect", "linkedin", "github", "touch", "talk", "collab"],
@@ -195,6 +303,7 @@ const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const overlay = $("#paint-overlay");
 const swath = $(".paint-swath");
 let transitioning = false;
+let targetPanel = null;
 
 function showPanel(id) {
   $$(".panel").forEach((p) => {
@@ -206,8 +315,11 @@ function showPanel(id) {
 }
 
 function paintTransition(id, color) {
-  if (transitioning) return;
   if (reducedMotion) { showPanel(id); return; }
+  // Record the destination first: if a navigation lands mid-animation (browser back,
+  // or an impatient second click), the in-flight sweep retargets instead of being dropped.
+  targetPanel = id;
+  if (transitioning) return;
   transitioning = true;
   overlay.style.setProperty("--swath-color", color);
   swath.style.setProperty("--swath-color", color);
@@ -217,7 +329,7 @@ function paintTransition(id, color) {
   const cover = () => {
     if (covered) return;
     covered = true;
-    showPanel(id);
+    showPanel(targetPanel);
     const sweepOut = swath.animate(
       [{ transform: "translateX(0%)" }, { transform: "translateX(115%)" }],
       { duration: 620, easing: "cubic-bezier(0.6, 0, 0.35, 1)", fill: "forwards", delay: 120 }
@@ -230,6 +342,8 @@ function paintTransition(id, color) {
     done = true;
     overlay.classList.remove("painting");
     transitioning = false;
+    // a navigation that arrived after the swath had already passed still lands
+    if (targetPanel !== activePanelId()) showPanel(targetPanel);
   };
 
   const sweepIn = swath.animate(
@@ -267,10 +381,15 @@ function activePanelId() {
   return $(".panel.active")?.id || "studio";
 }
 
+/* Where we're headed — the in-flight destination during a transition, else what's on screen */
+function pendingPanelId() {
+  return transitioning && targetPanel ? targetPanel : activePanelId();
+}
+
 $$("[data-goto]").forEach((el) => {
   el.addEventListener("click", () => {
     const id = el.dataset.goto;
-    if (id === activePanelId()) return;
+    if (id === pendingPanelId()) return;
     // record the section in history so the browser back/forward buttons work
     history.pushState(null, "", id === "studio" ? location.pathname + location.search : `#${id}`);
     goTo(id, el.classList.contains("bottle") ? el : null);
@@ -284,7 +403,7 @@ function hashPanelId() {
 
 addEventListener("popstate", () => {
   const id = hashPanelId();
-  if (id === activePanelId()) return;
+  if (id === pendingPanelId()) return;
   paintTransition(id, SECTION_COLORS[id] || "#e8899f");
 });
 
@@ -478,16 +597,48 @@ const modalBackdrop = $("#project-modal");
 const modal = $(".modal", modalBackdrop);
 let lastFocus = null;
 
+/* Pipeline diagrams are HTML rather than SVG so they reflow on narrow screens */
+function diagramHTML(d, accent) {
+  const steps = d.steps
+    .map(
+      (s, i) => `<div class="pipe-step" style="--accent:${accent}">
+        <span class="pipe-n">${String(i + 1).padStart(2, "0")}</span>
+        <strong>${s.t}</strong>
+        <span class="pipe-sub">${s.s}</span>
+      </div>`
+    )
+    .join('<span class="pipe-arrow" aria-hidden="true">→</span>');
+  return `<figure class="tech-diagram"><div class="pipe">${steps}</div>${
+    d.caption ? `<figcaption>${d.caption}</figcaption>` : ""
+  }</figure>`;
+}
+
+function mediaHTML(p) {
+  let html = p.diagram ? diagramHTML(p.diagram, p.art.accent) : "";
+  (p.media || []).forEach((m) => {
+    html += `<figure class="tech-shot">
+      <img src="${m.img}" alt="${m.caption}" loading="lazy" />
+      <figcaption>${m.caption}</figcaption>
+    </figure>`;
+  });
+  return html;
+}
+
 function openModal(p) {
   lastFocus = document.activeElement;
   $(".modal-art", modal).style.background = NAIL_ART_STYLES[p.art.style](p.art.base, p.art.accent);
   $(".modal-shade", modal).textContent = p.shade;
   $("#modal-title").textContent = p.title;
   $(".modal-desc", modal).textContent = p.description;
+  $(".modal-media", modal).innerHTML = mediaHTML(p);
+  const tech = p.tech || [];
+  $(".tech-head", modal).hidden = !tech.length;
+  $(".modal-tech", modal).innerHTML = tech.map((t) => `<li>${t}</li>`).join("");
   $(".modal-tools", modal).innerHTML = p.tools.map((t) => `<li>${t}</li>`).join("");
   $(".modal-impact", modal).innerHTML = p.impact.map((i) => `<li>${i}</li>`).join("");
   modalBackdrop.hidden = false;
   document.body.style.overflow = "hidden";
+  modal.scrollTop = 0;
   $(".modal-close", modal).focus();
 }
 

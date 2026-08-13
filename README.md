@@ -14,7 +14,7 @@ Live at **https://ridhimamotewar.github.io**
 ## Editing content
 All personal content (projects, case studies, chatbot answers) lives in the
 `SITE_CONTENT` object at the top of [script.js](script.js). Section copy
-(About, Leadership, Innovation, Creativity) is plain HTML in [index.html](index.html).
+(About, Leadership, Creativity) is plain HTML in [index.html](index.html).
 
 ## Running locally
 Any static server works, e.g.:

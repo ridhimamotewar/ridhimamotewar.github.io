@@ -545,6 +545,44 @@ main { position: relative; z-index: 2; }
   font-size: 0.8rem; font-weight: 500; padding: 6px 14px; border-radius: 999px;
   background: #fff; box-shadow: 0 4px 12px -6px rgba(58,33,56,0.3);
 }
+/* ── Modal: technical detail + media ── */
+.modal-media { margin: 26px 0 4px; display: grid; gap: 24px; }
+
+.tech-diagram, .tech-shot { margin: 0; }
+.pipe { display: flex; flex-wrap: wrap; align-items: stretch; gap: 8px; }
+.pipe-step {
+  flex: 1 1 140px; min-width: 0;
+  display: flex; flex-direction: column; gap: 4px;
+  background: #fff; border-radius: 16px; padding: 14px 15px;
+  border: 1px solid rgba(58, 33, 56, 0.08);
+  border-top: 3px solid var(--accent, var(--gold));
+  box-shadow: 0 10px 24px -16px rgba(58, 33, 56, 0.5);
+}
+.pipe-n { font-size: 0.6rem; letter-spacing: 0.24em; color: var(--gold); font-weight: 600; }
+.pipe-step strong { font-size: 0.9rem; font-weight: 600; color: var(--ink); line-height: 1.3; }
+.pipe-sub { font-size: 0.76rem; color: var(--ink-soft); line-height: 1.4; }
+.pipe-arrow { align-self: center; flex: 0 0 auto; color: var(--gold); font-size: 1rem; }
+
+.tech-shot img {
+  display: block; width: 100%; border-radius: 18px; background: #fff;
+  border: 1px solid rgba(58, 33, 56, 0.08);
+  box-shadow: 0 14px 34px -20px rgba(58, 33, 56, 0.5);
+}
+.tech-diagram figcaption, .tech-shot figcaption {
+  margin-top: 12px; text-align: center;
+  font-family: "Fraunces", serif; font-style: italic;
+  font-size: 0.8rem; color: var(--ink-soft); line-height: 1.5;
+}
+
+.modal-tech { list-style: none; display: grid; gap: 12px; }
+.modal-tech li {
+  position: relative; padding-left: 26px;
+  color: var(--ink-soft); line-height: 1.6; font-size: 0.94rem;
+}
+.modal-tech li::before { content: "▹"; position: absolute; left: 0; color: var(--plum); font-size: 1rem; }
+
+.mini-heading.spaced { margin-top: 48px; }
+
 .modal-impact { list-style: none; display: grid; gap: 10px; }
 .modal-impact li { position: relative; padding-left: 26px; color: var(--ink-soft); line-height: 1.55; }
 .modal-impact li::before {
@@ -632,6 +670,12 @@ main { position: relative; z-index: 2; }
 @media (max-width: 900px) {
   .brand-sub { display: none; }
   .topnav button:not(.nav-cta) { padding: 8px 9px; font-size: 0.78rem; }
+}
+
+@media (max-width: 560px) {
+  /* stack the pipeline vertically instead of wrapping mid-row */
+  .pipe-step { flex: 1 1 100%; }
+  .pipe-arrow { display: none; }
 }
 
 @media (max-width: 680px) {
