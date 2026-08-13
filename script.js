@@ -5,148 +5,158 @@
 
 const SITE_CONTENT = {
   name: "Ridhima Motewar",
-  email: "motewar.ridhima@gmail.com",
+  email: "rmotewar@wharton.upenn.edu",
 
   projects: [
     {
-      id: "polished-commerce",
-      shade: "Shade 01 · French Tip",
-      title: "Polished Commerce",
-      teaser: "A boutique e-commerce redesign that turned browsers into buyers.",
+      id: "coreweave-agents",
+      shade: "Shade 01 · Liquid Chrome",
+      title: "CoreWeave FP&A Agent Suite",
+      teaser: "Three AI agents that gave CoreWeave's financial analysts two weeks back.",
       description:
-        "A ground-up redesign of a boutique retail storefront. I rebuilt the browsing and checkout flows around a single idea: shopping should feel like being helped by a great stylist, not filling out a form. The result pairs an editorial product gallery with a two-step checkout.",
-      tools: ["React", "TypeScript", "Stripe", "Figma", "Framer Motion"],
+        "As an FP&A intern at CoreWeave (Summer 2026), I designed and built three AI agents for the financial planning & analysis team — automating the recurring, manual workflows that ate into analysts' weeks: pulling, reconciling, and re-formatting the same data over and over. The agents took those cycles end to end, so analysts could spend their time on actual analysis.",
+      tools: ["Python", "AI agents", "LLM APIs", "Prompt engineering", "FP&A workflows"],
       impact: [
-        "Checkout completion rate up 34% after launch",
-        "Page weight cut by 41% through image and animation budgets",
-        "Design system adopted by two sibling product teams",
-      ],
-      art: { base: "#f6ede6", accent: "#d9b36c", style: "french" },
-    },
-    {
-      id: "chrome-insights",
-      shade: "Shade 02 · Mirror Chrome",
-      title: "Chrome Insights",
-      teaser: "An analytics dashboard that makes dense data feel effortless.",
-      description:
-        "A data platform for operations teams drowning in spreadsheets. I designed and built the visualization layer — live charts, anomaly highlights, and a natural-language summary strip — so a morning glance replaces an hour of digging.",
-      tools: ["Vue", "D3.js", "Python", "FastAPI", "PostgreSQL"],
-      impact: [
-        "Daily reporting time reduced from ~60 to ~8 minutes",
-        "Adopted by 2,000+ users in the first month",
-        "Anomaly alerts caught three critical issues before customers did",
+        "Saved analysts 2+ weeks of manual work",
+        "Three production agents shipped in a single internship",
+        "Recurring FP&A workflows automated end to end",
       ],
       art: { base: "#dfe3ea", accent: "#8fa3b8", style: "chrome" },
     },
     {
-      id: "petal-notes",
-      shade: "Shade 03 · Pressed Petal",
-      title: "Petal Notes",
-      teaser: "A journaling app where entries bloom into a garden of memories.",
+      id: "ode",
+      shade: "Shade 02 · Holo Voice",
+      title: "Ode",
+      teaser: "Eye-driven presentations for speakers with Cerebral Palsy and ALS — Anthropic Hackathon track winner.",
       description:
-        "A mindful journaling companion. Each entry becomes a petal in a slowly growing garden visualization — a gentle nudge that consistency, not length, is what matters. Built with offline-first storage and end-to-end encryption for total privacy.",
-      tools: ["React Native", "SQLite", "Expo", "Lottie"],
+        "An assistive presentation platform that converts three eye-driven inputs into real-time AI-generated speech through a Flask backend. Blink-based navigation and agent workflows let users deliver end-to-end presentations — slides, Q&A, and transcripts — with under one second of response time.",
+      tools: ["Python", "Flask", "Eye tracking", "AI agents", "Speech synthesis"],
       impact: [
-        "4.8★ average rating across app stores",
-        "60-day retention twice the category benchmark",
-        "Featured in a curated 'apps for wellbeing' collection",
-      ],
-      art: { base: "#fbe9ef", accent: "#e8899f", style: "floral" },
-    },
-    {
-      id: "holo-guide",
-      shade: "Shade 04 · Holographic",
-      title: "Holo Guide",
-      teaser: "An AR wayfinding companion for sprawling campuses.",
-      description:
-        "An augmented-reality guide that overlays walking directions, room availability, and event pins onto a live camera view. I led the interaction design and shipped the AR overlay system, tuned to stay legible in bright sunlight and crowded halls.",
-      tools: ["Unity", "ARKit", "C#", "Blender", "Figma"],
-      impact: [
-        "Wayfinding complaints at pilot campus dropped 70%",
-        "Demoed to 5,000+ visitors during orientation week",
-        "Won the university's innovation showcase",
+        "Track Winner at the Anthropic Hackathon",
+        "Sub-1s response time from eye input to spoken output",
+        "Full presentation flow: slides, live Q&A, and transcripts",
       ],
       art: { base: "#e6e3f5", accent: "#b3a3dd", style: "holo" },
     },
     {
-      id: "velvet-queue",
-      shade: "Shade 05 · Velvet Matte",
-      title: "Velvet Queue",
-      teaser: "Event ticketing without the refresh-and-pray anxiety.",
+      id: "echo-eyes",
+      shade: "Shade 03 · Clear Sight",
+      title: "Echo Eyes",
+      teaser: "A mobile companion for the visually impaired — Congressional App Challenge Top 3.",
       description:
-        "A fair-queue ticketing flow for high-demand events. Instead of a chaotic scramble, visitors get a calm virtual waiting room with honest wait estimates and a guaranteed place in line. I designed the queue experience and built the real-time status layer.",
-      tools: ["Next.js", "WebSockets", "Redis", "Tailwind CSS"],
+        "An accessible mobile app that assists the visually impaired community with OCR, object recognition, and multimodal prompting. I engineered the end-to-end solution — React Native front end with Python-based ML pipelines — and took it from idea to real-world adoption.",
+      tools: ["React Native", "Python", "ML pipelines", "OCR", "Expo"],
       impact: [
-        "Zero oversells across 12 launch events",
-        "Support tickets during on-sales down 55%",
-        "Waiting-room bounce rate under 4%",
+        "Approved by 20+ schools for the blind",
+        "Top 3 Finalist, Congressional App Challenge",
+        "OCR, object recognition, and multimodal prompting in one flow",
+      ],
+      art: { base: "#f6ede6", accent: "#d9b36c", style: "french" },
+    },
+    {
+      id: "lunar-llamas",
+      shade: "Shade 04 · Pearl of Purpose",
+      title: "Lunar Llamas",
+      teaser: "A 501c3 with patent-pending hygiene units for the unhoused, live in 17 cities.",
+      description:
+        "A nonprofit I co-founded in 2020: portable, self-cleaning hygiene units addressing sanitation access for the unhoused. I led end-to-end product development — from CAD prototyping to regulatory approvals across 17 California cities — alongside fundraising and community partnerships with LavaMae and Good2Go.",
+      tools: ["CAD", "Product development", "Regulatory approvals", "Fundraising", "Nonprofit ops"],
+      impact: [
+        "Patent-pending design, approved across 17 California cities",
+        "$14.6K raised through fundraisers, donations, and partnerships",
+        "11 community drives serving 800+ underprivileged individuals",
+      ],
+      art: { base: "#fdf6ec", accent: "#e3c98f", style: "pearl" },
+    },
+    {
+      id: "rise-evals",
+      shade: "Shade 05 · Velvet Benchmark",
+      title: "RISE Data Labs — Agentic Evals",
+      teaser: "A scoring framework for AI shopping agents, benchmarked across frontier LLMs.",
+      description:
+        "Consulting through Product Space @ Penn, I built an evaluation framework to assess agentic shopping models across actionability, accuracy, and personalization — then analyzed frontier LLMs from OpenAI, Anthropic, Google, and xAI with a scalable scoring system.",
+      tools: ["LLM evaluation", "Python", "Prompt engineering", "Product strategy"],
+      impact: [
+        "Scalable scoring system across three evaluation dimensions",
+        "Benchmarked four frontier model families head to head",
+        "Delivered as a working framework, not just a report",
       ],
       art: { base: "#efe0ee", accent: "#8d5a8f", style: "velvet" },
     },
     {
-      id: "pearl-pay",
-      shade: "Shade 06 · Pearl Shimmer",
-      title: "Pearl Pay",
-      teaser: "A fintech concept that makes splitting bills feel gracious.",
+      id: "gerber-kawasaki",
+      shade: "Shade 06 · Gilded Portfolio",
+      title: "Gerber Kawasaki ML Framework",
+      teaser: "An ML-driven investment recommendation pitch, projecting 77.2% ROI.",
       description:
-        "A concept study for social payments: splitting a dinner bill should feel like a warm gesture, not an awkward invoice. I explored flows for soft reminders, group tabs, and celebratory settle-up moments, validated through moderated user testing.",
-      tools: ["Figma", "Protopie", "User research", "Illustration"],
+        "For Gerber Kawasaki Wealth and Investment Management, I pitched an ML-driven recommendation framework to automate new-client investment recommendations using historical portfolio performance data — designing the model architecture and an implementation roadmap for firm-wide adoption.",
+      tools: ["Machine learning", "Python", "Portfolio analytics", "Pitching & roadmapping"],
       impact: [
-        "9 of 10 test participants preferred it to their current app",
-        "Case study cited in a product-design course syllabus",
-        "Sparked two follow-up feature explorations with a partner team",
+        "Projected 77.2% ROI for firm-wide adoption",
+        "Full model architecture and implementation roadmap delivered",
+        "Automated a manual, high-stakes advisory workflow",
       ],
-      art: { base: "#fdf6ec", accent: "#e3c98f", style: "pearl" },
+      art: { base: "#fbe9ef", accent: "#e8899f", style: "floral" },
     },
   ],
 
   // ── Chatbot knowledge base ──
   bot: {
     greeting:
-      "Welcome to the studio! 💅 I'm the Nail Artist AI — Ridhima's front-desk concierge. Ask me about her work, skills, background, or how to get in touch.",
+      "Welcome to the studio! 💅 I'm the Nail Artist AI — Ridhima's front-desk concierge. Ask me about her work at CoreWeave, her projects, Penn life, or how to get in touch.",
     fallback:
-      "Hmm, that shade isn't in my collection yet! Try asking about Ridhima's projects, skills, background, leadership, or how to contact her — or tap one of the suggestions below.",
-    chips: ["Who is Ridhima?", "Show me her projects", "What are her skills?", "Leadership experience?", "How do I contact her?"],
+      "Hmm, that shade isn't in my collection yet! Try asking about Ridhima's CoreWeave internship, projects, education, leadership, or how to contact her — or tap one of the suggestions below.",
+    chips: ["Who is Ridhima?", "Tell me about CoreWeave", "Show me her projects", "Where does she study?", "How do I contact her?"],
     intents: [
+      {
+        keys: ["coreweave", "intern", "fp&a", "fpa", "finance team", "agents", "analyst"],
+        reply:
+          "Her freshest coat! ✨ In Summer 2026 Ridhima interned on CoreWeave's FP&A team, where she built three AI agents that automate recurring financial workflows — saving analysts more than two weeks of manual work. The full case study is the first card in the Projects gallery.",
+      },
       {
         keys: ["who", "about", "ridhima", "yourself", "she", "her story", "background", "bio"],
         reply:
-          "Ridhima is a designer-engineer who treats software like a hand-painted manicure — considered, glossy, and finished to the last 2%. She works across UI engineering, design systems, and motion, and yes, the nail-art theme comes from a real hobby. Open the About Me bottle for the full story! ✨",
+          "Ridhima is an M&T student at Penn — one of 50 selected worldwide — pursuing computer science at Penn Engineering and finance at Wharton (Class of 2029). Most recently she interned on CoreWeave's FP&A team building AI agents. She also co-founded a 501c3 with a patent-pending product, and yes, the nail art theme is a real hobby. Open the About Me bottle for the full story! ✨",
       },
       {
-        keys: ["project", "work", "portfolio", "built", "case study", "gallery", "app"],
+        keys: ["education", "study", "school", "college", "penn", "upenn", "wharton", "m&t", "mt program", "major", "degree", "university"],
         reply:
-          "Her gallery holds six signature designs: Polished Commerce (e-commerce), Chrome Insights (analytics), Petal Notes (journaling), Holo Guide (AR wayfinding), Velvet Queue (ticketing), and Pearl Pay (fintech concept). Tap the gold Projects bottle to browse them — each card opens a full case study. 💅",
+          "She's at the University of Pennsylvania in the Jerome Fisher Program in Management & Technology (M&T) — just 50 students selected worldwide. Dual degree: B.S.E. in Computer Science at Penn Engineering plus a B.S. in Economics with a finance concentration at Wharton, Class of 2029, and she's a Joseph Wharton Scholar. Before Penn she was salutatorian at Quarry Lane School with a 4.74 GPA. 🎓",
       },
       {
-        keys: ["skill", "stack", "tech", "tools", "language", "code", "css", "react", "python", "design"],
+        keys: ["project", "work", "portfolio", "built", "case study", "gallery", "app", "ode", "echo", "lunar", "rise", "gerber"],
         reply:
-          "Her go-to kit: JavaScript/TypeScript, React and modern CSS, Python, Figma and design systems, plus motion design and micro-interactions. Equal parts brush and keyboard — she's happiest where design meets engineering.",
+          "Six signature designs in the gallery: the CoreWeave FP&A Agent Suite (3 agents, 2+ analyst-weeks saved), Ode (eye-driven speech — Anthropic Hackathon track winner), Echo Eyes (app for the visually impaired — Congressional App Challenge Top 3), Lunar Llamas (patent-pending hygiene units for the unhoused), RISE Data Labs agentic evals, and an ML framework for Gerber Kawasaki projecting 77.2% ROI. Tap the gold Projects bottle! 💅",
       },
       {
-        keys: ["lead", "leader", "team", "mentor", "president", "manage", "club", "society"],
+        keys: ["skill", "stack", "tech", "tools", "language", "code", "react", "python", "java", "ocaml", "figma"],
         reply:
-          "Ridhima currently leads a cross-functional product pod of six, previously grew a tech & design society from 40 to 180 members as president, and has taught UI/UX workshops to 200+ students. Steady hands paint clean lines. 🖌️",
+          "Her kit: Python, Java, JavaScript, OCaml, and React Native with Expo — plus AI agents and LLM evaluation, Figma, Canva, and CAD. Equal parts brush and keyboard: she's happiest where engineering meets finance meets craft.",
+      },
+      {
+        keys: ["lead", "leader", "team", "mentor", "president", "vice", "manage", "club", "society", "vita", "product space", "robotics", "nonprofit", "501c3", "volunteer"],
+        reply:
+          "On campus she's Vice President of Product Space @ Penn (teaching 18 Product Fellows, and she ran Penn's first Product-A-Thon) and an officer with the Volunteer Income Tax Association, which delivered $3M in refunds to Philadelphia households. She also co-founded Lunar Llamas, a 501c3 serving 800+ people, and captained a FIRST Robotics team that won $10K in grants from NASA and Google. 🖌️",
+      },
+      {
+        keys: ["award", "win", "won", "competition", "hackathon", "finalist", "prize", "achievement", "honor"],
+        reply:
+          "The trophy shelf: Track Winner at the Anthropic Hackathon (Ode), Top 3 Finalist in the Congressional App Challenge (Echo Eyes), Winner of the Wharton Undergraduate Public Policy Competition, and Finalist in both the National McKinsey and Accenture case competitions. 🏆",
       },
       {
         keys: ["contact", "email", "reach", "hire", "hiring", "connect", "linkedin", "github", "touch", "talk", "collab"],
         reply:
-          "The studio door is open! Email her at motewar.ridhima@gmail.com, or find her on LinkedIn and GitHub via the Contact section — tap the lilac Contact bottle to book your appointment. 💌",
+          "The studio door is open! Email her at rmotewar@wharton.upenn.edu, or connect on LinkedIn at linkedin.com/in/ridhimamotewar — the lilac Contact bottle has all the links. 💌",
       },
       {
-        keys: ["innovation", "hackathon", "patent", "open source", "experiment", "ai"],
+        keys: ["creativ", "art", "nail", "hobby", "draw", "paint", "fun", "karate", "writing", "vlog", "video", "fantasy"],
         reply:
-          "Highlights from the Innovation shelf: a first-place hackathon build (an accessibility re-theming layer), AI-assisted design tooling that halved handoff time, open-source performance patches, and a patent-pending interaction idea. The chrome-blue Innovation bottle has the timeline!",
-      },
-      {
-        keys: ["creativ", "art", "nail", "hobby", "draw", "paint", "fun", "coffee", "music"],
-        reply:
-          "Beyond code: visual design, generative art, storytelling, and real nail artistry — hand-painted sets are her weekend meditation (and this site's whole inspiration). Fueled by filter coffee and lo-fi playlists. 🎨",
+          "Beyond the code: nail artistry (hand-painted sets — this site's whole inspiration), painting, fantasy writing and storytelling, karate, and video-making. The rosé Creativity bottle has the details. 🎨",
       },
       {
         keys: ["hello", "hi", "hey", "namaste", "good morning", "good evening"],
         reply:
-          "Hello, gorgeous! 💖 Pull up a chair at the vanity. Ask me anything about Ridhima — her projects, skills, leadership, or how to reach her.",
+          "Hello, gorgeous! 💖 Pull up a chair at the vanity. Ask me anything about Ridhima — CoreWeave, her projects, Penn, or how to reach her.",
       },
       {
         keys: ["site", "website", "made", "how did", "theme", "3d"],
