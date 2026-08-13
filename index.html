@@ -7,9 +7,9 @@
 <meta name="description" content="Paint My Story — Ridhima Motewar, M&T student at Penn (Wharton × Engineering). Builder of AI agents, assistive tech, and a patent-pending nonprofit — presented as a luxury nail art studio." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Outfit:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%92%85%3C/text%3E%3C/svg%3E" />
-<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="styles.css?v=6" />
 </head>
 <body>
 
@@ -44,6 +44,7 @@
       <span class="fc-text">FP&amp;A Intern @ CoreWeave — built 3 AI agents saving analysts 2+ weeks of manual work</span>
       <span class="fc-arrow" aria-hidden="true">→</span>
     </button>
+    <p class="spec-line">// 3 AI agents shipped · 2+ analyst-weeks saved · 17 cities approved · 12 sets hand-painted</p>
   </div>
 
   <div class="vanity-scene" aria-label="Vanity table with nail polish bottles — each bottle opens a section">
@@ -323,18 +324,8 @@
 </main>
 
 <!-- ========== PAINT TRANSITION OVERLAY ========== -->
-<div id="paint-overlay" aria-hidden="true">
-  <div class="paint-swath">
-    <svg class="swath-edge" viewBox="0 0 120 800" preserveAspectRatio="none" aria-hidden="true">
-      <path d="M0 0 H38 C70 40 24 90 58 140 C92 190 30 240 66 300 C98 350 26 410 60 470 C94 530 32 590 64 650 C90 700 40 750 52 800 H0 Z"/>
-    </svg>
-    <svg class="paint-brush" viewBox="0 0 60 200" aria-hidden="true">
-      <rect x="22" y="0" width="16" height="90" rx="8" class="brush-handle"/>
-      <rect x="19" y="86" width="22" height="18" rx="4" class="brush-ferrule"/>
-      <path d="M20 102 C18 140 24 168 30 178 C36 168 42 140 40 102 Z" class="brush-bristles"/>
-    </svg>
-  </div>
-</div>
+<!-- individual brush strokes are built by script.js -->
+<div id="paint-overlay" aria-hidden="true"></div>
 
 <!-- ========== PROJECT MODAL ========== -->
 <div id="project-modal" class="modal-backdrop" hidden>
@@ -395,8 +386,9 @@
 
 <footer class="site-footer">
   <p>© 2026 Ridhima Motewar · Hand-painted with code · <button class="linklike" data-goto="contact">Say hello</button></p>
+  <p class="footer-meta">// engineered by hand: HTML · CSS · JS — no frameworks, no build step</p>
 </footer>
 
-<script src="script.js"></script>
+<script src="script.js?v=6"></script>
 </body>
 </html>

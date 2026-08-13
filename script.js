@@ -317,9 +317,29 @@ const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 /* ═══════════ SECTION NAVIGATION + PAINT TRANSITION ═══════════ */
 const overlay = $("#paint-overlay");
-const swath = $(".paint-swath");
 let transitioning = false;
 let targetPanel = null;
+
+/* Build the brush strokes once: stacked horizontal bands, each clipped with its
+   own irregular bristle edge so no two strokes land the same way. */
+const STROKE_COUNT = 6;
+const strokes = [];
+(function buildStrokes() {
+  const rand = (a, b) => a + Math.random() * (b - a);
+  for (let i = 0; i < STROKE_COUNT; i++) {
+    const s = document.createElement("div");
+    s.className = "stroke";
+    s.style.top = `${(i * 100) / STROKE_COUNT}%`;
+    s.style.height = `${100 / STROKE_COUNT + 0.7}%`;
+    const pts = [];
+    const N = 8;
+    for (let j = 0; j <= N; j++) pts.push(`${rand(93.5, 99.6).toFixed(2)}% ${((j / N) * 100).toFixed(2)}%`);
+    for (let j = N; j >= 0; j--) pts.push(`${rand(0.4, 6.5).toFixed(2)}% ${((j / N) * 100).toFixed(2)}%`);
+    s.style.clipPath = `polygon(${pts.join(",")})`;
+    overlay.appendChild(s);
+    strokes.push(s);
+  }
+})();
 
 function showPanel(id) {
   $$(".panel").forEach((p) => {
@@ -338,36 +358,38 @@ function paintTransition(id, color) {
   if (transitioning) return;
   transitioning = true;
   overlay.style.setProperty("--swath-color", color);
-  swath.style.setProperty("--swath-color", color);
   overlay.classList.add("painting");
+
+  // Stagger the strokes so the screen is painted band by band, not flooded
+  const sweep = (from, to, onLastDone) => {
+    strokes.forEach((s, i) => {
+      const anim = s.animate(
+        [{ transform: `translateX(${from})` }, { transform: `translateX(${to})` }],
+        { duration: 470, delay: i * 62, easing: "cubic-bezier(0.55, 0.08, 0.28, 1)", fill: "forwards" }
+      );
+      if (i === strokes.length - 1) anim.onfinish = onLastDone;
+    });
+  };
 
   let covered = false, done = false;
   const cover = () => {
     if (covered) return;
     covered = true;
     showPanel(targetPanel);
-    const sweepOut = swath.animate(
-      [{ transform: "translateX(0%)" }, { transform: "translateX(115%)" }],
-      { duration: 620, easing: "cubic-bezier(0.6, 0, 0.35, 1)", fill: "forwards", delay: 120 }
-    );
-    sweepOut.onfinish = finish;
-    setTimeout(finish, 1600); // watchdog: complete even if animations are paused (hidden tab)
+    setTimeout(() => sweep("0%", "116%", finish), 100);
+    setTimeout(finish, 1900); // watchdog: complete even if animations are paused (hidden tab)
   };
   const finish = () => {
     if (done) return;
     done = true;
     overlay.classList.remove("painting");
     transitioning = false;
-    // a navigation that arrived after the swath had already passed still lands
+    // a navigation that arrived after the strokes had already passed still lands
     if (targetPanel !== activePanelId()) showPanel(targetPanel);
   };
 
-  const sweepIn = swath.animate(
-    [{ transform: "translateX(-130%)" }, { transform: "translateX(0%)" }],
-    { duration: 620, easing: "cubic-bezier(0.6, 0, 0.3, 1)", fill: "forwards" }
-  );
-  sweepIn.onfinish = cover;
-  setTimeout(cover, 1200); // watchdog
+  sweep("-116%", "0%", cover);
+  setTimeout(cover, 1500); // watchdog
 }
 
 function goTo(id, sourceBottle) {

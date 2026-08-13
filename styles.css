@@ -20,6 +20,8 @@
   --shadow-soft: 0 24px 60px -28px rgba(58, 33, 56, 0.35);
   --radius-lg: 28px;
   --ease-lux: cubic-bezier(0.22, 1, 0.36, 1);
+  --font-mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+  --tick: rgba(201, 162, 75, 0.55);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -43,6 +45,25 @@ h1, h2, h3, .panel-title, .studio-title {
   font-weight: 500;
   letter-spacing: 0.01em;
 }
+
+/* Engineering layer: faint drafting grid behind everything */
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(61, 36, 56, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(61, 36, 56, 0.05) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.9));
+  -webkit-mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.9));
+}
+
+/* Spec-sheet typography for labels, badges, and metadata */
+.eyebrow, .mini-heading, .timeline-year, .lead-badge, .card-shade, .fc-badge,
+.secret-kicker, .tile-date, .lb-date, .pipe-n, .brand-sub, .chat-status,
+.spec-line, .footer-meta, .reveal-nail figcaption {
+  font-family: var(--font-mono);
+}
+.eyebrow::before { content: "// "; opacity: 0.55; }
 
 button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
 
@@ -100,14 +121,25 @@ main { position: relative; z-index: 2; }
 .panel-inner.wide { max-width: 1100px; }
 
 .eyebrow {
-  font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.38em;
-  color: var(--gold); font-weight: 600; margin-bottom: 14px;
+  font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.2em;
+  color: var(--gold); font-weight: 500; margin-bottom: 14px;
 }
 
 .panel-title {
   font-size: clamp(2.4rem, 6vw, 4rem); line-height: 1.05; margin-bottom: 18px;
   background: linear-gradient(120deg, var(--ink) 30%, #7c5580 70%, var(--gold) 100%);
   -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+
+/* dimension line |———| under each section title, like a measured drawing */
+.panel-title::after {
+  content: ""; display: block; width: 96px; height: 9px; margin-top: 16px;
+  border-left: 1.5px solid var(--gold); border-right: 1.5px solid var(--gold);
+  background: linear-gradient(180deg,
+    transparent calc(50% - 0.75px),
+    var(--gold) calc(50% - 0.75px) calc(50% + 0.75px),
+    transparent calc(50% + 0.75px));
+  opacity: 0.8;
 }
 
 .panel-lede { font-size: clamp(1.02rem, 2vw, 1.2rem); color: var(--ink-soft); max-width: 56ch; line-height: 1.65; margin-bottom: 38px; }
@@ -162,6 +194,11 @@ main { position: relative; z-index: 2; }
 .fc-text { font-size: 0.9rem; font-weight: 500; color: var(--ink); text-align: left; }
 .fc-arrow { color: var(--gold); font-size: 1.05rem; transition: transform 0.3s; }
 .fresh-coat:hover .fc-arrow { transform: translateX(4px); }
+
+.spec-line {
+  margin-top: 20px; font-size: 0.66rem; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--ink-soft); opacity: 0.85;
+}
 
 /* ── Vanity scene ── */
 .vanity-scene { position: relative; margin: clamp(30px, 6vh, 70px) auto 0; max-width: 1080px; perspective: 1200px; }
@@ -421,9 +458,22 @@ main { position: relative; z-index: 2; }
 /* ══════════ LEADERSHIP ══════════ */
 .lead-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px; }
 .lead-card {
+  position: relative;
   background: linear-gradient(160deg, #fdf9f5, #f7ecf3);
   border-radius: var(--radius-lg); padding: 30px 28px;
   box-shadow: var(--shadow-soft); border: 1px solid rgba(255,255,255,0.85);
+}
+
+/* drafting registration marks in opposite corners of technical cards */
+.nail-card::before, .lead-card::before {
+  content: ""; position: absolute; top: 11px; left: 11px; width: 13px; height: 13px;
+  border-top: 1.5px solid var(--tick); border-left: 1.5px solid var(--tick);
+  border-radius: 2px 0 0 0; pointer-events: none;
+}
+.nail-card::after, .lead-card::after {
+  content: ""; position: absolute; bottom: 11px; right: 11px; width: 13px; height: 13px;
+  border-bottom: 1.5px solid var(--tick); border-right: 1.5px solid var(--tick);
+  border-radius: 0 0 2px 0; pointer-events: none;
 }
 .lead-badge {
   display: inline-block; font-size: 0.68rem; letter-spacing: 0.24em; text-transform: uppercase;
@@ -488,28 +538,24 @@ main { position: relative; z-index: 2; }
 }
 #paint-overlay.painting { display: block; }
 
-.paint-swath {
-  position: absolute; top: 0; bottom: 0; left: 0;
-  width: 120vw; transform: translateX(-130%);
-  background: linear-gradient(120deg,
-    color-mix(in srgb, var(--swath-color, #e8899f) 80%, #fff) 0%,
-    var(--swath-color, #e8899f) 45%,
-    color-mix(in srgb, var(--swath-color, #e8899f) 72%, #000) 100%);
-  box-shadow: 30px 0 60px rgba(0,0,0,0.18);
+/* One horizontal brush stroke; six of them stack to cover the screen.
+   Each carries its own jagged clip-path (set in script.js) as its bristle edge. */
+.stroke {
+  position: absolute; left: -10vw; width: 120vw;
+  transform: translateX(-116%);
+  background: linear-gradient(90deg,
+    color-mix(in srgb, var(--swath-color, #e8899f) 85%, #fff) 0%,
+    var(--swath-color, #e8899f) 38%,
+    color-mix(in srgb, var(--swath-color, #e8899f) 82%, #000) 100%);
 }
-.swath-edge {
-  position: absolute; top: 0; right: -118px; height: 100%; width: 120px;
+.stroke:nth-child(even) { filter: brightness(0.94) saturate(1.07); }
+.stroke::after {
+  /* bristle streaks running along the stroke */
+  content: ""; position: absolute; inset: 0;
+  background: repeating-linear-gradient(180deg,
+    rgba(255, 255, 255, 0.11) 0 2px, rgba(255, 255, 255, 0) 2px 6px,
+    rgba(0, 0, 0, 0.05) 6px 7px, rgba(0, 0, 0, 0) 7px 12px);
 }
-.swath-edge path { fill: var(--swath-color, #e8899f); }
-
-.paint-brush {
-  position: absolute; top: 38%; right: -150px; width: 64px; height: 210px;
-  transform: rotate(14deg);
-  filter: drop-shadow(0 10px 14px rgba(0,0,0,0.3));
-}
-.brush-handle { fill: #2b1a2e; }
-.brush-ferrule { fill: #cfc4c9; }
-.brush-bristles { fill: color-mix(in srgb, var(--swath-color, #e8899f) 85%, #000); }
 
 /* ══════════ MODAL ══════════ */
 .modal-backdrop {
@@ -747,6 +793,7 @@ main { position: relative; z-index: 2; }
 /* ══════════ FOOTER ══════════ */
 .site-footer { position: relative; z-index: 2; text-align: center; padding: 30px 18px 40px; color: var(--ink-soft); font-size: 0.82rem; }
 .linklike { text-decoration: underline; text-underline-offset: 3px; color: var(--plum); }
+.footer-meta { margin-top: 10px; font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.65; }
 
 /* ══════════ RESPONSIVE ══════════ */
 @media (max-width: 900px) {
