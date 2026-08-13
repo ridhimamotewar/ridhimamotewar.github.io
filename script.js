@@ -218,6 +218,22 @@ const SITE_CONTENT = {
     },
   ],
 
+  // ── Nail art gallery (Creativity) ──
+  nailArt: [
+    { file: "merlot-leopard.jpg",  name: "Merlot Leopard",     date: "March 2026",    tint: "#7d2340" },
+    { file: "sapphire-gold.jpg",   name: "Sapphire & Gold Leaf", date: "May 2025",    tint: "#1f4fa8" },
+    { file: "christmas-story.jpg", name: "Christmas Story",    date: "January 2025",  tint: "#c62d34" },
+    { file: "celestial-navy.jpg",  name: "Celestial Navy",     date: "February 2024", tint: "#1b2f7a" },
+    { file: "winter-blooms.jpg",   name: "Winter Blooms",      date: "December 2023", tint: "#e0453a" },
+    { file: "cherry-blossom.jpg",  name: "Cherry Blossom",     date: "October 2023",  tint: "#d4818f" },
+    { file: "lilac-marble.jpg",    name: "Lilac Marble",       date: "July 2023",     tint: "#a48cd0" },
+    { file: "candy-cane.jpg",      name: "Candy Cane",         date: "December 2022", tint: "#1c6b4a" },
+    { file: "champagne-gold.jpg",  name: "Champagne Gold",     date: "November 2022", tint: "#c9a24b" },
+    { file: "royal-blue.jpg",      name: "Royal Blue & Silver", date: "October 2022", tint: "#26309b" },
+    { file: "cotton-candy.jpg",    name: "Cotton Candy",       date: "August 2022",   tint: "#e879a8" },
+    { file: "pastel-waves.jpg",    name: "Pastel Waves",       date: "July 2022",     tint: "#5fbfc7" },
+  ],
+
   // ── Chatbot knowledge base ──
   bot: {
     greeting:
@@ -272,9 +288,9 @@ const SITE_CONTENT = {
           "The studio door is open! Email her at rmotewar@wharton.upenn.edu, or connect on LinkedIn at linkedin.com/in/ridhimamotewar — the lilac Contact bottle has all the links. 💌",
       },
       {
-        keys: ["creativ", "art", "nail", "hobby", "draw", "paint", "fun", "karate", "writing", "vlog", "video", "fantasy"],
+        keys: ["creativ", "art", "nail", "hobby", "draw", "paint", "fun", "karate", "writing", "vlog", "video", "fantasy", "instagram", "gallery"],
         reply:
-          "Beyond the code: nail artistry (hand-painted sets — this site's whole inspiration), painting, fantasy writing and storytelling, karate, and video-making. The rosé Creativity bottle has the details. 🎨",
+          "Nail art is the main event — the rosé Creativity bottle opens a gallery of 12 sets she hand-painted herself, from Sapphire & Gold Leaf to Cotton Candy. Tap any one to see it up close, or find more at @ridhima_nails. Off the clock she also paints, writes fantasy, does karate, and makes videos. 🎨",
       },
       {
         keys: ["hello", "hi", "hey", "namaste", "good morning", "good evening"],
@@ -651,6 +667,63 @@ function closeModal() {
 $(".modal-close", modal).addEventListener("click", closeModal);
 modalBackdrop.addEventListener("click", (e) => { if (e.target === modalBackdrop) closeModal(); });
 addEventListener("keydown", (e) => { if (e.key === "Escape" && !modalBackdrop.hidden) closeModal(); });
+
+/* ═══════════ NAIL ART GALLERY + LIGHTBOX ═══════════ */
+const nailGallery = $("#nail-gallery");
+const lightbox = $("#nail-lightbox");
+const lightboxImg = $("#lightbox-img");
+let lbIndex = 0, lbLastFocus = null;
+
+SITE_CONTENT.nailArt.forEach((set, i) => {
+  const tile = document.createElement("button");
+  tile.className = "nail-tile";
+  tile.style.setProperty("--tint", set.tint);
+  tile.setAttribute("aria-haspopup", "dialog");
+  tile.innerHTML = `
+    <img src="assets/nails/${set.file}" alt="${set.name} nail art set" loading="lazy" />
+    <span class="tile-meta">
+      <span class="tile-name">${set.name}</span>
+      <span class="tile-date">${set.date}</span>
+    </span>`;
+  tile.addEventListener("click", () => openLightbox(i));
+  nailGallery.appendChild(tile);
+});
+
+function showSet(i) {
+  const n = SITE_CONTENT.nailArt.length;
+  lbIndex = (i + n) % n;
+  const set = SITE_CONTENT.nailArt[lbIndex];
+  lightboxImg.src = `assets/nails/${set.file}`;
+  lightboxImg.alt = `${set.name} nail art set`;
+  $("#lightbox-title").textContent = set.name;
+  $(".lb-date", lightbox).textContent = set.date;
+}
+
+function openLightbox(i) {
+  lbLastFocus = document.activeElement;
+  showSet(i);
+  lightbox.hidden = false;
+  document.body.style.overflow = "hidden";
+  $(".modal-close", lightbox).focus();
+}
+
+function closeLightbox() {
+  lightbox.hidden = true;
+  document.body.style.overflow = "";
+  lbLastFocus?.focus();
+}
+
+$(".modal-close", lightbox).addEventListener("click", closeLightbox);
+$(".lb-prev", lightbox).addEventListener("click", () => showSet(lbIndex - 1));
+$(".lb-next", lightbox).addEventListener("click", () => showSet(lbIndex + 1));
+lightbox.addEventListener("click", (e) => { if (e.target === lightbox) closeLightbox(); });
+
+addEventListener("keydown", (e) => {
+  if (lightbox.hidden) return;
+  if (e.key === "Escape") closeLightbox();
+  else if (e.key === "ArrowLeft") showSet(lbIndex - 1);
+  else if (e.key === "ArrowRight") showSet(lbIndex + 1);
+});
 
 /* ═══════════ CHATBOT ═══════════ */
 const fab = $("#chat-fab");

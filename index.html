@@ -158,33 +158,13 @@
 
 <!-- ========== CREATIVITY ========== -->
 <section id="creativity" class="panel" aria-hidden="true">
-  <div class="panel-inner">
+  <div class="panel-inner wide">
     <button class="back-btn" data-goto="studio">← Back to the studio</button>
     <p class="eyebrow">Shade № 04 · Rosé Muse</p>
     <h2 class="panel-title">Creativity</h2>
-    <p class="panel-lede">Craft is a habit, not an accident. These are the places where I let ideas dry into something glossy.</p>
-    <div class="swatch-grid">
-      <article class="swatch-card">
-        <div class="swatch-dot" style="--polish:#e8899f"></div>
-        <h3>Nail Artistry</h3>
-        <p>Yes, really — hand-painted sets are my meditation between problem sets, and the inspiration for this entire site.</p>
-      </article>
-      <article class="swatch-card">
-        <div class="swatch-dot" style="--polish:#7fb6d9"></div>
-        <h3>Painting</h3>
-        <p>Canvases big and small — color studies and portraits that keep my eye trained for the pixel work.</p>
-      </article>
-      <article class="swatch-card">
-        <div class="swatch-dot" style="--polish:#d9b36c"></div>
-        <h3>Fantasy Writing &amp; Storytelling</h3>
-        <p>World-building on paper: fantasy fiction, and the storytelling instincts that make pitches and products land.</p>
-      </article>
-      <article class="swatch-card">
-        <div class="swatch-dot" style="--polish:#b3a3dd"></div>
-        <h3>Video-Making &amp; Vlogging</h3>
-        <p>Shooting, cutting, and narrating little films — from robotics team media that tripled our following to personal vlogs.</p>
-      </article>
-    </div>
+    <p class="panel-lede">Every set here is hand-painted, on my own hands, usually somewhere between problem sets. Ten tiny canvases at a time — and the reason this whole site looks the way it does.</p>
+    <div class="nail-gallery" id="nail-gallery"><!-- injected by script.js --></div>
+    <p class="album-note">Painted by me · more at <a href="https://www.instagram.com/ridhima_nails/" target="_blank" rel="noopener">@ridhima_nails</a></p>
   </div>
 </section>
 
@@ -372,6 +352,20 @@
       <ul class="modal-tools"></ul>
       <h4 class="mini-heading">Impact</h4>
       <ul class="modal-impact"></ul>
+    </div>
+  </div>
+</div>
+
+<!-- ========== NAIL ART LIGHTBOX ========== -->
+<div id="nail-lightbox" class="modal-backdrop" hidden>
+  <div class="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightbox-title">
+    <button class="modal-close" aria-label="Close">×</button>
+    <button class="lb-nav lb-prev" aria-label="Previous set">‹</button>
+    <img id="lightbox-img" alt="" />
+    <button class="lb-nav lb-next" aria-label="Next set">›</button>
+    <div class="lb-caption">
+      <h3 id="lightbox-title"></h3>
+      <p class="lb-date"></p>
     </div>
   </div>
 </div>
