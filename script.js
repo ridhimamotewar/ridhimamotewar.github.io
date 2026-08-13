@@ -320,23 +320,28 @@ const overlay = $("#paint-overlay");
 let transitioning = false;
 let targetPanel = null;
 
-/* Build the brush strokes once: stacked horizontal bands, each clipped with its
-   own irregular bristle edge so no two strokes land the same way. */
+/* Build the brush strokes once: stacked bands inside a tilted wrap (so they run
+   diagonally across the screen), each clipped with its own irregular bristle edge.
+   Odd strokes travel the opposite way — a brush working back and forth. */
 const STROKE_COUNT = 6;
 const strokes = [];
 (function buildStrokes() {
   const rand = (a, b) => a + Math.random() * (b - a);
+  const wrap = document.createElement("div");
+  wrap.className = "stroke-wrap";
+  overlay.appendChild(wrap);
   for (let i = 0; i < STROKE_COUNT; i++) {
     const s = document.createElement("div");
     s.className = "stroke";
     s.style.top = `${(i * 100) / STROKE_COUNT}%`;
     s.style.height = `${100 / STROKE_COUNT + 0.7}%`;
+    s.dataset.dir = i % 2 ? "-1" : "1"; // alternate stroke direction
     const pts = [];
     const N = 8;
     for (let j = 0; j <= N; j++) pts.push(`${rand(93.5, 99.6).toFixed(2)}% ${((j / N) * 100).toFixed(2)}%`);
     for (let j = N; j >= 0; j--) pts.push(`${rand(0.4, 6.5).toFixed(2)}% ${((j / N) * 100).toFixed(2)}%`);
     s.style.clipPath = `polygon(${pts.join(",")})`;
-    overlay.appendChild(s);
+    wrap.appendChild(s);
     strokes.push(s);
   }
 })();
@@ -360,9 +365,14 @@ function paintTransition(id, color) {
   overlay.style.setProperty("--swath-color", color);
   overlay.classList.add("painting");
 
-  // Stagger the strokes so the screen is painted band by band, not flooded
-  const sweep = (from, to, onLastDone) => {
+  // Stagger the strokes so the screen is painted band by band, not flooded.
+  // phase "in": each stroke enters from its own side and stops covering the band.
+  // phase "out": it keeps travelling the same way, pulling the paint off.
+  const sweep = (phase, onLastDone) => {
     strokes.forEach((s, i) => {
+      const dir = Number(s.dataset.dir);
+      const from = phase === "in" ? `${-116 * dir}%` : "0%";
+      const to = phase === "in" ? "0%" : `${116 * dir}%`;
       const anim = s.animate(
         [{ transform: `translateX(${from})` }, { transform: `translateX(${to})` }],
         { duration: 470, delay: i * 62, easing: "cubic-bezier(0.55, 0.08, 0.28, 1)", fill: "forwards" }
@@ -376,7 +386,7 @@ function paintTransition(id, color) {
     if (covered) return;
     covered = true;
     showPanel(targetPanel);
-    setTimeout(() => sweep("0%", "116%", finish), 100);
+    setTimeout(() => sweep("out", finish), 100);
     setTimeout(finish, 1900); // watchdog: complete even if animations are paused (hidden tab)
   };
   const finish = () => {
@@ -388,7 +398,7 @@ function paintTransition(id, color) {
     if (targetPanel !== activePanelId()) showPanel(targetPanel);
   };
 
-  sweep("-116%", "0%", cover);
+  sweep("in", cover);
   setTimeout(cover, 1500); // watchdog
 }
 

@@ -294,13 +294,6 @@ main { position: relative; z-index: 2; }
   letter-spacing: 0.06em; padding: 4px 2px; color: var(--plum);
   box-shadow: 0 1px 3px rgba(0,0,0,0.18);
 }
-.bottle-name {
-  /* out of flow so the glass bottom is the true bottle bottom (reflection + shadow line up) */
-  position: absolute; top: calc(100% + 10px); left: 50%; translate: -50% 0;
-  white-space: nowrap; font-size: 0.8rem; font-weight: 500; color: var(--ink-soft);
-  opacity: 0; transform: translateY(-4px); transition: all 0.3s;
-}
-.bottle:hover .bottle-name, .bottle:focus-visible .bottle-name { opacity: 1; transform: none; }
 
 /* ── Vanity table ── */
 .vanity-table {
@@ -538,23 +531,26 @@ main { position: relative; z-index: 2; }
 }
 #paint-overlay.painting { display: block; }
 
-/* One horizontal brush stroke; six of them stack to cover the screen.
+/* Tilted canvas holding the strokes: bands travel along its axis, so every
+   stroke crosses the screen diagonally — like painting the page corner to corner. */
+.stroke-wrap {
+  position: absolute; inset: -24vh -24vw;
+  transform: rotate(-12deg);
+}
+
+/* One brush stroke, flat solid color; six stack to cover the screen.
    Each carries its own jagged clip-path (set in script.js) as its bristle edge. */
 .stroke {
-  position: absolute; left: -10vw; width: 120vw;
+  position: absolute; left: -10%; width: 120%;
   transform: translateX(-116%);
-  background: linear-gradient(90deg,
-    color-mix(in srgb, var(--swath-color, #e8899f) 85%, #fff) 0%,
-    var(--swath-color, #e8899f) 38%,
-    color-mix(in srgb, var(--swath-color, #e8899f) 82%, #000) 100%);
+  background: var(--swath-color, #e8899f);
 }
-.stroke:nth-child(even) { filter: brightness(0.94) saturate(1.07); }
 .stroke::after {
-  /* bristle streaks running along the stroke */
+  /* the faintest bristle drag, texture only — the color stays one solid shade */
   content: ""; position: absolute; inset: 0;
   background: repeating-linear-gradient(180deg,
-    rgba(255, 255, 255, 0.11) 0 2px, rgba(255, 255, 255, 0) 2px 6px,
-    rgba(0, 0, 0, 0.05) 6px 7px, rgba(0, 0, 0, 0) 7px 12px);
+    rgba(255, 255, 255, 0.06) 0 2px, rgba(255, 255, 255, 0) 2px 9px,
+    rgba(0, 0, 0, 0.03) 9px 10px, rgba(0, 0, 0, 0) 10px 16px);
 }
 
 /* ══════════ MODAL ══════════ */
