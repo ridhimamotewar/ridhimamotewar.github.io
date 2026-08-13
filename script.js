@@ -98,6 +98,21 @@ const SITE_CONTENT = {
       ],
       art: { base: "#fbe9ef", accent: "#e8899f", style: "floral" },
     },
+    {
+      id: "penn-hyperloop",
+      shade: "Shade 07 · Tunnel Ombré",
+      title: "Penn Hyperloop × The Boring Company",
+      teaser: "Student engineering on real work for The Boring Company.",
+      description:
+        "As part of Penn Hyperloop, I contribute to the student team's engineering work for The Boring Company — applying the CAD, prototyping, and build discipline honed as a FIRST Robotics captain to full-scale tunneling and transit technology.",
+      tools: ["CAD", "Engineering design", "Prototyping", "Cross-functional teamwork"],
+      impact: [
+        "Hands-on work supporting The Boring Company",
+        "One of Penn's flagship student engineering teams",
+        "Robotics-honed fabrication instincts at real-world scale",
+      ],
+      art: { base: "#dce4ec", accent: "#5b7a94", style: "ombre" },
+    },
   ],
 
   // ── Chatbot knowledge base ──
@@ -134,9 +149,9 @@ const SITE_CONTENT = {
           "Her kit: Python, Java, JavaScript, OCaml, and React Native with Expo — plus AI agents and LLM evaluation, Figma, Canva, and CAD. Equal parts brush and keyboard: she's happiest where engineering meets finance meets craft.",
       },
       {
-        keys: ["lead", "leader", "team", "mentor", "president", "vice", "manage", "club", "society", "vita", "product space", "robotics", "nonprofit", "501c3", "volunteer"],
+        keys: ["lead", "leader", "team", "mentor", "president", "vice", "manage", "club", "society", "vita", "product space", "robotics", "nonprofit", "501c3", "volunteer", "hyperloop", "boring company", "girls into vc", "board"],
         reply:
-          "On campus she's Vice President of Product Space @ Penn (teaching 18 Product Fellows, and she ran Penn's first Product-A-Thon) and an officer with the Volunteer Income Tax Association, which delivered $3M in refunds to Philadelphia households. She also co-founded Lunar Llamas, a 501c3 serving 800+ people, and captained a FIRST Robotics team that won $10K in grants from NASA and Google. 🖌️",
+          "On campus she's Vice President of Product Space @ Penn (teaching 18 Product Fellows, and she ran Penn's first Product-A-Thon), an officer with the Volunteer Income Tax Association ($3M in refunds delivered), an engineer with Penn Hyperloop doing work for The Boring Company, and part of Girls into VC and the M&T Board. She also co-founded Lunar Llamas, a 501c3 serving 800+ people, and captained a FIRST Robotics team that won $10K in grants from NASA and Google. 🖌️",
       },
       {
         keys: ["award", "win", "won", "competition", "hackathon", "finalist", "prize", "achievement", "honor"],
@@ -242,12 +257,39 @@ function goTo(id, sourceBottle) {
   }
 }
 
+/* Bottle color per section, for transitions not started from a bottle */
+const SECTION_COLORS = { studio: "#cbb59f" };
+$$(".bottle").forEach((b) => {
+  SECTION_COLORS[b.dataset.goto] = b.style.getPropertyValue("--polish").trim();
+});
+
+function activePanelId() {
+  return $(".panel.active")?.id || "studio";
+}
+
 $$("[data-goto]").forEach((el) => {
   el.addEventListener("click", () => {
     const id = el.dataset.goto;
+    if (id === activePanelId()) return;
+    // record the section in history so the browser back/forward buttons work
+    history.pushState(null, "", id === "studio" ? location.pathname + location.search : `#${id}`);
     goTo(id, el.classList.contains("bottle") ? el : null);
   });
 });
+
+function hashPanelId() {
+  const id = location.hash.slice(1);
+  return id && document.getElementById(id)?.classList.contains("panel") ? id : "studio";
+}
+
+addEventListener("popstate", () => {
+  const id = hashPanelId();
+  if (id === activePanelId()) return;
+  paintTransition(id, SECTION_COLORS[id] || "#e8899f");
+});
+
+// deep link: honor a #section hash on first load, without animation
+if (hashPanelId() !== "studio") showPanel(hashPanelId());
 
 /* ═══════════ SPARKLES ═══════════ */
 (function sparkles() {
@@ -400,6 +442,7 @@ const NAIL_ART_STYLES = {
   holo: (b, a) => `linear-gradient(120deg, #ffd6e8 0%, ${a} 25%, #c8e4f5 50%, ${a} 75%, #ffe9c8 100%)`,
   velvet: (b, a) => `radial-gradient(circle at 35% 25%, ${b} 0%, ${a} 75%)`,
   pearl: (b, a) => `radial-gradient(circle at 32% 26%, #fff 0%, ${b} 45%, ${a} 100%)`,
+  ombre: (b, a) => `linear-gradient(180deg, ${b} 0%, ${a} 78%, color-mix(in srgb, ${a} 70%, #000) 100%)`,
 };
 
 SITE_CONTENT.projects.forEach((p) => {
@@ -408,12 +451,12 @@ SITE_CONTENT.projects.forEach((p) => {
   card.className = "nail-card";
   card.setAttribute("aria-haspopup", "dialog");
   card.innerHTML = `
-    <span class="card-nail"><span class="nail-chip" style="background:${bg.replace(/"/g, "&quot;")}"></span></span>
-    <span class="card-body">
+    <span class="card-top">
       <span class="card-shade">${p.shade}</span>
-      <h3>${p.title}</h3>
-      <p>${p.teaser}</p>
+      <span class="nail-chip" style="background:${bg.replace(/"/g, "&quot;")}"></span>
     </span>
+    <span class="card-title">${p.title}</span>
+    <span class="card-teaser">${p.teaser}</span>
     <span class="card-cta">Read the case study</span>`;
   card.addEventListener("click", () => openModal(p));
 
