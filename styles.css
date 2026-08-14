@@ -632,6 +632,18 @@ main { position: relative; z-index: 2; }
 .pipe-sub { font-size: 0.76rem; color: var(--ink-soft); line-height: 1.4; }
 .pipe-arrow { align-self: center; flex: 0 0 auto; color: var(--gold); font-size: 1rem; }
 
+.embed-frame {
+  position: relative; width: 100%; padding-top: 56.25%; /* 16:9 */
+  border-radius: 18px; overflow: hidden;
+  background: #1a1118;
+  border: 1px solid rgba(58, 33, 56, 0.08);
+  box-shadow: 0 14px 34px -20px rgba(58, 33, 56, 0.5);
+}
+.embed-frame.embed-slides { padding-top: 60%; } /* Slides decks run slightly taller */
+.embed-frame iframe {
+  position: absolute; inset: 0; width: 100%; height: 100%; border: 0;
+}
+
 .tech-shot img {
   display: block; width: 100%; border-radius: 18px; background: #fff;
   border: 1px solid rgba(58, 33, 56, 0.08);

@@ -75,17 +75,17 @@ const SITE_CONTENT = {
       teaser: "A mobile companion for the visually impaired — Congressional App Challenge Top 3.",
       description:
         "An accessible mobile app that assists the visually impaired community with OCR, object recognition, and multimodal prompting. I engineered the end-to-end solution — React Native front end with Python-based ML pipelines — and took it from idea to real-world adoption.",
-      tools: ["React Native", "Python", "ML pipelines", "OCR", "Expo"],
+      tools: ["React Native", "JavaScript", "Expo Go", "Figma", "ML pipelines"],
       impact: [
         "Approved by 20+ schools for the blind",
         "Top 3 Finalist, Congressional App Challenge",
         "OCR, object recognition, and multimodal prompting in one flow",
       ],
       tech: [
-        "React Native with Expo — one codebase serving both platforms, because splitting effort across two native apps wasn't realistic for the schools waiting on it.",
+        "React Native and JavaScript, running through Expo Go — one codebase serving both platforms, because splitting effort across two native apps wasn't realistic for the schools waiting on it.",
         "Python ML pipelines behind two scanners: a Text Scanner that reads documents, household products, and street signs aloud, and an Image Scanner that identifies objects — plus multimodal prompting for open-ended questions.",
-        "An interface designed against the failure modes of existing apps (reviews of Seeing AI and Be My Eyes complain VoiceOver can't even find the buttons): a few large buttons that vibrate and speak their own labels when pressed.",
-        "Personalization throughout — voice speed, pitch, and language; dark/light mode; VoiceOver toggle — and zero reliance on a sighted helper, unlike the market's biggest apps.",
+        "UI designed in Figma against the failure modes of existing apps — reviews of Seeing AI and Be My Eyes complain VoiceOver can't even find the buttons. Echo Eyes uses a few large buttons that vibrate and speak their own labels when pressed.",
+        "Built-in text-to-speech and a simple enough interface that it needs no assistance from a sighted person to navigate — unlike the market's biggest apps.",
         "Inspired by blind vlogger Molly Burke, whose videos showed the team what independent daily life actually requires.",
       ],
       diagram: {
@@ -97,7 +97,7 @@ const SITE_CONTENT = {
           { t: "Spoken aloud", s: "Screen never needed" },
         ],
       },
-      link: { url: "https://www.youtube.com/watch?v=z3hqg8RKDr0", label: "Watch the demo" },
+      embed: { type: "youtube", id: "z3hqg8RKDr0", title: "Echo Eyes demo — Congressional App Challenge 2024" },
       accent: "#d9b36c",
     },
     {
@@ -107,19 +107,18 @@ const SITE_CONTENT = {
       teaser: "A 501c3 with patent-pending hygiene units for the unhoused, live in 17 cities.",
       description:
         "A nonprofit I co-founded in 2020: portable, self-cleaning hygiene units addressing sanitation access for the unhoused. I led end-to-end product development — from CAD prototyping to regulatory approvals across 17 California cities — alongside fundraising and community partnerships with LavaMae and Good2Go.",
-      tools: ["CAD", "Product development", "Regulatory approvals", "Fundraising", "Nonprofit ops"],
+      tools: ["CAD", "Magnetic reed switch & PIR sensors", "FRP fabrication", "Regulatory approvals", "Fundraising"],
       impact: [
         "Patent-pending design, approved across 17 California cities",
-        "$14.6K raised through fundraisers, donations, and partnerships",
-        "11 community drives serving 800+ underprivileged individuals",
+        "Automated shower serves up to 350 people per week",
+        "11 community drives distributing essentials to 800+ people",
       ],
       tech: [
-        "Split-plan layout: a self-cleaning wet side (36 × 60 in) kept separate from a dry changing side (48 × 60 in), so sanitation runs between users instead of relying on staff.",
-        "Full unit at 84 in long × 96 in wide × 96 in tall (114 in with plumbing) — deliberately sized to tow and site in real city lots.",
-        "Accessibility built into the dimensions: a 32-inch door and a fold-down bench 17 in off the ground for transfer.",
+        "Curved FRP (fiberglass-reinforced plastic) walls with an integrated ceiling nozzle pressure-wash the wet side after every single use — no staff cleaning required between users.",
+        "A magnetic reed switch on the wet-side door, combined with a PIR motion sensor, automatically triggers the self-cleaning (ASC) system at the right moment — cutting cleaning time in half versus a manual or always-on cycle.",
+        "Split-plan layout: a self-cleaning wet side (36 × 60 in) kept separate from a dry changing side (48 × 60 in), full unit ADA-compliant with a 32-inch door and a fold-down bench 17 in off the ground.",
         "Floor sloped 1:48 to the drain — the maximum gentle grade that still drains — over an 18-inch crawl space housing the plumbing and cleaning system.",
-        "Pressure-cleaning technology and motion sensors integrated into the design for low-maintenance operation between users.",
-        "CAD prototyping straight through regulatory approval in 17 California cities.",
+        "CAD prototyping straight through regulatory approval in 17 California cities; the automated design now serves up to 350 people a week.",
       ],
       media: [
         {
@@ -156,17 +155,17 @@ const SITE_CONTENT = {
       teaser: "The company's first-ever high school intern — 40 hours a week in a full-service prosthetics lab.",
       description:
         "Dankmeyer had never taken a high school intern before. I worked 40 hours a week in their full-service lab: CADing shop tooling, fabricating robotic prostheses, and sitting in on patient appointments where the devices I'd worked on were fitted and adjusted. Tolerances stop being abstract when a millimeter changes how someone walks.",
-      tools: ["CAD", "FDM / DLP 3D printing", "Fabrication", "R&D"],
+      tools: ["CAD", "FDM / DLP 3D printing", "Silicone molding", "Fabrication", "R&D"],
       impact: [
         "First high school intern in company history",
-        "CADded shop arbors in-house, saving $90 each",
+        "CADded shop arbor molds in-house, saving $70–$90 per attachment",
         "Adjusted prostheses during live patient appointments",
       ],
       tech: [
-        "Designed shop arbors in CAD and produced them in-house — $90 saved per arbor versus purchasing.",
-        "Fabricated robotic prostheses and built FDM/DLP slicing profiles for the lab's 3D printers.",
-        "Digitized the tech branch: scanned components into a digital library and ran R&D on upper-extremity scanning.",
-        "Joined patient appointments to adjust prostheses — engineering feedback straight from the person wearing the device.",
+        "Sockets, the part of a lower-limb prosthesis that replaces the knee joint, used to be purchased pre-made. I fabricated and 3D-printed the locks and pucks for them, so the entire device could be made in-house.",
+        "Molded custom silicone gel liners — the layer between a patient's residual limb and the device — for patients whose limb shape doesn't fit a prefabricated liner.",
+        "The arbor project: designed CAD molds for the shop's sanding arbors (normally $70–$90 each to buy), iterated through a one-piece design, an interlocking two-part mold for easier release, and printed the finals on FDM and DLP printers.",
+        "Printed and inventoried 22 socket connectors on the DLP printer, plus fabricated a gluteal prosthesis (printed shell, glued and screwed together, finished with injection molding) and scanned lab components into a digital library for future CAD reference.",
       ],
       media: [
         {
@@ -174,6 +173,7 @@ const SITE_CONTENT = {
           caption: "At the bench, working on a prosthetic foot.",
         },
       ],
+      embed: { type: "slides", id: "1SIkfROsNBY3XtEl5Rp8U5knsHjQuNhtFBrpU8yvXrco", title: "Dankmeyer internship project slideshow" },
       accent: "#7fb0a9",
     },
     {
@@ -594,8 +594,27 @@ function diagramHTML(d, accent) {
   }</figure>`;
 }
 
+/* YouTube videos and Google Slides decks, embedded inline rather than linked out.
+   Note: a Slides embed only renders for visitors if the deck's sharing is set to
+   "Anyone with the link can view" — a Drive file shared only with specific people
+   will show a sign-in wall to the public. */
+function embedHTML(embed) {
+  if (!embed) return "";
+  const src =
+    embed.type === "youtube"
+      ? `https://www.youtube-nocookie.com/embed/${embed.id}`
+      : `https://docs.google.com/presentation/d/${embed.id}/embed?start=false&loop=false&delayms=3000`;
+  return `<figure class="tech-embed">
+    <div class="embed-frame ${embed.type === "slides" ? "embed-slides" : ""}">
+      <iframe src="${src}" title="${embed.title || ""}" loading="lazy" allowfullscreen
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+    </div>
+  </figure>`;
+}
+
 function mediaHTML(p) {
-  let html = p.diagram ? diagramHTML(p.diagram, p.accent) : "";
+  let html = embedHTML(p.embed);
+  html += p.diagram ? diagramHTML(p.diagram, p.accent) : "";
   (p.media || []).forEach((m) => {
     html += `<figure class="tech-shot">
       <img src="${m.img}" alt="${m.caption}" loading="lazy" />
@@ -629,6 +648,7 @@ function openModal(p) {
 function closeModal() {
   modalBackdrop.hidden = true;
   document.body.style.overflow = "";
+  $(".modal-media", modal).innerHTML = ""; // stop any playing video/embed
   lastFocus?.focus();
 }
 
