@@ -167,34 +167,8 @@ const SITE_CONTENT = {
         "The arbor project: designed CAD molds for the shop's sanding arbors (normally $70–$90 each to buy), iterated through a one-piece design, an interlocking two-part mold for easier release, and printed the finals on FDM and DLP printers.",
         "Printed and inventoried 22 socket connectors on the DLP printer, plus fabricated a gluteal prosthesis (printed shell, glued and screwed together, finished with injection molding) and scanned lab components into a digital library for future CAD reference.",
       ],
-      media: [
-        {
-          img: "assets/projects/dankmeyer-foot.jpg",
-          caption: "At the bench, working on a prosthetic foot.",
-        },
-      ],
       embed: { type: "slides", id: "1SIkfROsNBY3XtEl5Rp8U5knsHjQuNhtFBrpU8yvXrco", title: "Dankmeyer internship project slideshow" },
       accent: "#7fb0a9",
-    },
-    {
-      id: "orble",
-      tag: "Munch Industries · 2025 — Present",
-      title: "Orble — Automated Boba Vending",
-      teaser: "A boba vending machine, engineered to be investor-ready.",
-      description:
-        "As a mechanical engineer at Munch Industries, I'm fabricating Orble, an automated boba vending machine — with particular ownership of its cleaning and waste system, the unglamorous subsystem that decides whether a food machine can actually run unattended. The team is integrating systems to make the machines investor-ready by end of year.",
-      tools: ["Mechanical design", "CAD", "Fabrication", "Systems integration"],
-      impact: [
-        "Designing and implementing the cleaning and waste system",
-        "Integrating subsystems toward investor-ready machines by end of year",
-        "Food-safe automation: the constraint set that makes it hard",
-      ],
-      tech: [
-        "A vending machine that makes drinks must also clean itself — the cleaning and waste system handles rinse cycles and waste routing so the machine stays food-safe between servings without a human on site.",
-        "Mechanical design and fabrication in the same hands: the parts get modeled, made, and installed by the same engineer.",
-        "Integration work across dispensing, cleaning, and waste — subsystems that all have to agree before an investor demo can run flawlessly.",
-      ],
-      accent: "#b78b6a",
     },
   ],
 
@@ -238,9 +212,9 @@ const SITE_CONTENT = {
           "She's at the University of Pennsylvania in the Jerome Fisher Program in Management & Technology (M&T) — just 50 students selected worldwide. Dual degree: B.S.E. in Mechanical Engineering at Penn Engineering plus a B.S. in Economics with a finance concentration at Wharton, Class of 2029, and she's a Joseph Wharton Scholar. Before Penn she was salutatorian at Quarry Lane School with a 4.74 GPA. 🎓",
       },
       {
-        keys: ["project", "work", "portfolio", "built", "case study", "gallery", "app", "ode", "echo", "lunar", "dankmeyer", "prosthetic", "orble", "boba", "munch"],
+        keys: ["project", "work", "portfolio", "built", "case study", "gallery", "app", "ode", "echo", "lunar", "dankmeyer", "prosthetic"],
         reply:
-          "Seven pieces in the gallery: the CoreWeave FP&A Agent Suite (a 25-hour review cut to 5 minutes), Ode (eye-driven speech — Anthropic Hackathon track winner), Echo Eyes (Congressional App Challenge Top 3, with a demo video), Lunar Llamas (patent-pending hygiene units), the Penn Hyperloop TBM muck chamber (2nd at TBC's competition), Dankmeyer prosthetics (their first-ever high school intern), and Orble, an automated boba vending machine. Tap the gold Projects bottle! 💅",
+          "Six pieces in the gallery: the CoreWeave FP&A Agent Suite (a 25-hour review cut to 5 minutes), Ode (eye-driven speech — Anthropic Hackathon track winner), Echo Eyes (Congressional App Challenge Top 3, with a demo video), Lunar Llamas (patent-pending hygiene units), the Penn Hyperloop TBM muck chamber (2nd at TBC's competition), and Dankmeyer prosthetics (their first-ever high school intern, with the full project slideshow). Tap the gold Projects bottle! 💅",
       },
       {
         keys: ["skill", "stack", "tech", "tools", "language", "code", "react", "python", "java", "ocaml", "figma", "cad", "solidworks", "onshape", "marathi"],
