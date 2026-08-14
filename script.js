@@ -12,28 +12,28 @@ const SITE_CONTENT = {
       id: "coreweave-agents",
       tag: "CoreWeave · Summer 2026",
       title: "CoreWeave FP&A Agent Suite",
-      teaser: "Three AI agents that gave CoreWeave's financial analysts two weeks back.",
+      teaser: "Three production agents for the FP&A team — one turns a 25-hour monthly review into five minutes.",
       description:
-        "As an FP&A intern at CoreWeave (Summer 2026), I designed and built three AI agents for the financial planning & analysis team — automating the recurring, manual workflows that ate into analysts' weeks: pulling, reconciling, and re-formatting the same data over and over. The agents took those cycles end to end, so analysts could spend their time on actual analysis.",
-      tools: ["Python", "AI agents", "LLM APIs", "Prompt engineering", "FP&A workflows"],
+        "As an FP&A intern at CoreWeave, I shipped three AI agents (built in Claude Code) that automated the finance team's most manual workflows. To get the logic right, I first ran the worst of them by hand: a full month-end PO compliance review that took five business days and still had errors. Then I encoded what I'd learned into deterministic, rules-based agents — so nothing is guessed or hallucinated.",
+      tools: ["Claude Code", "Python", "AI agents", "BRDs & decision trees", "FP&A workflows"],
       impact: [
-        "Saved analysts 2+ weeks of manual work",
-        "Three production agents shipped in a single internship",
-        "Recurring FP&A workflows automated end to end",
+        "PO compliance: 25 hours of monthly analyst work now runs in ~5 minutes",
+        "Spend-routing bot live on Union and available to the entire organization",
+        "CIP dashboard tied out within 1% in its first month",
+        "3+ business days returned to analysts every month, year after year",
       ],
       tech: [
-        "One agent per workflow — three narrowly scoped agents instead of a single general-purpose assistant, so each one can be validated against a known-good manual result.",
-        "Python orchestration around LLM APIs: the agents pull the source data, reconcile it, and assemble the outputs analysts previously stitched together by hand.",
-        "Analyst-in-the-loop by design — the agents produce the draft, the FP&A team reviews and approves before anything is used.",
-        "Benchmarked against the manual process it replaced: 2+ analyst-weeks recovered.",
+        "Direct/Indirect Spend Routing Bot — classifying spend used to be manual and inconsistent, miscategorizing Capex vs. Opex. Now anyone types a description or uploads an invoice/PO. Built from a BRD with decision trees and classification logic, then phase-tested through FP&A → Procurement → finance & accounting → the whole company.",
+        "Policy Pilot (PO Compliance Agent) — pulls raw invoice data straight from enterprise data systems and runs it through deterministic rules, catching policy violations, duplicate POs, exhausted POs, and unlinked invoices. Outputs a headline overview, an eleven-tab analysis workbook, and a leadership-ready branded deck.",
+        "CIP Dashboard — Construction-in-Progress data in a live dashboard instead of a static, manually-updated spreadsheet, reusing the Policy Pilot pattern. Documented the pattern so any finance team can build their own.",
       ],
       diagram: {
-        caption: "The shape of each agent: source data in, reviewed deliverable out.",
+        caption: "Policy Pilot's month-end run: pick a month, get the full analysis.",
         steps: [
-          { t: "Source data", s: "Financial systems & reports" },
-          { t: "Agent run", s: "Python + LLM tool calls" },
-          { t: "Reconcile", s: "Cross-check and assemble" },
-          { t: "Analyst review", s: "Human approves the draft" },
+          { t: "Pick a month", s: "One input" },
+          { t: "Pull invoice data", s: "Enterprise data systems" },
+          { t: "Deterministic rules", s: "No guessing, no hallucination" },
+          { t: "Full deliverables", s: "Overview · 11-tab workbook · deck" },
         ],
       },
       accent: "#8fa3b8",
@@ -83,9 +83,10 @@ const SITE_CONTENT = {
       ],
       tech: [
         "React Native with Expo — one codebase serving both platforms, because splitting effort across two native apps wasn't realistic for the schools waiting on it.",
-        "Python ML pipelines behind three distinct capabilities: OCR for reading text aloud, object recognition for describing surroundings, and multimodal prompting for open-ended questions about what the camera sees.",
-        "Camera frame in, spoken description out — the whole interaction is designed to work without ever looking at the screen.",
-        "Validated with the people who'd actually use it: 20+ schools for the blind approved it for their students.",
+        "Python ML pipelines behind two scanners: a Text Scanner that reads documents, household products, and street signs aloud, and an Image Scanner that identifies objects — plus multimodal prompting for open-ended questions.",
+        "An interface designed against the failure modes of existing apps (reviews of Seeing AI and Be My Eyes complain VoiceOver can't even find the buttons): a few large buttons that vibrate and speak their own labels when pressed.",
+        "Personalization throughout — voice speed, pitch, and language; dark/light mode; VoiceOver toggle — and zero reliance on a sighted helper, unlike the market's biggest apps.",
+        "Inspired by blind vlogger Molly Burke, whose videos showed the team what independent daily life actually requires.",
       ],
       diagram: {
         caption: "One camera frame, three ways to understand it.",
@@ -96,6 +97,7 @@ const SITE_CONTENT = {
           { t: "Spoken aloud", s: "Screen never needed" },
         ],
       },
+      link: { url: "https://www.youtube.com/watch?v=z3hqg8RKDr0", label: "Watch the demo" },
       accent: "#d9b36c",
     },
     {
@@ -116,6 +118,7 @@ const SITE_CONTENT = {
         "Full unit at 84 in long × 96 in wide × 96 in tall (114 in with plumbing) — deliberately sized to tow and site in real city lots.",
         "Accessibility built into the dimensions: a 32-inch door and a fold-down bench 17 in off the ground for transfer.",
         "Floor sloped 1:48 to the drain — the maximum gentle grade that still drains — over an 18-inch crawl space housing the plumbing and cleaning system.",
+        "Pressure-cleaning technology and motion sensors integrated into the design for low-maintenance operation between users.",
         "CAD prototyping straight through regulatory approval in 17 California cities.",
       ],
       media: [
@@ -128,41 +131,42 @@ const SITE_CONTENT = {
     },
     {
       id: "penn-hyperloop",
-      tag: "Penn Hyperloop × TBC",
+      tag: "Lead Chamber Engineer",
       title: "Penn Hyperloop × The Boring Company",
-      teaser: "Student engineering on real work for The Boring Company.",
+      teaser: "Designed and fabricated the TBM muck chamber that helped take 2nd at TBC's competition.",
       description:
-        "As part of Penn Hyperloop, I contribute to the student team's engineering work for The Boring Company — applying the CAD, prototyping, and build discipline honed as a FIRST Robotics captain to full-scale tunneling and transit technology.",
-      tools: ["CAD", "Engineering design", "Prototyping", "Cross-functional teamwork"],
+        "As Lead Chamber Engineer on Penn Hyperloop, I designed and fabricated the muck chamber for the team's TBM (Tunnel Boring Machine) — the vessel that collects excavated material as the machine digs — for The Boring Company's international Not-A-Boring Competition, where teams present in front of representatives from The Boring Company, Boeing, and NASA.",
+      tools: ["CAD — Onshape · SolidWorks", "Shop machinery", "Fabrication", "Systems integration"],
       impact: [
-        "2nd place at The Boring Company's competition",
-        "One of Penn's flagship student engineering teams",
-        "Robotics-honed fabrication instincts at real-world scale",
+        "2nd place at The Boring Company's Not-A-Boring Competition",
+        "Owns the muck chamber subsystem end to end, design through fabrication",
+        "Presented alongside the team to reps from TBC, Boeing, and NASA",
       ],
       tech: [
-        "CAD and fabrication work with Penn Hyperloop, one of the university's flagship student engineering teams, building for The Boring Company.",
-        "The same loop carried over from four years of FIRST Robotics: model it in CAD, machine it, test it, find where it fails, revise the model.",
-        "Hands-on shop work — the parts get made, not just drawn.",
+        "The muck chamber sits behind the cutterhead and takes everything the TBM excavates — it has to swallow abrasive spoil continuously without clogging or leaking while the machine bores.",
+        "Full ownership from CAD through the shop: modeled, fabricated, and integrated with the rest of the machine's systems.",
+        "The same loop carried over from four years of FIRST Robotics: model it, machine it, test it, find where it fails, revise the model.",
       ],
       accent: "#5b7a94",
     },
     {
       id: "dankmeyer",
-      tag: "Prosthetics & Orthotics",
+      tag: "Dankmeyer · Summer 2024",
       title: "Dankmeyer Prosthetics & Orthotics",
-      teaser: "Hands-on work where engineering meets the human body.",
+      teaser: "The company's first-ever high school intern — 40 hours a week in a full-service prosthetics lab.",
       description:
-        "Time on the bench at Dankmeyer, a prosthetics and orthotics practice — working hands-on with the devices patients wear every day and seeing how clinicians measure, fit, and tune them. It reframed engineering for me: tolerances stop being abstract when a millimeter changes how someone walks.",
-      tools: ["Prosthetics & orthotics", "Fabrication", "Patient-centered design"],
+        "Dankmeyer had never taken a high school intern before. I worked 40 hours a week in their full-service lab: CADing shop tooling, fabricating robotic prostheses, and sitting in on patient appointments where the devices I'd worked on were fitted and adjusted. Tolerances stop being abstract when a millimeter changes how someone walks.",
+      tools: ["CAD", "FDM / DLP 3D printing", "Fabrication", "R&D"],
       impact: [
-        "Real devices for real patients — not classroom prototypes",
-        "Grounded CAD and fabrication skills in clinical constraints",
-        "Deepened the accessibility thread that runs through Ode and Echo Eyes",
+        "First high school intern in company history",
+        "CADded shop arbors in-house, saving $90 each",
+        "Adjusted prostheses during live patient appointments",
       ],
       tech: [
-        "Hands-on fabrication and finishing work on prosthetic and orthotic devices.",
-        "Exposure to the full patient pipeline: measurement, fitting, alignment, and adjustment.",
-        "Materials chosen per patient, not per spec sheet — foams, laminates, and componentry matched to a real person's life.",
+        "Designed shop arbors in CAD and produced them in-house — $90 saved per arbor versus purchasing.",
+        "Fabricated robotic prostheses and built FDM/DLP slicing profiles for the lab's 3D printers.",
+        "Digitized the tech branch: scanned components into a digital library and ran R&D on upper-extremity scanning.",
+        "Joined patient appointments to adjust prostheses — engineering feedback straight from the person wearing the device.",
       ],
       media: [
         {
@@ -171,6 +175,26 @@ const SITE_CONTENT = {
         },
       ],
       accent: "#7fb0a9",
+    },
+    {
+      id: "orble",
+      tag: "Munch Industries · 2025 — Present",
+      title: "Orble — Automated Boba Vending",
+      teaser: "A boba vending machine, engineered to be investor-ready.",
+      description:
+        "As a mechanical engineer at Munch Industries, I'm fabricating Orble, an automated boba vending machine — with particular ownership of its cleaning and waste system, the unglamorous subsystem that decides whether a food machine can actually run unattended. The team is integrating systems to make the machines investor-ready by end of year.",
+      tools: ["Mechanical design", "CAD", "Fabrication", "Systems integration"],
+      impact: [
+        "Designing and implementing the cleaning and waste system",
+        "Integrating subsystems toward investor-ready machines by end of year",
+        "Food-safe automation: the constraint set that makes it hard",
+      ],
+      tech: [
+        "A vending machine that makes drinks must also clean itself — the cleaning and waste system handles rinse cycles and waste routing so the machine stays food-safe between servings without a human on site.",
+        "Mechanical design and fabrication in the same hands: the parts get modeled, made, and installed by the same engineer.",
+        "Integration work across dispensing, cleaning, and waste — subsystems that all have to agree before an investor demo can run flawlessly.",
+      ],
+      accent: "#b78b6a",
     },
   ],
 
@@ -199,9 +223,9 @@ const SITE_CONTENT = {
     chips: ["Who is Ridhima?", "Tell me about CoreWeave", "Show me her projects", "Where does she study?", "How do I contact her?"],
     intents: [
       {
-        keys: ["coreweave", "intern", "fp&a", "fpa", "finance team", "agents", "analyst"],
+        keys: ["coreweave", "intern", "fp&a", "fpa", "finance team", "agents", "analyst", "policy pilot", "union"],
         reply:
-          "Her freshest coat! ✨ In Summer 2026 Ridhima interned on CoreWeave's FP&A team, where she built three AI agents that automate recurring financial workflows — saving analysts more than two weeks of manual work. The full case study is the first card in the Projects gallery.",
+          "Her freshest coat! ✨ In Summer 2026 Ridhima interned on CoreWeave's FP&A team and shipped three agents built in Claude Code: a spend-routing bot live on Union for the whole org, Policy Pilot (turns a 25-hour monthly PO compliance review into ~5 minutes), and a live CIP dashboard that tied out within 1%. The full case study is the first card in the Projects gallery.",
       },
       {
         keys: ["who", "about", "ridhima", "yourself", "she", "her story", "background", "bio"],
@@ -211,22 +235,22 @@ const SITE_CONTENT = {
       {
         keys: ["education", "study", "school", "college", "penn", "upenn", "wharton", "m&t", "mt program", "major", "degree", "university"],
         reply:
-          "She's at the University of Pennsylvania in the Jerome Fisher Program in Management & Technology (M&T) — just 50 students selected worldwide. Dual degree: B.S.E. in Computer Science at Penn Engineering plus a B.S. in Economics with a finance concentration at Wharton, Class of 2029, and she's a Joseph Wharton Scholar. Before Penn she was salutatorian at Quarry Lane School with a 4.74 GPA. 🎓",
+          "She's at the University of Pennsylvania in the Jerome Fisher Program in Management & Technology (M&T) — just 50 students selected worldwide. Dual degree: B.S.E. in Mechanical Engineering at Penn Engineering plus a B.S. in Economics with a finance concentration at Wharton, Class of 2029, and she's a Joseph Wharton Scholar. Before Penn she was salutatorian at Quarry Lane School with a 4.74 GPA. 🎓",
       },
       {
-        keys: ["project", "work", "portfolio", "built", "case study", "gallery", "app", "ode", "echo", "lunar", "dankmeyer", "prosthetic"],
+        keys: ["project", "work", "portfolio", "built", "case study", "gallery", "app", "ode", "echo", "lunar", "dankmeyer", "prosthetic", "orble", "boba", "munch"],
         reply:
-          "Six pieces in the gallery: the CoreWeave FP&A Agent Suite (3 agents, 2+ analyst-weeks saved), Ode (eye-driven speech — Anthropic Hackathon track winner), Echo Eyes (app for the visually impaired — Congressional App Challenge Top 3), Lunar Llamas (patent-pending hygiene units for the unhoused), Penn Hyperloop's work for The Boring Company, and hands-on prosthetics work at Dankmeyer. Tap the gold Projects bottle! 💅",
+          "Seven pieces in the gallery: the CoreWeave FP&A Agent Suite (a 25-hour review cut to 5 minutes), Ode (eye-driven speech — Anthropic Hackathon track winner), Echo Eyes (Congressional App Challenge Top 3, with a demo video), Lunar Llamas (patent-pending hygiene units), the Penn Hyperloop TBM muck chamber (2nd at TBC's competition), Dankmeyer prosthetics (their first-ever high school intern), and Orble, an automated boba vending machine. Tap the gold Projects bottle! 💅",
       },
       {
-        keys: ["skill", "stack", "tech", "tools", "language", "code", "react", "python", "java", "ocaml", "figma"],
+        keys: ["skill", "stack", "tech", "tools", "language", "code", "react", "python", "java", "ocaml", "figma", "cad", "solidworks", "onshape", "marathi"],
         reply:
-          "Her kit: Python, Java, JavaScript, OCaml, and React Native with Expo — plus AI agents and LLM evaluation, Figma, Canva, and CAD. Equal parts brush and keyboard: she's happiest where engineering meets finance meets craft.",
+          "Her kit runs hardware to software: CAD in Onshape, SolidWorks, and Fusion; shop machinery and fabrication; Python, Java, React Native, and OCaml; AI agents and LLM evaluation; Figma and Canva. She speaks English and Marathi. Equal parts brush, keyboard, and mill. 🛠️",
       },
       {
-        keys: ["lead", "leader", "team", "mentor", "president", "vice", "manage", "club", "society", "vita", "product space", "robotics", "nonprofit", "501c3", "volunteer", "hyperloop", "boring company", "girls into vc", "board"],
+        keys: ["lead", "leader", "team", "mentor", "president", "vice", "manage", "club", "society", "vita", "product space", "robotics", "nonprofit", "501c3", "volunteer", "hyperloop", "boring company", "girls into vc", "board", "akshaya"],
         reply:
-          "On campus she's Vice President of Product Space @ Penn (teaching 18 Product Fellows, and she ran Penn's first Product-A-Thon), an officer with the Volunteer Income Tax Association ($3M in refunds delivered), an engineer with Penn Hyperloop doing work for The Boring Company, and part of Girls into VC and the M&T Board. She also co-founded Lunar Llamas, a 501c3 serving 800+ people, and captained a FIRST Robotics team that won $10K in grants from NASA and Google. 🖌️",
+          "On campus she's VP of Fellowship at Product Space @ Penn, Lead Chamber Engineer on Penn Hyperloop (2nd at TBC's competition), an officer with the Volunteer Income Tax Association ($3M in refunds delivered), and part of Girls into VC and the M&T Board. Beyond Penn: co-founded Lunar Llamas (a 501c3 serving 800+ people), captained a 100-person FIRST Robotics team to Worlds 3×, and raised $19,690 as Akshaya Patra's Lead Youth Ambassador. Tap the plum Leadership bottle — every card expands. 🖌️",
       },
       {
         keys: ["award", "win", "won", "competition", "hackathon", "finalist", "prize", "achievement", "honor", "deca", "trophy", "tbc"],
@@ -593,6 +617,9 @@ function openModal(p) {
   $(".modal-tech", modal).innerHTML = tech.map((t) => `<li>${t}</li>`).join("");
   $(".modal-tools", modal).innerHTML = p.tools.map((t) => `<li>${t}</li>`).join("");
   $(".modal-impact", modal).innerHTML = p.impact.map((i) => `<li>${i}</li>`).join("");
+  $(".modal-link", modal).innerHTML = p.link
+    ? `<a href="${p.link.url}" target="_blank" rel="noopener">${p.link.label} ↗</a>`
+    : "";
   modalBackdrop.hidden = false;
   document.body.style.overflow = "hidden";
   modal.scrollTop = 0;

@@ -653,6 +653,15 @@ main { position: relative; z-index: 2; }
 .mini-heading.spaced { margin-top: 48px; }
 
 .modal-impact { list-style: none; display: grid; gap: 10px; }
+.modal-link { margin-top: 22px; }
+.modal-link a {
+  display: inline-block; padding: 10px 20px; border-radius: 999px;
+  font-size: 0.86rem; font-weight: 600; text-decoration: none;
+  color: var(--pearl); background: linear-gradient(135deg, var(--plum), #6d4770);
+  box-shadow: 0 10px 24px -10px rgba(58, 33, 56, 0.6);
+  transition: transform 0.3s var(--ease-lux), box-shadow 0.3s;
+}
+.modal-link a:hover { transform: translateY(-2px); box-shadow: 0 14px 30px -12px rgba(58, 33, 56, 0.7); }
 .modal-impact li { position: relative; padding-left: 26px; color: var(--ink-soft); line-height: 1.55; }
 .modal-impact li::before {
   content: "✦"; position: absolute; left: 0; color: var(--gold);
