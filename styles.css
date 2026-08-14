@@ -426,21 +426,10 @@ main { position: relative; z-index: 2; }
 .nail-card:hover { box-shadow: 0 34px 70px -30px rgba(58,33,56,0.5); }
 .nail-card:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
 
-.card-top { display: flex; width: 100%; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
 .card-shade {
   display: inline-block; font-size: 0.66rem; letter-spacing: 0.22em; text-transform: uppercase;
   color: #fff; background: linear-gradient(120deg, var(--plum), #7c5580);
-  padding: 5px 12px; border-radius: 999px;
-}
-.nail-card .nail-chip {
-  flex: none; width: 38px; height: 56px; border-radius: 19px 19px 9px 9px;
-  box-shadow: 0 10px 18px -8px rgba(58,33,56,0.45), inset 0 0 0 1px rgba(255,255,255,0.5);
-  position: relative; overflow: hidden;
-}
-.nail-card .nail-chip::after {
-  content: ""; position: absolute; top: 6%; left: 14%; width: 20%; height: 55%;
-  border-radius: 999px; background: linear-gradient(180deg, rgba(255,255,255,0.9), transparent);
-  filter: blur(1px);
+  padding: 5px 12px; border-radius: 999px; margin-bottom: 14px;
 }
 .card-title { font-family: "Fraunces", serif; font-weight: 500; font-size: 1.3rem; margin-bottom: 10px; }
 .card-teaser { font-size: 0.95rem; color: var(--ink-soft); line-height: 1.6; }
@@ -475,6 +464,43 @@ main { position: relative; z-index: 2; }
 }
 .lead-card h3 { font-size: 1.3rem; margin-bottom: 10px; }
 .lead-card p { color: var(--ink-soft); line-height: 1.6; font-size: 0.95rem; }
+
+/* ── Expandable leadership cards ── */
+.lead-card.expandable { padding: 0; overflow: hidden; }
+.lead-toggle {
+  display: flex; flex-direction: column; align-items: flex-start; width: 100%;
+  text-align: left; padding: 30px 28px 24px; position: relative;
+}
+.lead-toggle .lead-badge { margin-bottom: 12px; }
+.lead-title {
+  font-family: "Fraunces", serif; font-weight: 500; font-size: 1.3rem;
+  line-height: 1.25; margin-bottom: 8px; padding-right: 30px;
+}
+.lead-summary { color: var(--ink-soft); line-height: 1.55; font-size: 0.92rem; }
+.lead-chevron {
+  position: absolute; top: 30px; right: 24px;
+  color: var(--gold); font-size: 1.05rem;
+  transition: transform 0.35s var(--ease-lux);
+}
+.lead-card.open .lead-chevron { transform: rotate(180deg); }
+.lead-toggle:focus-visible { outline: 2px solid var(--gold); outline-offset: -4px; border-radius: var(--radius-lg); }
+
+.lead-more {
+  display: grid; grid-template-rows: 0fr;
+  transition: grid-template-rows 0.45s var(--ease-lux);
+}
+.lead-more > div { overflow: hidden; }
+.lead-card.open .lead-more { grid-template-rows: 1fr; }
+.lead-more ul {
+  list-style: none; display: grid; gap: 10px;
+  margin: 0 28px; padding: 18px 0 28px;
+  border-top: 1px dashed rgba(58, 33, 56, 0.14);
+}
+.lead-more li {
+  position: relative; padding-left: 22px;
+  color: var(--ink-soft); font-size: 0.9rem; line-height: 1.6;
+}
+.lead-more li::before { content: "▹"; position: absolute; left: 0; color: var(--plum); }
 
 /* ══════════ ABOUT ══════════ */
 .about-layout { display: grid; grid-template-columns: minmax(200px, 260px) 1fr; gap: clamp(24px, 5vw, 56px); align-items: start; }
@@ -531,27 +557,28 @@ main { position: relative; z-index: 2; }
 }
 #paint-overlay.painting { display: block; }
 
-/* Tilted canvas holding the strokes: bands travel along its axis, so every
-   stroke crosses the screen diagonally — like painting the page corner to corner. */
-.stroke-wrap {
-  position: absolute; inset: -24vh -24vw;
-  transform: rotate(-12deg);
+.paint-swath {
+  position: absolute; top: 0; bottom: 0; left: 0;
+  width: 120vw; transform: translateX(-130%);
+  background: linear-gradient(120deg,
+    color-mix(in srgb, var(--swath-color, #e8899f) 80%, #fff) 0%,
+    var(--swath-color, #e8899f) 45%,
+    color-mix(in srgb, var(--swath-color, #e8899f) 72%, #000) 100%);
+  box-shadow: 30px 0 60px rgba(0,0,0,0.18);
 }
+.swath-edge {
+  position: absolute; top: 0; right: -118px; height: 100%; width: 120px;
+}
+.swath-edge path { fill: var(--swath-color, #e8899f); }
 
-/* One brush stroke, flat solid color; six stack to cover the screen.
-   Each carries its own jagged clip-path (set in script.js) as its bristle edge. */
-.stroke {
-  position: absolute; left: -10%; width: 120%;
-  transform: translateX(-116%);
-  background: var(--swath-color, #e8899f);
+.paint-brush {
+  position: absolute; top: 38%; right: -150px; width: 64px; height: 210px;
+  transform: rotate(14deg);
+  filter: drop-shadow(0 10px 14px rgba(0,0,0,0.3));
 }
-.stroke::after {
-  /* the faintest bristle drag, texture only — the color stays one solid shade */
-  content: ""; position: absolute; inset: 0;
-  background: repeating-linear-gradient(180deg,
-    rgba(255, 255, 255, 0.06) 0 2px, rgba(255, 255, 255, 0) 2px 9px,
-    rgba(0, 0, 0, 0.03) 9px 10px, rgba(0, 0, 0, 0) 10px 16px);
-}
+.brush-handle { fill: #2b1a2e; }
+.brush-ferrule { fill: #cfc4c9; }
+.brush-bristles { fill: color-mix(in srgb, var(--swath-color, #e8899f) 85%, #000); }
 
 /* ══════════ MODAL ══════════ */
 .modal-backdrop {
@@ -578,7 +605,7 @@ main { position: relative; z-index: 2; }
 }
 .modal-close:hover { transform: rotate(90deg); }
 
-.modal-art { height: 200px; border-radius: 30px 30px 0 0; }
+.modal-art { height: 14px; border-radius: 30px 30px 0 0; }
 .modal-body { padding: 30px clamp(24px, 5vw, 44px) 40px; }
 .modal-body h3 { font-size: clamp(1.6rem, 4vw, 2.2rem); margin-bottom: 12px; }
 .modal-desc { color: var(--ink-soft); line-height: 1.7; }
@@ -805,6 +832,7 @@ main { position: relative; z-index: 2; }
 
 @media (max-width: 680px) {
   .topbar { flex-direction: column; gap: 8px; padding-bottom: 10px; }
+  .topnav { flex-wrap: wrap; justify-content: center; }
   .panel { padding-top: 140px; }
   .studio { padding-top: 150px; }
   .bottle-row { gap: 14px; }

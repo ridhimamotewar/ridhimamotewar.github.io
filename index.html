@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Outfit:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%92%85%3C/text%3E%3C/svg%3E" />
-<link rel="stylesheet" href="styles.css?v=7" />
+<link rel="stylesheet" href="styles.css?v=8" />
 </head>
 <body>
 
@@ -27,6 +27,7 @@
     <button data-goto="projects">Projects</button>
     <button data-goto="leadership">Leadership</button>
     <button data-goto="creativity">Creativity</button>
+    <button data-goto="awards">Awards</button>
     <button data-goto="contact" class="nav-cta">Contact</button>
   </nav>
 </header>
@@ -80,6 +81,14 @@
         <span class="glass" aria-hidden="true">
           <span class="liquid"></span><span class="shimmer"></span><span class="shine"></span>
           <span class="bottle-label">Creativity</span>
+        </span>
+      </button>
+
+      <button class="bottle" data-goto="awards" aria-label="Open Awards section" style="--polish:#7fb6d9; --polish-deep:#4a86ad; --polish-lite:#c8e4f5;">
+        <span class="cap" aria-hidden="true"><span class="cap-body"></span><span class="brush-stem"></span></span>
+        <span class="glass" aria-hidden="true">
+          <span class="liquid"></span><span class="shimmer"></span><span class="shine"></span>
+          <span class="bottle-label">Awards</span>
         </span>
       </button>
 
@@ -182,49 +191,122 @@
     <p class="eyebrow">Shade № 03 · Velvet Plum</p>
     <h2 class="panel-title">Leadership</h2>
     <p class="panel-lede">Steady hands paint clean lines. Roles where I've set direction and brought people along.</p>
+    <p class="section-sub">Tap a role to see the full story.</p>
     <div class="lead-grid">
-      <article class="lead-card">
-        <span class="lead-badge">2025 — present</span>
-        <h3>Vice President, Product Space @ Penn</h3>
-        <p>Instruct a cohort of 18 Product Fellows in product strategy, user research, and MVP scoping — and spearheaded Penn's first school-wide Product-A-Thon, from startup partners to judging.</p>
+
+      <article class="lead-card expandable">
+        <button class="lead-toggle" aria-expanded="false">
+          <span class="lead-badge">2025 — present</span>
+          <span class="lead-title">Vice President, Product Space @ Penn</span>
+          <span class="lead-summary">Penn's product community — teaching fellows, consulting for startups, running competitions.</span>
+          <span class="lead-chevron" aria-hidden="true">▾</span>
+        </button>
+        <div class="lead-more">
+          <div>
+            <ul>
+              <li>Instruct a cohort of 18 Product Fellows in product strategy, user research, and MVP scoping</li>
+              <li>Consulted for RISE Data Labs: built an evaluation framework for agentic shopping models — scoring actionability, accuracy, and personalization across frontier LLMs from OpenAI, Anthropic, Google, and xAI</li>
+              <li>Spearheaded Penn's first school-wide Product-A-Thon: recruited startup partners, secured participants, and judged teams</li>
+            </ul>
+          </div>
+        </div>
       </article>
-      <article class="lead-card">
-        <span class="lead-badge">2025 — present</span>
-        <h3>Officer, Volunteer Income Tax Association @ Penn</h3>
-        <p>Prepare federal and state returns for low-income Philadelphia residents on CPA-supervised teams — $3M in refunds delivered as a club across 100+ households.</p>
+
+      <article class="lead-card expandable">
+        <button class="lead-toggle" aria-expanded="false">
+          <span class="lead-badge">2025 — present</span>
+          <span class="lead-title">Officer, Volunteer Income Tax Association @ Penn</span>
+          <span class="lead-summary">Free, CPA-supervised tax prep for underserved Philadelphia residents.</span>
+          <span class="lead-chevron" aria-hidden="true">▾</span>
+        </button>
+        <div class="lead-more">
+          <div>
+            <ul>
+              <li>Prepare and file advanced federal and state returns for low-income households</li>
+              <li>$3M in refunds delivered as a club across 100+ households, with credit optimization under IRS guidelines</li>
+              <li>Work on CPA-supervised teams built for IRS accuracy and audit readiness</li>
+            </ul>
+          </div>
+        </div>
       </article>
-      <article class="lead-card">
-        <span class="lead-badge">2020 — present</span>
-        <h3>Co-founder, Lunar Llamas (501c3)</h3>
-        <p>Lead a nonprofit bringing patent-pending hygiene units to the unhoused: $14.6K raised, 11 community drives, and hygiene essentials for 800+ people across 17 California cities.</p>
+
+      <article class="lead-card expandable">
+        <button class="lead-toggle" aria-expanded="false">
+          <span class="lead-badge">2020 — present</span>
+          <span class="lead-title">Co-founder, Lunar Llamas (501c3)</span>
+          <span class="lead-summary">A nonprofit bringing hygiene access to the unhoused, founded at 14.</span>
+          <span class="lead-chevron" aria-hidden="true">▾</span>
+        </button>
+        <div class="lead-more">
+          <div>
+            <ul>
+              <li>Designed patent-pending, portable, self-cleaning hygiene units — led product end to end, from CAD prototyping to regulatory approvals across 17 California cities</li>
+              <li>Raised $10.5K through fundraisers plus $4.1K via donations and partnerships with LavaMae and Good2Go</li>
+              <li>Organized 11 community drives distributing hygiene essentials to 800+ underprivileged individuals</li>
+            </ul>
+          </div>
+        </div>
       </article>
-      <article class="lead-card">
-        <span class="lead-badge">2025 — present</span>
-        <h3>Engineer, Penn Hyperloop</h3>
-        <p>Build with Penn's Hyperloop team on work for The Boring Company — carrying CAD and fabrication instincts from FIRST Robotics into full-scale tunneling and transit tech.</p>
+
+      <article class="lead-card expandable">
+        <button class="lead-toggle" aria-expanded="false">
+          <span class="lead-badge">2025 — present</span>
+          <span class="lead-title">Engineer, Penn Hyperloop</span>
+          <span class="lead-summary">Student engineering for The Boring Company.</span>
+          <span class="lead-chevron" aria-hidden="true">▾</span>
+        </button>
+        <div class="lead-more">
+          <div>
+            <ul>
+              <li>CAD and fabrication work on Penn's entry for The Boring Company's tunneling competition</li>
+              <li>2nd place at the TBC competition</li>
+              <li>Brings four years of FIRST Robotics build discipline to full-scale hardware</li>
+            </ul>
+          </div>
+        </div>
       </article>
-      <article class="lead-card">
-        <span class="lead-badge">2025 — present</span>
-        <h3>Girls into VC</h3>
-        <p>Part of a community championing women in venture capital — startup analysis, sourcing, and investment discussions alongside aspiring investors across Penn.</p>
+
+      <article class="lead-card expandable">
+        <button class="lead-toggle" aria-expanded="false">
+          <span class="lead-badge">2025 — present</span>
+          <span class="lead-title">Girls into VC</span>
+          <span class="lead-summary">Championing women in venture capital.</span>
+          <span class="lead-chevron" aria-hidden="true">▾</span>
+        </button>
+        <div class="lead-more">
+          <div>
+            <ul>
+              <li>Startup analysis and sourcing practice alongside aspiring investors across Penn</li>
+              <li>Part of a community working to close VC's gender gap, one investment memo at a time</li>
+            </ul>
+          </div>
+        </div>
       </article>
-      <article class="lead-card">
-        <span class="lead-badge">2021 — 2025</span>
-        <h3>Captain, FIRST Robotics</h3>
-        <p>Secured $10K in grants from NASA, Google, and Intuitive; tripled the team's social following through weekly content and SEO.</p>
+
+      <article class="lead-card expandable">
+        <button class="lead-toggle" aria-expanded="false">
+          <span class="lead-badge">2021 — 2025</span>
+          <span class="lead-title">Captain, FIRST Robotics</span>
+          <span class="lead-summary">Led the build — and the brand.</span>
+          <span class="lead-chevron" aria-hidden="true">▾</span>
+        </button>
+        <div class="lead-more">
+          <div>
+            <ul>
+              <li>Secured $10K in grants and sponsorships from NASA, Google, Intuitive, and more through strategic outreach</li>
+              <li>Tripled social follower count and doubled engagement through SEO and weekly marketing content</li>
+              <li>Captained design and fabrication across four competition seasons</li>
+            </ul>
+          </div>
+        </div>
       </article>
+
     </div>
     <h3 class="mini-heading">Also on campus</h3>
     <ul class="skill-swatches">
       <li style="--polish:#d9b36c">BlackRock at Wharton</li>
       <li style="--polish:#e8899f">M&amp;T Board</li>
       <li style="--polish:#8d5a8f">Joseph Wharton Scholar</li>
-    </ul>
-    <h3 class="mini-heading">Case competition shelf</h3>
-    <ul class="skill-swatches">
-      <li style="--polish:#d9b36c">Winner · Wharton Public Policy Competition</li>
-      <li style="--polish:#b3a3dd">Finalist · National McKinsey Case Competition</li>
-      <li style="--polish:#7fb6d9">Finalist · Accenture Case Competition</li>
     </ul>
   </div>
 </section>
@@ -289,11 +371,58 @@
   </div>
 </section>
 
+<!-- ========== AWARDS ========== -->
+<section id="awards" class="panel" aria-hidden="true">
+  <div class="panel-inner">
+    <button class="back-btn" data-goto="studio">← Back to the studio</button>
+    <p class="eyebrow">Shade № 05 · Chrome Horizon</p>
+    <h2 class="panel-title">The Trophy Shelf</h2>
+    <p class="panel-lede">Competitions across engineering, business, and everything in between.</p>
+    <div class="lead-grid">
+      <article class="lead-card">
+        <span class="lead-badge">2nd Place</span>
+        <h3>The Boring Company Competition</h3>
+        <p>With Penn Hyperloop at TBC's tunneling competition — student engineering measured against teams from around the world.</p>
+      </article>
+      <article class="lead-card">
+        <span class="lead-badge">Track Winner</span>
+        <h3>Anthropic Hackathon · 2025</h3>
+        <p>Ode — eye-driven, AI-voiced presentations for speakers with Cerebral Palsy and ALS, built in a weekend.</p>
+      </article>
+      <article class="lead-card">
+        <span class="lead-badge">Winner</span>
+        <h3>Wharton Public Policy Competition · 2025</h3>
+        <p>Pitched TEACHPhilly, a teacher-retention program for Philadelphia schools.</p>
+      </article>
+      <article class="lead-card">
+        <span class="lead-badge">5th Worldwide</span>
+        <h3>DECA International (ICDC)</h3>
+        <p>Top five globally in DECA's business competition — while co-presiding over her chapter.</p>
+      </article>
+      <article class="lead-card">
+        <span class="lead-badge">Top 3 Finalist</span>
+        <h3>Congressional App Challenge · 2024</h3>
+        <p>Echo Eyes, the accessibility app later approved by 20+ schools for the blind.</p>
+      </article>
+      <article class="lead-card">
+        <span class="lead-badge">Finalist</span>
+        <h3>National McKinsey Case Competition · 2025</h3>
+        <p>Built the MVP for EduFuture, a platform connecting students and parents.</p>
+      </article>
+      <article class="lead-card">
+        <span class="lead-badge">Finalist</span>
+        <h3>Accenture Case Competition · 2025</h3>
+        <p>An AI adoption strategy to raise profitability at Paramount.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
 <!-- ========== CONTACT ========== -->
 <section id="contact" class="panel" aria-hidden="true">
   <div class="panel-inner">
     <button class="back-btn" data-goto="studio">← Back to the studio</button>
-    <p class="eyebrow">Shade № 05 · Lilac Hour</p>
+    <p class="eyebrow">Shade № 06 · Lilac Hour</p>
     <h2 class="panel-title">Book an Appointment</h2>
     <p class="panel-lede">The studio door is always open — for roles, collaborations, or just to talk shop.</p>
     <div class="contact-cards">
@@ -319,8 +448,18 @@
 </main>
 
 <!-- ========== PAINT TRANSITION OVERLAY ========== -->
-<!-- individual brush strokes are built by script.js -->
-<div id="paint-overlay" aria-hidden="true"></div>
+<div id="paint-overlay" aria-hidden="true">
+  <div class="paint-swath">
+    <svg class="swath-edge" viewBox="0 0 120 800" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 0 H38 C70 40 24 90 58 140 C92 190 30 240 66 300 C98 350 26 410 60 470 C94 530 32 590 64 650 C90 700 40 750 52 800 H0 Z"/>
+    </svg>
+    <svg class="paint-brush" viewBox="0 0 60 200" aria-hidden="true">
+      <rect x="22" y="0" width="16" height="90" rx="8" class="brush-handle"/>
+      <rect x="19" y="86" width="22" height="18" rx="4" class="brush-ferrule"/>
+      <path d="M20 102 C18 140 24 168 30 178 C36 168 42 140 40 102 Z" class="brush-bristles"/>
+    </svg>
+  </div>
+</div>
 
 <!-- ========== PROJECT MODAL ========== -->
 <div id="project-modal" class="modal-backdrop" hidden>
@@ -384,6 +523,6 @@
   <p class="footer-meta">// engineered by hand: HTML · CSS · JS — no frameworks, no build step</p>
 </footer>
 
-<script src="script.js?v=7"></script>
+<script src="script.js?v=8"></script>
 </body>
 </html>

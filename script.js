@@ -10,7 +10,7 @@ const SITE_CONTENT = {
   projects: [
     {
       id: "coreweave-agents",
-      shade: "Shade 01 · Liquid Chrome",
+      tag: "CoreWeave · Summer 2026",
       title: "CoreWeave FP&A Agent Suite",
       teaser: "Three AI agents that gave CoreWeave's financial analysts two weeks back.",
       description:
@@ -36,11 +36,11 @@ const SITE_CONTENT = {
           { t: "Analyst review", s: "Human approves the draft" },
         ],
       },
-      art: { base: "#dfe3ea", accent: "#8fa3b8", style: "chrome" },
+      accent: "#8fa3b8",
     },
     {
       id: "ode",
-      shade: "Shade 02 · Holo Voice",
+      tag: "Anthropic Hackathon · 2025",
       title: "Ode",
       teaser: "Eye-driven presentations for speakers with Cerebral Palsy and ALS — Anthropic Hackathon track winner.",
       description:
@@ -66,11 +66,11 @@ const SITE_CONTENT = {
           { t: "AI speech", s: "Generated & spoken aloud" },
         ],
       },
-      art: { base: "#e6e3f5", accent: "#b3a3dd", style: "holo" },
+      accent: "#b3a3dd",
     },
     {
       id: "echo-eyes",
-      shade: "Shade 03 · Clear Sight",
+      tag: "Congressional App Challenge · 2024",
       title: "Echo Eyes",
       teaser: "A mobile companion for the visually impaired — Congressional App Challenge Top 3.",
       description:
@@ -96,11 +96,11 @@ const SITE_CONTENT = {
           { t: "Spoken aloud", s: "Screen never needed" },
         ],
       },
-      art: { base: "#f6ede6", accent: "#d9b36c", style: "french" },
+      accent: "#d9b36c",
     },
     {
       id: "lunar-llamas",
-      shade: "Shade 04 · Pearl of Purpose",
+      tag: "501c3 · 2020 — Present",
       title: "Lunar Llamas",
       teaser: "A 501c3 with patent-pending hygiene units for the unhoused, live in 17 cities.",
       description:
@@ -124,78 +124,18 @@ const SITE_CONTENT = {
           caption: "The unit's floor plan and dimensions — wet side, dry side, and equipment bay.",
         },
       ],
-      art: { base: "#fdf6ec", accent: "#e3c98f", style: "pearl" },
-    },
-    {
-      id: "rise-evals",
-      shade: "Shade 05 · Velvet Benchmark",
-      title: "RISE Data Labs — Agentic Evals",
-      teaser: "A scoring framework for AI shopping agents, benchmarked across frontier LLMs.",
-      description:
-        "Consulting through Product Space @ Penn, I built an evaluation framework to assess agentic shopping models across actionability, accuracy, and personalization — then analyzed frontier LLMs from OpenAI, Anthropic, Google, and xAI with a scalable scoring system.",
-      tools: ["LLM evaluation", "Python", "Prompt engineering", "Product strategy"],
-      impact: [
-        "Scalable scoring system across three evaluation dimensions",
-        "Benchmarked four frontier model families head to head",
-        "Delivered as a working framework, not just a report",
-      ],
-      tech: [
-        "Three scoring dimensions, each with its own rubric: actionability (did the agent actually do the thing), accuracy (was it right), and personalization (did it account for this user).",
-        "The same task suite run across frontier models from OpenAI, Anthropic, Google, and xAI, so results are directly comparable rather than anecdotal.",
-        "Built to scale: adding a new model or a new task means adding a row, not rewriting the harness.",
-        "Delivered as a working evaluation framework the team could keep running — not a slide deck of one-off observations.",
-      ],
-      diagram: {
-        caption: "One task suite, four model families, three rubrics — scored the same way every time.",
-        steps: [
-          { t: "Task suite", s: "Shared shopping scenarios" },
-          { t: "Model runs", s: "OpenAI · Anthropic · Google · xAI" },
-          { t: "Rubric scoring", s: "Actionability · accuracy · personalization" },
-          { t: "Comparison", s: "Ranked, repeatable results" },
-        ],
-      },
-      art: { base: "#efe0ee", accent: "#8d5a8f", style: "velvet" },
-    },
-    {
-      id: "gerber-kawasaki",
-      shade: "Shade 06 · Gilded Portfolio",
-      title: "Gerber Kawasaki ML Framework",
-      teaser: "An ML-driven investment recommendation pitch, projecting 77.2% ROI.",
-      description:
-        "For Gerber Kawasaki Wealth and Investment Management, I pitched an ML-driven recommendation framework to automate new-client investment recommendations using historical portfolio performance data — designing the model architecture and an implementation roadmap for firm-wide adoption.",
-      tools: ["Machine learning", "Python", "Portfolio analytics", "Pitching & roadmapping"],
-      impact: [
-        "Projected 77.2% ROI for firm-wide adoption",
-        "Full model architecture and implementation roadmap delivered",
-        "Automated a manual, high-stakes advisory workflow",
-      ],
-      tech: [
-        "Historical portfolio performance as the training signal — the firm's own track record, rather than generic market data, driving what gets recommended to a new client.",
-        "Full model architecture plus a phased implementation roadmap, so adoption could happen incrementally instead of as one risky cutover.",
-        "Designed to sit inside the advisor's existing workflow: the model ranks and suggests, the advisor still decides.",
-        "Projected 77.2% ROI on firm-wide adoption.",
-      ],
-      diagram: {
-        caption: "Turning the firm's own track record into a starting point for every new client.",
-        steps: [
-          { t: "Historical portfolios", s: "Past performance data" },
-          { t: "Feature modeling", s: "What drove returns" },
-          { t: "Recommendation", s: "Ranked allocations" },
-          { t: "Advisor decides", s: "Model suggests, human signs off" },
-        ],
-      },
-      art: { base: "#fbe9ef", accent: "#e8899f", style: "floral" },
+      accent: "#e3c98f",
     },
     {
       id: "penn-hyperloop",
-      shade: "Shade 07 · Tunnel Ombré",
+      tag: "Penn Hyperloop × TBC",
       title: "Penn Hyperloop × The Boring Company",
       teaser: "Student engineering on real work for The Boring Company.",
       description:
         "As part of Penn Hyperloop, I contribute to the student team's engineering work for The Boring Company — applying the CAD, prototyping, and build discipline honed as a FIRST Robotics captain to full-scale tunneling and transit technology.",
       tools: ["CAD", "Engineering design", "Prototyping", "Cross-functional teamwork"],
       impact: [
-        "Hands-on work supporting The Boring Company",
+        "2nd place at The Boring Company's competition",
         "One of Penn's flagship student engineering teams",
         "Robotics-honed fabrication instincts at real-world scale",
       ],
@@ -204,17 +144,33 @@ const SITE_CONTENT = {
         "The same loop carried over from four years of FIRST Robotics: model it in CAD, machine it, test it, find where it fails, revise the model.",
         "Hands-on shop work — the parts get made, not just drawn.",
       ],
+      accent: "#5b7a94",
+    },
+    {
+      id: "dankmeyer",
+      tag: "Prosthetics & Orthotics",
+      title: "Dankmeyer Prosthetics & Orthotics",
+      teaser: "Hands-on work where engineering meets the human body.",
+      description:
+        "Time on the bench at Dankmeyer, a prosthetics and orthotics practice — working hands-on with the devices patients wear every day and seeing how clinicians measure, fit, and tune them. It reframed engineering for me: tolerances stop being abstract when a millimeter changes how someone walks.",
+      tools: ["Prosthetics & orthotics", "Fabrication", "Patient-centered design"],
+      impact: [
+        "Real devices for real patients — not classroom prototypes",
+        "Grounded CAD and fabrication skills in clinical constraints",
+        "Deepened the accessibility thread that runs through Ode and Echo Eyes",
+      ],
+      tech: [
+        "Hands-on fabrication and finishing work on prosthetic and orthotic devices.",
+        "Exposure to the full patient pipeline: measurement, fitting, alignment, and adjustment.",
+        "Materials chosen per patient, not per spec sheet — foams, laminates, and componentry matched to a real person's life.",
+      ],
       media: [
         {
-          img: "assets/projects/robotics-cad.png",
-          caption: "CAD assembly from her FIRST Robotics builds — the design discipline she brings to Hyperloop.",
-        },
-        {
-          img: "assets/projects/shop-fabrication.jpg",
-          caption: "In the shop, machining a part.",
+          img: "assets/projects/dankmeyer-foot.jpg",
+          caption: "At the bench, working on a prosthetic foot.",
         },
       ],
-      art: { base: "#dce4ec", accent: "#5b7a94", style: "ombre" },
+      accent: "#7fb0a9",
     },
   ],
 
@@ -258,9 +214,9 @@ const SITE_CONTENT = {
           "She's at the University of Pennsylvania in the Jerome Fisher Program in Management & Technology (M&T) — just 50 students selected worldwide. Dual degree: B.S.E. in Computer Science at Penn Engineering plus a B.S. in Economics with a finance concentration at Wharton, Class of 2029, and she's a Joseph Wharton Scholar. Before Penn she was salutatorian at Quarry Lane School with a 4.74 GPA. 🎓",
       },
       {
-        keys: ["project", "work", "portfolio", "built", "case study", "gallery", "app", "ode", "echo", "lunar", "rise", "gerber"],
+        keys: ["project", "work", "portfolio", "built", "case study", "gallery", "app", "ode", "echo", "lunar", "dankmeyer", "prosthetic"],
         reply:
-          "Six signature designs in the gallery: the CoreWeave FP&A Agent Suite (3 agents, 2+ analyst-weeks saved), Ode (eye-driven speech — Anthropic Hackathon track winner), Echo Eyes (app for the visually impaired — Congressional App Challenge Top 3), Lunar Llamas (patent-pending hygiene units for the unhoused), RISE Data Labs agentic evals, and an ML framework for Gerber Kawasaki projecting 77.2% ROI. Tap the gold Projects bottle! 💅",
+          "Six pieces in the gallery: the CoreWeave FP&A Agent Suite (3 agents, 2+ analyst-weeks saved), Ode (eye-driven speech — Anthropic Hackathon track winner), Echo Eyes (app for the visually impaired — Congressional App Challenge Top 3), Lunar Llamas (patent-pending hygiene units for the unhoused), Penn Hyperloop's work for The Boring Company, and hands-on prosthetics work at Dankmeyer. Tap the gold Projects bottle! 💅",
       },
       {
         keys: ["skill", "stack", "tech", "tools", "language", "code", "react", "python", "java", "ocaml", "figma"],
@@ -273,9 +229,9 @@ const SITE_CONTENT = {
           "On campus she's Vice President of Product Space @ Penn (teaching 18 Product Fellows, and she ran Penn's first Product-A-Thon), an officer with the Volunteer Income Tax Association ($3M in refunds delivered), an engineer with Penn Hyperloop doing work for The Boring Company, and part of Girls into VC and the M&T Board. She also co-founded Lunar Llamas, a 501c3 serving 800+ people, and captained a FIRST Robotics team that won $10K in grants from NASA and Google. 🖌️",
       },
       {
-        keys: ["award", "win", "won", "competition", "hackathon", "finalist", "prize", "achievement", "honor", "deca"],
+        keys: ["award", "win", "won", "competition", "hackathon", "finalist", "prize", "achievement", "honor", "deca", "trophy", "tbc"],
         reply:
-          "The trophy shelf: Track Winner at the Anthropic Hackathon (Ode), Top 3 Finalist in the Congressional App Challenge (Echo Eyes), Winner of the Wharton Undergraduate Public Policy Competition, Finalist in both the National McKinsey and Accenture case competitions, and 5th in the world at DECA's international competition. 🏆",
+          "The chrome-blue Awards bottle opens the full trophy shelf: 2nd place at The Boring Company's competition with Penn Hyperloop, Track Winner at the Anthropic Hackathon (Ode), Winner of the Wharton Public Policy Competition, 5th worldwide at DECA's ICDC, Top 3 in the Congressional App Challenge, and Finalist in both the McKinsey and Accenture case competitions. 🏆",
       },
       {
         keys: ["innovation", "patent", "experiment", "ai agent", "timeline", "journey", "story so far"],
@@ -317,34 +273,9 @@ const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 /* ═══════════ SECTION NAVIGATION + PAINT TRANSITION ═══════════ */
 const overlay = $("#paint-overlay");
+const swath = $(".paint-swath");
 let transitioning = false;
 let targetPanel = null;
-
-/* Build the brush strokes once: stacked bands inside a tilted wrap (so they run
-   diagonally across the screen), each clipped with its own irregular bristle edge.
-   Odd strokes travel the opposite way — a brush working back and forth. */
-const STROKE_COUNT = 6;
-const strokes = [];
-(function buildStrokes() {
-  const rand = (a, b) => a + Math.random() * (b - a);
-  const wrap = document.createElement("div");
-  wrap.className = "stroke-wrap";
-  overlay.appendChild(wrap);
-  for (let i = 0; i < STROKE_COUNT; i++) {
-    const s = document.createElement("div");
-    s.className = "stroke";
-    s.style.top = `${(i * 100) / STROKE_COUNT}%`;
-    s.style.height = `${100 / STROKE_COUNT + 0.7}%`;
-    s.dataset.dir = i % 2 ? "-1" : "1"; // alternate stroke direction
-    const pts = [];
-    const N = 8;
-    for (let j = 0; j <= N; j++) pts.push(`${rand(93.5, 99.6).toFixed(2)}% ${((j / N) * 100).toFixed(2)}%`);
-    for (let j = N; j >= 0; j--) pts.push(`${rand(0.4, 6.5).toFixed(2)}% ${((j / N) * 100).toFixed(2)}%`);
-    s.style.clipPath = `polygon(${pts.join(",")})`;
-    wrap.appendChild(s);
-    strokes.push(s);
-  }
-})();
 
 function showPanel(id) {
   $$(".panel").forEach((p) => {
@@ -363,43 +294,36 @@ function paintTransition(id, color) {
   if (transitioning) return;
   transitioning = true;
   overlay.style.setProperty("--swath-color", color);
+  swath.style.setProperty("--swath-color", color);
   overlay.classList.add("painting");
-
-  // Stagger the strokes so the screen is painted band by band, not flooded.
-  // phase "in": each stroke enters from its own side and stops covering the band.
-  // phase "out": it keeps travelling the same way, pulling the paint off.
-  const sweep = (phase, onLastDone) => {
-    strokes.forEach((s, i) => {
-      const dir = Number(s.dataset.dir);
-      const from = phase === "in" ? `${-116 * dir}%` : "0%";
-      const to = phase === "in" ? "0%" : `${116 * dir}%`;
-      const anim = s.animate(
-        [{ transform: `translateX(${from})` }, { transform: `translateX(${to})` }],
-        { duration: 470, delay: i * 62, easing: "cubic-bezier(0.55, 0.08, 0.28, 1)", fill: "forwards" }
-      );
-      if (i === strokes.length - 1) anim.onfinish = onLastDone;
-    });
-  };
 
   let covered = false, done = false;
   const cover = () => {
     if (covered) return;
     covered = true;
     showPanel(targetPanel);
-    setTimeout(() => sweep("out", finish), 100);
-    setTimeout(finish, 1900); // watchdog: complete even if animations are paused (hidden tab)
+    const sweepOut = swath.animate(
+      [{ transform: "translateX(0%)" }, { transform: "translateX(115%)" }],
+      { duration: 620, easing: "cubic-bezier(0.6, 0, 0.35, 1)", fill: "forwards", delay: 120 }
+    );
+    sweepOut.onfinish = finish;
+    setTimeout(finish, 1800); // watchdog: complete even if animations are paused (hidden tab)
   };
   const finish = () => {
     if (done) return;
     done = true;
     overlay.classList.remove("painting");
     transitioning = false;
-    // a navigation that arrived after the strokes had already passed still lands
+    // a navigation that arrived after the swath had already passed still lands
     if (targetPanel !== activePanelId()) showPanel(targetPanel);
   };
 
-  sweep("in", cover);
-  setTimeout(cover, 1500); // watchdog
+  const sweepIn = swath.animate(
+    [{ transform: "translateX(-130%)" }, { transform: "translateX(0%)" }],
+    { duration: 620, easing: "cubic-bezier(0.6, 0, 0.3, 1)", fill: "forwards" }
+  );
+  sweepIn.onfinish = cover;
+  setTimeout(cover, 1400); // watchdog
 }
 
 function goTo(id, sourceBottle) {
@@ -601,27 +525,12 @@ $$(".reveal-nail").forEach((fig) => {
 /* ═══════════ PROJECT GALLERY ═══════════ */
 const gallery = $("#project-gallery");
 
-const NAIL_ART_STYLES = {
-  french: (b, a) => `linear-gradient(180deg, ${a} 0%, ${a} 22%, ${b} 24%, ${b} 100%)`,
-  chrome: (b, a) => `linear-gradient(135deg, #fff 0%, ${a} 30%, ${b} 50%, ${a} 68%, #f5f7fa 100%)`,
-  floral: (b, a) =>
-    `radial-gradient(9px 9px at 30% 30%, ${a} 45%, transparent 50%), radial-gradient(7px 7px at 62% 52%, ${a} 45%, transparent 50%), radial-gradient(8px 8px at 40% 74%, ${a} 45%, transparent 50%), radial-gradient(5px 5px at 72% 24%, ${a} 45%, transparent 50%), linear-gradient(170deg, ${b}, ${b})`,
-  holo: (b, a) => `linear-gradient(120deg, #ffd6e8 0%, ${a} 25%, #c8e4f5 50%, ${a} 75%, #ffe9c8 100%)`,
-  velvet: (b, a) => `radial-gradient(circle at 35% 25%, ${b} 0%, ${a} 75%)`,
-  pearl: (b, a) => `radial-gradient(circle at 32% 26%, #fff 0%, ${b} 45%, ${a} 100%)`,
-  ombre: (b, a) => `linear-gradient(180deg, ${b} 0%, ${a} 78%, color-mix(in srgb, ${a} 70%, #000) 100%)`,
-};
-
 SITE_CONTENT.projects.forEach((p) => {
-  const bg = NAIL_ART_STYLES[p.art.style](p.art.base, p.art.accent);
   const card = document.createElement("button");
   card.className = "nail-card";
   card.setAttribute("aria-haspopup", "dialog");
   card.innerHTML = `
-    <span class="card-top">
-      <span class="card-shade">${p.shade}</span>
-      <span class="nail-chip" style="background:${bg.replace(/"/g, "&quot;")}"></span>
-    </span>
+    <span class="card-shade">${p.tag}</span>
     <span class="card-title">${p.title}</span>
     <span class="card-teaser">${p.teaser}</span>
     <span class="card-cta">Read the case study</span>`;
@@ -662,7 +571,7 @@ function diagramHTML(d, accent) {
 }
 
 function mediaHTML(p) {
-  let html = p.diagram ? diagramHTML(p.diagram, p.art.accent) : "";
+  let html = p.diagram ? diagramHTML(p.diagram, p.accent) : "";
   (p.media || []).forEach((m) => {
     html += `<figure class="tech-shot">
       <img src="${m.img}" alt="${m.caption}" loading="lazy" />
@@ -674,8 +583,8 @@ function mediaHTML(p) {
 
 function openModal(p) {
   lastFocus = document.activeElement;
-  $(".modal-art", modal).style.background = NAIL_ART_STYLES[p.art.style](p.art.base, p.art.accent);
-  $(".modal-shade", modal).textContent = p.shade;
+  $(".modal-art", modal).style.background = p.accent;
+  $(".modal-shade", modal).textContent = p.tag;
   $("#modal-title").textContent = p.title;
   $(".modal-desc", modal).textContent = p.description;
   $(".modal-media", modal).innerHTML = mediaHTML(p);
@@ -699,6 +608,15 @@ function closeModal() {
 $(".modal-close", modal).addEventListener("click", closeModal);
 modalBackdrop.addEventListener("click", (e) => { if (e.target === modalBackdrop) closeModal(); });
 addEventListener("keydown", (e) => { if (e.key === "Escape" && !modalBackdrop.hidden) closeModal(); });
+
+/* ═══════════ EXPANDABLE LEADERSHIP CARDS ═══════════ */
+$$(".lead-toggle").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const card = btn.closest(".lead-card");
+    const open = card.classList.toggle("open");
+    btn.setAttribute("aria-expanded", String(open));
+  });
+});
 
 /* ═══════════ NAIL ART GALLERY + LIGHTBOX ═══════════ */
 const nailGallery = $("#nail-gallery");
