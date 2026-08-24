@@ -758,6 +758,11 @@ addEventListener("keydown", (e) => {
 });
 
 /* ═══════════ CHATBOT ═══════════ */
+/* Real AI mode: paste your Cloudflare Worker URL here (see cloudflare-worker/README.md).
+   Left empty, the chat uses the built-in scripted answers instead — and if the
+   Worker ever errors, it silently falls back to them too. */
+const CHAT_API_URL = "";
+
 const fab = $("#chat-fab");
 const chatPanel = $("#chat-panel");
 const chatMessages = $("#chat-messages");
@@ -765,6 +770,7 @@ const chatChips = $("#chat-chips");
 const chatForm = $("#chat-form");
 const chatInput = $("#chat-input");
 let chatStarted = false;
+const chatHistory = []; // {role, content} turns sent to the real AI for context
 
 function addMsg(text, who) {
   const div = document.createElement("div");
@@ -775,19 +781,25 @@ function addMsg(text, who) {
   return div;
 }
 
-function botReply(text) {
+function showTyping() {
   const typing = document.createElement("div");
   typing.className = "msg bot typing";
   typing.innerHTML = "<i></i><i></i><i></i>";
   chatMessages.appendChild(typing);
   chatMessages.scrollTop = chatMessages.scrollHeight;
+  return typing;
+}
+
+function botReply(text) {
+  const typing = showTyping();
   setTimeout(() => {
     typing.remove();
     addMsg(text, "bot");
+    chatHistory.push({ role: "assistant", content: text });
   }, 500 + Math.min(900, text.length * 6));
 }
 
-function answer(q) {
+function scriptedAnswer(q) {
   const text = q.toLowerCase();
   let best = null, bestScore = 0;
   for (const intent of SITE_CONTENT.bot.intents) {
@@ -795,6 +807,30 @@ function answer(q) {
     if (score > bestScore) { bestScore = score; best = intent; }
   }
   botReply(best ? best.reply : SITE_CONTENT.bot.fallback);
+}
+
+async function answer(q) {
+  chatHistory.push({ role: "user", content: q });
+  if (!CHAT_API_URL) return scriptedAnswer(q);
+
+  const typing = showTyping();
+  try {
+    const res = await fetch(CHAT_API_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ messages: chatHistory.slice(-12) }),
+    });
+    const data = await res.json();
+    typing.remove();
+    if (res.ok && data.reply) {
+      addMsg(data.reply, "bot");
+      chatHistory.push({ role: "assistant", content: data.reply });
+      return;
+    }
+  } catch (e) {
+    typing.remove();
+  }
+  scriptedAnswer(q); // Worker unavailable — degrade gracefully
 }
 
 function renderChips() {
