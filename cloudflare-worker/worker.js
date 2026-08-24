@@ -1,9 +1,10 @@
 /**
  * Nail Artist AI — Cloudflare Worker proxy
  *
- * Sits between the portfolio site and the Anthropic API so the API key
- * never appears in public site code. Deploy on Cloudflare Workers (free
- * tier) and set the secret ANTHROPIC_API_KEY. See README.md for steps.
+ * Sits between the portfolio site and Groq's free API so the API key never
+ * appears in public site code. Deploy on Cloudflare Workers (free tier) and
+ * set the secret GROQ_API_KEY. See README.md for steps. Groq's free tier
+ * needs no credit card — Llama 3.3 70B is fast and strong for this job.
  */
 
 const ALLOWED_ORIGINS = [
@@ -12,8 +13,8 @@ const ALLOWED_ORIGINS = [
   "http://127.0.0.1:8321",
 ];
 
-const MODEL = "claude-haiku-4-5-20251001";
-const MAX_TOKENS = 400; // keeps replies concise and the bill tiny
+const MODEL = "llama-3.3-70b-versatile";
+const MAX_TOKENS = 400; // keeps replies concise and comfortably inside free-tier limits
 const MAX_HISTORY = 12; // turns of context sent per request
 const MAX_MSG_CHARS = 1000;
 
@@ -118,28 +119,25 @@ export default {
       return json({ error: "no user message" }, 400, cors);
     }
 
-    const upstream = await fetch("https://api.anthropic.com/v1/messages", {
+    // Groq's API is OpenAI-compatible: system prompt is just the first message,
+    // and max_tokens/response shape follow the OpenAI chat-completions format.
+    const upstream = await fetch("https://api.groq.com/openai/v1/chat/completions", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "x-api-key": env.ANTHROPIC_API_KEY,
-        "anthropic-version": "2023-06-01",
+        Authorization: `Bearer ${env.GROQ_API_KEY}`,
       },
       body: JSON.stringify({
         model: MODEL,
         max_tokens: MAX_TOKENS,
-        system: SYSTEM_PROMPT,
-        messages,
+        messages: [{ role: "system", content: SYSTEM_PROMPT }, ...messages],
       }),
     });
 
     if (!upstream.ok) return json({ error: "upstream error" }, 502, cors);
 
     const data = await upstream.json();
-    const reply = (data.content || [])
-      .filter((b) => b.type === "text")
-      .map((b) => b.text)
-      .join("");
+    const reply = data.choices?.[0]?.message?.content || "";
 
     return json({ reply }, 200, cors);
   },
