@@ -252,7 +252,7 @@ const SITE_CONTENT = {
       {
         keys: ["award", "win", "won", "competition", "hackathon", "finalist", "prize", "achievement", "honor", "deca", "trophy", "tbc"],
         reply:
-          "The chrome-blue Awards bottle opens the full trophy shelf: 2nd place at The Boring Company's competition with Penn Hyperloop, Track Winner at the Anthropic Hackathon (Ode), Winner of the Wharton Public Policy Competition, 5th worldwide at DECA's ICDC, Top 3 in the Congressional App Challenge, and Finalist in both the McKinsey and Accenture case competitions. 🏆",
+          "The chrome-blue Awards bottle opens the full trophy shelf, ranked by prestige: Track Winner at the Anthropic Hackathon (Ode), Winner of the Wharton Public Policy Competition (TEACHPhilly), Finalist in the National McKinsey Case Competition (EduFuture), 2nd place at The Boring Company's competition with Penn Hyperloop, Finalist in the Accenture Case Competition, 5th worldwide at DECA's ICDC, and Top 3 in the Congressional App Challenge (Echo Eyes). 🏆",
       },
       {
         keys: ["innovation", "patent", "experiment", "ai agent", "timeline", "journey", "story so far"],

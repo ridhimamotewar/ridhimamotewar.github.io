@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Outfit:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%92%85%3C/text%3E%3C/svg%3E" />
-<link rel="stylesheet" href="styles.css?v=14" />
+<link rel="stylesheet" href="styles.css?v=15" />
 </head>
 <body>
 
@@ -419,78 +419,45 @@
     <button class="back-btn" data-goto="studio">← Back to the studio</button>
     <p class="eyebrow">Shade № 05 · Chrome Horizon</p>
     <h2 class="panel-title">The Trophy Shelf</h2>
-    <p class="panel-lede">Competitions across engineering, business, and everything in between.</p>
+    <p class="panel-lede">The highlights — ranked, not dated.</p>
 
-    <div class="awards-list">
-      <p class="awards-tier-label">Wins</p>
-
-      <article class="award-row tier-win">
-        <span class="award-medal" aria-hidden="true">WIN</span>
-        <div class="award-body">
-          <span class="award-eyebrow">Anthropic Hackathon · 2025</span>
-          <h3>Track Winner</h3>
-          <p>Ode — eye-driven, AI-voiced presentations for speakers with Cerebral Palsy and ALS, built in a weekend.</p>
-        </div>
-      </article>
-
-      <article class="award-row tier-win">
-        <span class="award-medal" aria-hidden="true">WIN</span>
-        <div class="award-body">
-          <span class="award-eyebrow">Wharton Public Policy Competition · 2025</span>
-          <h3>Winner</h3>
-          <p>Pitched TEACHPhilly, a teacher-retention program for Philadelphia schools.</p>
-        </div>
-      </article>
-
-      <p class="awards-tier-label">Placements</p>
-
-      <article class="award-row tier-place">
-        <span class="award-medal" aria-hidden="true">2ND</span>
-        <div class="award-body">
-          <span class="award-eyebrow">The Boring Company Competition</span>
-          <h3>2nd Place</h3>
-          <p>With Penn Hyperloop at TBC's international tunneling competition — student engineering measured against teams from around the world.</p>
-        </div>
-      </article>
-
-      <article class="award-row tier-place">
-        <span class="award-medal" aria-hidden="true">5TH</span>
-        <div class="award-body">
-          <span class="award-eyebrow">DECA International (ICDC)</span>
-          <h3>5th Worldwide</h3>
-          <p>Top five globally in DECA's business competition — while co-presiding over her chapter.</p>
-        </div>
-      </article>
-
-      <article class="award-row tier-place">
-        <span class="award-medal" aria-hidden="true">TOP 3</span>
-        <div class="award-body">
-          <span class="award-eyebrow">Congressional App Challenge · 2024</span>
-          <h3>Top 3 Finalist</h3>
-          <p>Echo Eyes, the accessibility app later approved by 20+ schools for the blind.</p>
-        </div>
-      </article>
-
-      <p class="awards-tier-label">Finalist</p>
-
-      <article class="award-row tier-finalist">
-        <span class="award-medal" aria-hidden="true">FIN</span>
-        <div class="award-body">
-          <span class="award-eyebrow">National McKinsey Case Competition · 2025</span>
-          <h3>Finalist</h3>
-          <p>Built the MVP for EduFuture, a platform connecting students and parents.</p>
-        </div>
-      </article>
-
-      <article class="award-row tier-finalist">
-        <span class="award-medal" aria-hidden="true">FIN</span>
-        <div class="award-body">
-          <span class="award-eyebrow">Accenture Case Competition · 2025</span>
-          <h3>Finalist</h3>
-          <p>An AI adoption strategy to raise profitability at Paramount.</p>
-        </div>
-      </article>
-    </div>
+    <ol class="timeline">
+      <li>
+        <span class="timeline-year">Anthropic</span>
+        <h3>Ode — Hackathon Track Winner</h3>
+        <p>Eye-driven, AI-voiced presentations for speakers with Cerebral Palsy and ALS, built in a weekend.</p>
+      </li>
+      <li>
+        <span class="timeline-year">Wharton</span>
+        <h3>TEACHPhilly — Public Policy Competition Winner</h3>
+        <p>Pitched a teacher-retention program for Philadelphia schools.</p>
+      </li>
+      <li>
+        <span class="timeline-year">McKinsey</span>
+        <h3>EduFuture — National Case Competition Finalist</h3>
+        <p>Built the MVP for a platform connecting students and parents.</p>
+      </li>
+      <li>
+        <span class="timeline-year">The Boring Company</span>
+        <h3>Penn Hyperloop — 2nd Place</h3>
+        <p>Designed and fabricated the TBM muck chamber for the team's entry at TBC's international tunneling competition.</p>
+      </li>
+      <li>
+        <span class="timeline-year">Accenture</span>
+        <h3>Case Competition Finalist</h3>
+        <p>An AI adoption strategy to raise profitability at Paramount.</p>
+      </li>
+      <li>
+        <span class="timeline-year">DECA</span>
+        <h3>International (ICDC) — 5th Worldwide</h3>
+        <p>Top five globally in DECA's business competition, while co-presiding over her chapter.</p>
+      </li>
+      <li>
+        <span class="timeline-year">Congressional App Challenge</span>
+        <h3>Echo Eyes — Top 3</h3>
+        <p>The accessibility app later approved by 20+ schools for the blind.</p>
+      </li>
+    </ol>
   </div>
 </section>
 
@@ -602,6 +569,6 @@
   <p class="footer-meta">// engineered by hand: HTML · CSS · JS — no frameworks, no build step</p>
 </footer>
 
-<script src="script.js?v=13"></script>
+<script src="script.js?v=15"></script>
 </body>
 </html>
