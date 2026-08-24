@@ -438,7 +438,9 @@ main { position: relative; z-index: 2; }
 .nail-card:hover .card-cta::after { margin-left: 4px; }
 
 /* ══════════ LEADERSHIP ══════════ */
-.lead-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px; }
+/* align-items: start keeps each card sized to its own content — without it,
+   grid stretches every card in a row to match whichever one just expanded */
+.lead-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px; align-items: start; }
 .lead-card {
   position: relative;
   background: linear-gradient(160deg, #fdf9f5, #f7ecf3);
@@ -486,11 +488,13 @@ main { position: relative; z-index: 2; }
 .lead-toggle:focus-visible { outline: 2px solid var(--gold); outline-offset: -4px; border-radius: var(--radius-lg); }
 
 .lead-more {
-  display: grid; grid-template-rows: 0fr;
-  transition: grid-template-rows 0.45s var(--ease-lux);
+  /* max-height (not grid-template-rows: 0fr/1fr) — the fr-unit trick resolves
+     to a fixed px value once expanded and then fails to transition back down
+     on collapse in some engines. max-height reverses reliably every time. */
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.45s var(--ease-lux);
 }
-.lead-more > div { overflow: hidden; }
-.lead-card.open .lead-more { grid-template-rows: 1fr; }
+.lead-card.open .lead-more { max-height: 640px; }
 .lead-more ul {
   list-style: none; display: grid; gap: 10px;
   margin: 0 28px; padding: 18px 0 28px;
