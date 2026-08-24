@@ -89,6 +89,7 @@ const SITE_CONTENT = {
           { t: "AI speech", s: "Generated & spoken aloud" },
         ],
       },
+      embed: { type: "drive", id: "1hn0D2kM6BSYNvB0T1q5lcAXcAW1TPI28", title: "Ode demo — Anthropic Hackathon 2025" },
       accent: "#b3a3dd",
     },
     {
@@ -169,6 +170,17 @@ const SITE_CONTENT = {
         "Full ownership from CAD through the shop: modeled, fabricated, and integrated with the rest of the machine's systems.",
         "The same loop carried over from four years of FIRST Robotics: model it, machine it, test it, find where it fails, revise the model.",
       ],
+      media: [
+        {
+          img: "assets/projects/hyperloop-cad.png",
+          caption: "The muck chamber in CAD — 1'-7 3/4\" across, 1'-1 21/32\" tall.",
+        },
+        {
+          img: "assets/projects/hyperloop-component.jpg",
+          caption: "A fabricated fitting mounted inside the chamber, mid-build.",
+        },
+      ],
+      embed: { type: "drive", id: "16RV3mNmUOMDNa5rR-cWJJFGZHrajRPtS", title: "Penn Hyperloop muck chamber — build footage" },
       accent: "#5b7a94",
     },
     {
@@ -591,19 +603,21 @@ function diagramHTML(d, accent) {
   }</figure>`;
 }
 
-/* YouTube videos and Google Slides decks, embedded inline rather than linked out.
-   Note: a Slides embed only renders for visitors if the deck's sharing is set to
-   "Anyone with the link can view" — a Drive file shared only with specific people
-   will show a sign-in wall to the public. */
+/* YouTube videos, Google Slides decks, and raw Drive video files, embedded
+   inline rather than linked out. Note: a Slides/Drive embed only renders for
+   visitors if the file's sharing is set to "Anyone with the link can view" —
+   a Drive file shared only with specific people will show a sign-in wall
+   to the public. */
 function embedHTML(embed) {
   if (!embed) return "";
-  const src =
-    embed.type === "youtube"
-      ? `https://www.youtube-nocookie.com/embed/${embed.id}`
-      : `https://docs.google.com/presentation/d/${embed.id}/embed?start=false&loop=false&delayms=3000`;
+  const srcByType = {
+    youtube: `https://www.youtube-nocookie.com/embed/${embed.id}`,
+    slides: `https://docs.google.com/presentation/d/${embed.id}/embed?start=false&loop=false&delayms=3000`,
+    drive: `https://drive.google.com/file/d/${embed.id}/preview`,
+  };
   return `<figure class="tech-embed">
     <div class="embed-frame ${embed.type === "slides" ? "embed-slides" : ""}">
-      <iframe src="${src}" title="${embed.title || ""}" loading="lazy" allowfullscreen
+      <iframe src="${srcByType[embed.type]}" title="${embed.title || ""}" loading="lazy" allowfullscreen
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
     </div>
   </figure>`;
