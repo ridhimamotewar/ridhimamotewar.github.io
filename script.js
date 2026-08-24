@@ -14,7 +14,7 @@ const SITE_CONTENT = {
       title: "CoreWeave FP&A Agent Suite",
       teaser: "Three production agents for the FP&A team — one turns a 25-hour monthly review into five minutes.",
       description:
-        "As an FP&A intern at CoreWeave, I shipped three AI agents (built in Claude Code) that automated the finance team's most manual workflows. To get the logic right, I first ran the worst of them by hand: a full month-end PO compliance review that took five business days and still had errors. Then I encoded what I'd learned into deterministic, rules-based agents — so nothing is guessed or hallucinated.",
+        "As an FP&A intern at CoreWeave, I shipped three AI agents (built in Claude Code) that automated the finance team's most manual workflows. To get the logic right, I first ran the worst of them by hand: a full month-end PO compliance review that took five business days and still had errors. Then I encoded what I'd learned into a mix of deterministic rules and AI judgment — hard rules where the answer is black-and-white, AI where a human would otherwise have to eyeball it.",
       tools: ["Claude Code", "Python", "AI agents", "BRDs & decision trees", "FP&A workflows"],
       impact: [
         "PO compliance: 25 hours of monthly analyst work now runs in ~5 minutes",
@@ -22,17 +22,40 @@ const SITE_CONTENT = {
         "CIP dashboard tied out within 1% in its first month",
         "3+ business days returned to analysts every month, year after year",
       ],
-      tech: [
-        "Direct/Indirect Spend Routing Bot — classifying spend used to be manual and inconsistent, miscategorizing Capex vs. Opex. Now anyone types a description or uploads an invoice/PO. Built from a BRD with decision trees and classification logic, then phase-tested through FP&A → Procurement → finance & accounting → the whole company.",
-        "Policy Pilot (PO Compliance Agent) — pulls raw invoice data straight from enterprise data systems and runs it through deterministic rules, catching policy violations, duplicate POs, exhausted POs, and unlinked invoices. Outputs a headline overview, an eleven-tab analysis workbook, and a leadership-ready branded deck.",
-        "CIP Dashboard — Construction-in-Progress data in a live dashboard instead of a static, manually-updated spreadsheet, reusing the Policy Pilot pattern. Documented the pattern so any finance team can build their own.",
+      techGroups: [
+        {
+          h: "Direct/Indirect Spend Routing Bot",
+          items: [
+            "The problem: classifying spend as Capex vs. Opex was manual and inconsistent, and miscategorized spend threw off downstream reporting.",
+            "The input: anyone can type a plain-language description or upload an invoice/PO — no finance background required.",
+            "The logic: a BRD-driven decision tree handles the clear-cut rules, with AI classification layered in for the judgment calls a fixed rulebook can't cover.",
+            "The rollout: phase-tested through FP&A → Procurement → finance & accounting, then opened to the whole company.",
+          ],
+        },
+        {
+          h: "Policy Pilot (PO Compliance Agent)",
+          items: [
+            "The problem: a full month-end PO compliance review took an analyst 5 business days by hand — and still had errors.",
+            "The data: pulls raw invoice data straight from enterprise data systems for the month selected.",
+            "The check: deterministic rules catch the hard violations — duplicate POs, exhausted POs, unlinked invoices — while AI flags the softer policy violations that need pattern-matching, not just a threshold.",
+            "The output: a headline overview, an eleven-tab analysis workbook, and a leadership-ready branded deck, generated automatically.",
+          ],
+        },
+        {
+          h: "CIP Dashboard",
+          items: [
+            "The problem: Construction-in-Progress data lived in a static spreadsheet someone had to update by hand.",
+            "The build: reuses the Policy Pilot pattern to turn it into a live dashboard instead.",
+            "The handoff: documented the pattern so any other finance team can build their own version.",
+          ],
+        },
       ],
       diagram: {
         caption: "Policy Pilot's month-end run: pick a month, get the full analysis.",
         steps: [
           { t: "Pick a month", s: "One input" },
           { t: "Pull invoice data", s: "Enterprise data systems" },
-          { t: "Deterministic rules", s: "No guessing, no hallucination" },
+          { t: "Rules + AI judgment", s: "Hard rules, AI where it counts" },
           { t: "Full deliverables", s: "Overview · 11-tab workbook · deck" },
         ],
       },
@@ -598,6 +621,18 @@ function mediaHTML(p) {
   return html;
 }
 
+/* "How it works" renders as grouped sub-headed bullet sets when a project
+   defines techGroups (for multi-part builds), or a flat bullet list otherwise. */
+function techHTML(p) {
+  if (p.techGroups?.length) {
+    return p.techGroups
+      .map((g) => `<div class="tech-group"><h5>${g.h}</h5><ul>${g.items.map((i) => `<li>${i}</li>`).join("")}</ul></div>`)
+      .join("");
+  }
+  const tech = p.tech || [];
+  return tech.length ? `<ul>${tech.map((t) => `<li>${t}</li>`).join("")}</ul>` : "";
+}
+
 function openModal(p) {
   lastFocus = document.activeElement;
   $(".modal-art", modal).style.background = p.accent;
@@ -605,9 +640,9 @@ function openModal(p) {
   $("#modal-title").textContent = p.title;
   $(".modal-desc", modal).textContent = p.description;
   $(".modal-media", modal).innerHTML = mediaHTML(p);
-  const tech = p.tech || [];
-  $(".tech-head", modal).hidden = !tech.length;
-  $(".modal-tech", modal).innerHTML = tech.map((t) => `<li>${t}</li>`).join("");
+  const hasTech = Boolean(p.techGroups?.length || p.tech?.length);
+  $(".tech-head", modal).hidden = !hasTech;
+  $(".modal-tech", modal).innerHTML = techHTML(p);
   $(".modal-tools", modal).innerHTML = p.tools.map((t) => `<li>${t}</li>`).join("");
   $(".modal-impact", modal).innerHTML = p.impact.map((i) => `<li>${i}</li>`).join("");
   $(".modal-link", modal).innerHTML = p.link

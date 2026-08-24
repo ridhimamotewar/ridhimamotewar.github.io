@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Outfit:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%92%85%3C/text%3E%3C/svg%3E" />
-<link rel="stylesheet" href="styles.css?v=11" />
+<link rel="stylesheet" href="styles.css?v=12" />
 </head>
 <body>
 
@@ -178,8 +178,8 @@
   <div class="panel-inner wide">
     <button class="back-btn" data-goto="studio">← Back to the studio</button>
     <p class="eyebrow">Shade № 02 · Gilded Hour</p>
-    <h2 class="panel-title">The Nail Art Gallery</h2>
-    <p class="panel-lede">Each design is a project. Tap one to read the full case study.</p>
+    <h2 class="panel-title">Project Overview</h2>
+    <p class="panel-lede">Tap a card to read the full case study.</p>
     <div class="gallery" id="project-gallery"><!-- cards injected by script.js --></div>
   </div>
 </section>
@@ -496,12 +496,14 @@
       <h3 id="modal-title"></h3>
       <p class="modal-desc"></p>
       <div class="modal-media"></div>
+      <div class="modal-impact-box">
+        <h4 class="mini-heading">Impact</h4>
+        <ul class="modal-impact"></ul>
+      </div>
       <h4 class="mini-heading tech-head">How it works</h4>
-      <ul class="modal-tech"></ul>
+      <div class="modal-tech"></div>
       <h4 class="mini-heading">Tools &amp; techniques</h4>
       <ul class="modal-tools"></ul>
-      <h4 class="mini-heading">Impact</h4>
-      <ul class="modal-impact"></ul>
       <p class="modal-link"></p>
     </div>
   </div>
@@ -549,6 +551,6 @@
   <p class="footer-meta">// engineered by hand: HTML · CSS · JS — no frameworks, no build step</p>
 </footer>
 
-<script src="script.js?v=11"></script>
+<script src="script.js?v=12"></script>
 </body>
 </html>
