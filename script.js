@@ -67,7 +67,7 @@ const SITE_CONTENT = {
       title: "Ode",
       teaser: "Eye-driven presentations for speakers with Cerebral Palsy and ALS — Anthropic Hackathon track winner.",
       description:
-        "An assistive presentation platform that converts three eye-driven inputs into real-time AI-generated speech through a Flask backend. Blink-based navigation and agent workflows let users deliver end-to-end presentations — slides, Q&A, and transcripts — with under one second of response time.",
+        "An assistive presentation platform for individuals with cerebral palsy. Converts three eye-driven inputs into real-time AI-generated speech through a Flask backend. Blink-based navigation and agent workflows let users deliver end-to-end presentations — slides, Q&A, and transcripts — with under one second of response time.",
       tools: ["Python", "Flask", "Eye tracking", "AI agents", "Speech synthesis"],
       impact: [
         "Track Winner at the Anthropic Hackathon",
@@ -75,7 +75,7 @@ const SITE_CONTENT = {
         "Full presentation flow: slides, live Q&A, and transcripts",
       ],
       tech: [
-        "The entire interface runs on three eye-driven inputs plus a blink for navigation — no keyboard, no mouse, no caregiver required mid-presentation.",
+        "The entire interface runs on three eye-driven inputs plus a blink for navigation — no keyboard, no mouse, no assistant required mid-presentation.",
         "A Flask backend orchestrates the agent workflow: interpret the gaze input, decide the next presentation action, then generate the speech to say.",
         "Full presentation loop, not just text-to-speech — slide advancement, live Q&A answers, and a running transcript of everything said.",
         "Sub-1-second budget from eye input to audio out. That latency ceiling drove every architectural decision, because a pause longer than a second reads as a failure to the audience.",
@@ -106,11 +106,10 @@ const SITE_CONTENT = {
         "OCR, object recognition, and multimodal prompting in one flow",
       ],
       tech: [
-        "React Native and JavaScript, running through Expo Go — one codebase serving both platforms, because splitting effort across two native apps wasn't realistic for the schools waiting on it.",
+        "React Native and JavaScript, running through Expo Go.",
         "Python ML pipelines behind two scanners: a Text Scanner that reads documents, household products, and street signs aloud, and an Image Scanner that identifies objects — plus multimodal prompting for open-ended questions.",
-        "UI designed in Figma against the failure modes of existing apps — reviews of Seeing AI and Be My Eyes complain VoiceOver can't even find the buttons. Echo Eyes uses a few large buttons that vibrate and speak their own labels when pressed.",
+        "UI designed in Figma against the failure modes of existing apps. Our team read dozens of reviews of Seeing AI and Be My Eyes complaining about being unable to find the buttons. To solve, Echo Eyes uses a few large buttons that vibrate and speak their own labels when pressed.",
         "Built-in text-to-speech and a simple enough interface that it needs no assistance from a sighted person to navigate — unlike the market's biggest apps.",
-        "Inspired by blind vlogger Molly Burke, whose videos showed the team what independent daily life actually requires.",
       ],
       diagram: {
         caption: "One camera frame, three ways to understand it.",
@@ -168,19 +167,24 @@ const SITE_CONTENT = {
       tech: [
         "The muck chamber sits behind the cutterhead and takes everything the TBM excavates — it has to swallow abrasive spoil continuously without clogging or leaking while the machine bores.",
         "Full ownership from CAD through the shop: modeled, fabricated, and integrated with the rest of the machine's systems.",
-        "The same loop carried over from four years of FIRST Robotics: model it, machine it, test it, find where it fails, revise the model.",
+        "A 3D-printed holder secures the GCS (ground conditioning system) lines that loosen the dirt in front of the TBM.",
       ],
       media: [
         {
           img: "assets/projects/hyperloop-cad.png",
-          caption: "The muck chamber in CAD — 1'-7 3/4\" across, 1'-1 21/32\" tall.",
+          caption: "Initial CAD model of Muck Chamber.",
         },
         {
           img: "assets/projects/hyperloop-component.jpg",
-          caption: "A fabricated fitting mounted inside the chamber, mid-build.",
+          caption: "3D printed holder for the GCS (ground conditioning system) lines.",
         },
       ],
-      embed: { type: "drive", id: "16RV3mNmUOMDNa5rR-cWJJFGZHrajRPtS", title: "Penn Hyperloop muck chamber — build footage" },
+      embed: {
+        type: "drive",
+        id: "16RV3mNmUOMDNa5rR-cWJJFGZHrajRPtS",
+        title: "Penn Hyperloop muck chamber — build footage",
+        caption: "TBM in action!",
+      },
       accent: "#5b7a94",
     },
     {
@@ -620,6 +624,7 @@ function embedHTML(embed) {
       <iframe src="${srcByType[embed.type]}" title="${embed.title || ""}" loading="lazy" allowfullscreen
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
     </div>
+    ${embed.caption ? `<figcaption>${embed.caption}</figcaption>` : ""}
   </figure>`;
 }
 

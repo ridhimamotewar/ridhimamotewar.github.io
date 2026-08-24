@@ -646,7 +646,7 @@ main { position: relative; z-index: 2; }
   border: 1px solid rgba(58, 33, 56, 0.08);
   box-shadow: 0 14px 34px -20px rgba(58, 33, 56, 0.5);
 }
-.tech-diagram figcaption, .tech-shot figcaption {
+.tech-diagram figcaption, .tech-shot figcaption, .tech-embed figcaption {
   margin-top: 12px; text-align: center;
   font-family: "Fraunces", serif; font-style: italic;
   font-size: 0.8rem; color: var(--ink-soft); line-height: 1.5;
