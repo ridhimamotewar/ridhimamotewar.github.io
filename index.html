@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Outfit:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%92%85%3C/text%3E%3C/svg%3E" />
-<link rel="stylesheet" href="styles.css?v=12" />
+<link rel="stylesheet" href="styles.css?v=14" />
 </head>
 <body>
 
@@ -42,7 +42,7 @@
     <p class="studio-tag">M&amp;T at Penn — engineering at SEAS, finance at Wharton.<br/>Nail artist in her free time. Pick a shade to begin.</p>
     <button class="fresh-coat" data-goto="projects">
       <span class="fc-badge">Fresh coat · Summer 2026</span>
-      <span class="fc-text">FP&amp;A Intern @ CoreWeave — built 3 AI agents saving analysts 2+ weeks of manual work</span>
+      <span class="fc-text">AI &amp; Finance Intern @ CoreWeave — built 3 AI agents saving analysts 2+ weeks of manual work</span>
       <span class="fc-arrow" aria-hidden="true">→</span>
     </button>
     <p class="spec-line">// 3 AI agents shipped · 25-hr close → 5 min · 2nd @ TBC competition · 12 sets hand-painted</p>
@@ -339,9 +339,10 @@
     <div class="about-layout">
       <div class="about-portrait" aria-hidden="true"><span>RM</span></div>
       <div class="about-copy">
-        <p class="panel-lede">I'm Ridhima — an M&amp;T student at Penn who believes software (and spreadsheets) should feel as considered as a hand-painted manicure.</p>
+        <p class="panel-lede">I'm Ridhima, and I've never been able to pick just one lane — so I'm building a career at the intersection of three: engineering that ships, business that scales it, and product that decides what's worth building in the first place.</p>
         <p>I'm one of 50 students worldwide selected for the Jerome Fisher Program in Management &amp; Technology at the University of Pennsylvania, pursuing a dual degree: a B.S.E. in Mechanical Engineering at Penn Engineering and a B.S. in Economics with a finance concentration at Wharton (Class of 2029). I'm also a Joseph Wharton Scholar.</p>
-        <p>Most recently I interned on CoreWeave's FP&amp;A team, where I built three AI agents that saved analysts over two weeks of manual work. Before Penn, I was salutatorian at Quarry Lane School in Dublin, California, captained a FIRST Robotics team, and co-founded a 501c3 with a patent-pending product. Off the clock: nail art, painting, fantasy writing, karate, and vlogging.</p>
+        <p>That intersection shows up everywhere I work: shipping AI agents on CoreWeave's finance team, teaching product strategy to fellows at Product Space, engineering hardware for Penn Hyperloop, and studying venture through Girls into VC. Art is the thread that ties it together — I think the best-built things are the most considered ones, whether that's a financial dashboard, a tunnel-boring subsystem, or a hand-painted set of nails. This site is basically that belief, built.</p>
+        <p>Before Penn, I was salutatorian at Quarry Lane School in Dublin, California, captained a FIRST Robotics team, and co-founded a 501c3 with a patent-pending product. Off the clock: nail art, painting, fantasy writing, karate, and vlogging.</p>
         <h3 class="mini-heading">The kit I reach for</h3>
         <ul class="skill-swatches">
           <li style="--polish:#e8899f">CAD — Onshape · SolidWorks · Fusion</li>
@@ -349,6 +350,7 @@
           <li style="--polish:#d9b36c">Python · Java · React Native</li>
           <li style="--polish:#8d5a8f">OCaml</li>
           <li style="--polish:#b3a3dd">AI agents &amp; LLM evals</li>
+          <li style="--polish:#c98fa0">Claude · Claude Code · Cowork</li>
           <li style="--polish:#cbb59f">Figma &amp; Canva</li>
           <li style="--polish:#7fb0a9">English &amp; Marathi</li>
         </ul>
@@ -366,6 +368,21 @@
         <span class="timeline-year">2025 — 2029</span>
         <h3>Penn — Jerome Fisher M&amp;T</h3>
         <p>One of 50 selected worldwide for the dual-degree program: B.S.E. in Computer Science at Penn Engineering and B.S. in Economics with a finance concentration at Wharton. Joseph Wharton Scholar.</p>
+      </li>
+      <li>
+        <span class="timeline-year">2025 — present</span>
+        <h3>Penn Hyperloop — Lead Chamber Engineer</h3>
+        <p>Designed and fabricated the TBM muck chamber for the team's tunnel boring machine — helped take 2nd place at The Boring Company's international Not-A-Boring Competition.</p>
+      </li>
+      <li>
+        <span class="timeline-year">2025 — present</span>
+        <h3>Product Space @ Penn — Vice President</h3>
+        <p>Teaching 18 Product Fellows product strategy, user research, and MVP scoping; spearheaded Penn's first school-wide Product-A-Thon.</p>
+      </li>
+      <li>
+        <span class="timeline-year">2025 — present</span>
+        <h3>Girls into VC</h3>
+        <p>Startup analysis and sourcing practice with a community championing women in venture capital.</p>
       </li>
       <li>
         <span class="timeline-year">2025</span>
@@ -403,41 +420,75 @@
     <p class="eyebrow">Shade № 05 · Chrome Horizon</p>
     <h2 class="panel-title">The Trophy Shelf</h2>
     <p class="panel-lede">Competitions across engineering, business, and everything in between.</p>
-    <div class="lead-grid">
-      <article class="lead-card">
-        <span class="lead-badge">2nd Place</span>
-        <h3>The Boring Company Competition</h3>
-        <p>With Penn Hyperloop at TBC's tunneling competition — student engineering measured against teams from around the world.</p>
+
+    <div class="awards-list">
+      <p class="awards-tier-label">Wins</p>
+
+      <article class="award-row tier-win">
+        <span class="award-medal" aria-hidden="true">WIN</span>
+        <div class="award-body">
+          <span class="award-eyebrow">Anthropic Hackathon · 2025</span>
+          <h3>Track Winner</h3>
+          <p>Ode — eye-driven, AI-voiced presentations for speakers with Cerebral Palsy and ALS, built in a weekend.</p>
+        </div>
       </article>
-      <article class="lead-card">
-        <span class="lead-badge">Track Winner</span>
-        <h3>Anthropic Hackathon · 2025</h3>
-        <p>Ode — eye-driven, AI-voiced presentations for speakers with Cerebral Palsy and ALS, built in a weekend.</p>
+
+      <article class="award-row tier-win">
+        <span class="award-medal" aria-hidden="true">WIN</span>
+        <div class="award-body">
+          <span class="award-eyebrow">Wharton Public Policy Competition · 2025</span>
+          <h3>Winner</h3>
+          <p>Pitched TEACHPhilly, a teacher-retention program for Philadelphia schools.</p>
+        </div>
       </article>
-      <article class="lead-card">
-        <span class="lead-badge">Winner</span>
-        <h3>Wharton Public Policy Competition · 2025</h3>
-        <p>Pitched TEACHPhilly, a teacher-retention program for Philadelphia schools.</p>
+
+      <p class="awards-tier-label">Placements</p>
+
+      <article class="award-row tier-place">
+        <span class="award-medal" aria-hidden="true">2ND</span>
+        <div class="award-body">
+          <span class="award-eyebrow">The Boring Company Competition</span>
+          <h3>2nd Place</h3>
+          <p>With Penn Hyperloop at TBC's international tunneling competition — student engineering measured against teams from around the world.</p>
+        </div>
       </article>
-      <article class="lead-card">
-        <span class="lead-badge">5th Worldwide</span>
-        <h3>DECA International (ICDC)</h3>
-        <p>Top five globally in DECA's business competition — while co-presiding over her chapter.</p>
+
+      <article class="award-row tier-place">
+        <span class="award-medal" aria-hidden="true">5TH</span>
+        <div class="award-body">
+          <span class="award-eyebrow">DECA International (ICDC)</span>
+          <h3>5th Worldwide</h3>
+          <p>Top five globally in DECA's business competition — while co-presiding over her chapter.</p>
+        </div>
       </article>
-      <article class="lead-card">
-        <span class="lead-badge">Top 3 Finalist</span>
-        <h3>Congressional App Challenge · 2024</h3>
-        <p>Echo Eyes, the accessibility app later approved by 20+ schools for the blind.</p>
+
+      <article class="award-row tier-place">
+        <span class="award-medal" aria-hidden="true">TOP 3</span>
+        <div class="award-body">
+          <span class="award-eyebrow">Congressional App Challenge · 2024</span>
+          <h3>Top 3 Finalist</h3>
+          <p>Echo Eyes, the accessibility app later approved by 20+ schools for the blind.</p>
+        </div>
       </article>
-      <article class="lead-card">
-        <span class="lead-badge">Finalist</span>
-        <h3>National McKinsey Case Competition · 2025</h3>
-        <p>Built the MVP for EduFuture, a platform connecting students and parents.</p>
+
+      <p class="awards-tier-label">Finalist</p>
+
+      <article class="award-row tier-finalist">
+        <span class="award-medal" aria-hidden="true">FIN</span>
+        <div class="award-body">
+          <span class="award-eyebrow">National McKinsey Case Competition · 2025</span>
+          <h3>Finalist</h3>
+          <p>Built the MVP for EduFuture, a platform connecting students and parents.</p>
+        </div>
       </article>
-      <article class="lead-card">
-        <span class="lead-badge">Finalist</span>
-        <h3>Accenture Case Competition · 2025</h3>
-        <p>An AI adoption strategy to raise profitability at Paramount.</p>
+
+      <article class="award-row tier-finalist">
+        <span class="award-medal" aria-hidden="true">FIN</span>
+        <div class="award-body">
+          <span class="award-eyebrow">Accenture Case Competition · 2025</span>
+          <h3>Finalist</h3>
+          <p>An AI adoption strategy to raise profitability at Paramount.</p>
+        </div>
       </article>
     </div>
   </div>
