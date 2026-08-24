@@ -90,6 +90,7 @@ const SITE_CONTENT = {
         ],
       },
       embed: { type: "drive", id: "1hn0D2kM6BSYNvB0T1q5lcAXcAW1TPI28", title: "Ode demo — Anthropic Hackathon 2025" },
+      flip: "assets/projects/flip-ode.jpg",
       accent: "#b3a3dd",
     },
     {
@@ -121,15 +122,16 @@ const SITE_CONTENT = {
         ],
       },
       embed: { type: "youtube", id: "z3hqg8RKDr0", title: "Echo Eyes demo — Congressional App Challenge 2024" },
+      flip: "assets/projects/flip-echo.jpg",
       accent: "#d9b36c",
     },
     {
       id: "lunar-llamas",
       tag: "501c3 · 2020 — Present",
       title: "Lunar Llamas",
-      teaser: "A 501c3 with patent-pending hygiene units for the unhoused, live in 17 cities.",
+      teaser: "A 501c3 with patent-pending hygiene units for the unhoused.",
       description:
-        "A nonprofit I co-founded in 2020: portable, self-cleaning hygiene units addressing sanitation access for the unhoused. I led end-to-end product development — from CAD prototyping to regulatory approvals across 17 California cities — alongside fundraising and community partnerships with LavaMae and Good2Go.",
+        "A nonprofit I co-founded in 2020: portable, self-cleaning hygiene units addressing sanitation access for the unhoused. I led end-to-end product development — from CAD prototyping to  approvals across 17 California cities — alongside fundraising and community partnerships with LavaMae and Good2Go.",
       tools: ["CAD", "Magnetic reed switch & PIR sensors", "FRP fabrication", "Regulatory approvals", "Fundraising"],
       impact: [
         "Patent-pending design, approved across 17 California cities",
@@ -149,6 +151,7 @@ const SITE_CONTENT = {
           caption: "The unit's floor plan and dimensions — wet side, dry side, and equipment bay.",
         },
       ],
+      flip: "assets/projects/lunar-floorplan.png",
       accent: "#e3c98f",
     },
     {
@@ -185,6 +188,7 @@ const SITE_CONTENT = {
         title: "Penn Hyperloop muck chamber — build footage",
         caption: "TBM in action!",
       },
+      flip: "assets/projects/hyperloop-cad.png",
       accent: "#5b7a94",
     },
     {
@@ -207,6 +211,7 @@ const SITE_CONTENT = {
         "Printed and inventoried 22 socket connectors on the DLP printer, plus fabricated a gluteal prosthesis (printed shell, glued and screwed together, finished with injection molding) and scanned lab components into a digital library for future CAD reference.",
       ],
       embed: { type: "slides", id: "1SIkfROsNBY3XtEl5Rp8U5knsHjQuNhtFBrpU8yvXrco", title: "Dankmeyer internship project slideshow" },
+      flip: "assets/projects/flip-dankmeyer.jpg",
       accent: "#7fb0a9",
     },
   ],
@@ -223,8 +228,6 @@ const SITE_CONTENT = {
     { file: "candy-cane.jpg",      name: "Candy Cane",         date: "December 2022", tint: "#1c6b4a" },
     { file: "champagne-gold.jpg",  name: "Champagne Gold",     date: "November 2022", tint: "#c9a24b" },
     { file: "royal-blue.jpg",      name: "Royal Blue & Silver", date: "October 2022", tint: "#26309b" },
-    { file: "cotton-candy.jpg",    name: "Cotton Candy",       date: "August 2022",   tint: "#e879a8" },
-    { file: "pastel-waves.jpg",    name: "Pastel Waves",       date: "July 2022",     tint: "#5fbfc7" },
   ],
 
   // ── Chatbot knowledge base ──
@@ -283,7 +286,7 @@ const SITE_CONTENT = {
       {
         keys: ["creativ", "art", "nail", "hobby", "draw", "paint", "fun", "karate", "writing", "vlog", "video", "fantasy", "instagram", "gallery"],
         reply:
-          "Nail art is the main event — the rosé Creativity bottle opens a gallery of 12 sets she hand-painted herself, from Sapphire & Gold Leaf to Cotton Candy. Tap any one to see it up close, or find more at @ridhima_nails. Off the clock she also paints, writes fantasy, does karate, and makes videos. 🎨",
+          "Nail art is the main event — the rosé Creativity bottle opens a gallery of 10 sets she hand-painted herself, from Sapphire & Gold Leaf to Merlot Leopard. Tap any one to see it up close, or find more at @ridhima_nails. Off the clock she also paints, writes fantasy, does karate, and makes videos. 🎨",
       },
       {
         keys: ["hello", "hi", "hey", "namaste", "good morning", "good evening"],
@@ -566,23 +569,27 @@ SITE_CONTENT.projects.forEach((p) => {
   const card = document.createElement("button");
   card.className = "nail-card";
   card.setAttribute("aria-haspopup", "dialog");
+  // Back face: the project's picture, or a designed accent card when no
+  // shareable image exists (e.g. internal work like CoreWeave).
+  const back = p.flip
+    ? `<span class="card-back" style="background-image:url('${p.flip}')">
+        <span class="card-back-label">${p.title}<em>Click for the case study →</em></span>
+      </span>`
+    : `<span class="card-back card-back-fallback" style="--card-accent:${p.accent}">
+        <span class="back-list">${(p.techGroups || []).map((g) => `<span>${g.h}</span>`).join("")}</span>
+        <span class="card-back-label">${p.title}<em>Click for the case study →</em></span>
+      </span>`;
   card.innerHTML = `
-    <span class="card-shade">${p.tag}</span>
-    <span class="card-title">${p.title}</span>
-    <span class="card-teaser">${p.teaser}</span>
-    <span class="card-cta">Read the case study</span>`;
+    <span class="card-inner">
+      <span class="card-front">
+        <span class="card-shade">${p.tag}</span>
+        <span class="card-title">${p.title}</span>
+        <span class="card-teaser">${p.teaser}</span>
+        <span class="card-cta">Read the case study</span>
+      </span>
+      ${back}
+    </span>`;
   card.addEventListener("click", () => openModal(p));
-
-  // 3D tilt
-  if (!reducedMotion && matchMedia("(hover: hover)").matches) {
-    card.addEventListener("pointermove", (e) => {
-      const r = card.getBoundingClientRect();
-      const rx = ((e.clientY - r.top) / r.height - 0.5) * -10;
-      const ry = ((e.clientX - r.left) / r.width - 0.5) * 12;
-      card.style.transform = `perspective(700px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-4px)`;
-    });
-    card.addEventListener("pointerleave", () => (card.style.transform = ""));
-  }
   gallery.appendChild(card);
 });
 

@@ -415,16 +415,65 @@ main { position: relative; z-index: 2; }
 /* ══════════ GALLERY ══════════ */
 .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 22px; }
 
+/* Each card is a flip tile: hover turns it over to a picture of the project */
 .nail-card {
-  position: relative; border-radius: var(--radius-lg);
-  background: linear-gradient(160deg, #fdf9f5, #f7ecf3);
-  box-shadow: var(--shadow-soft); border: 1px solid rgba(255,255,255,0.85);
-  text-align: left; padding: 26px 28px;
-  display: flex; flex-direction: column; align-items: flex-start;
-  transition: box-shadow 0.4s, transform 0.4s var(--ease-lux);
+  position: relative; text-align: left; padding: 0;
+  background: none; border: 0; box-shadow: none;
+  perspective: 1100px;
 }
-.nail-card:hover { box-shadow: 0 34px 70px -30px rgba(58,33,56,0.5); }
-.nail-card:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
+.nail-card:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; border-radius: var(--radius-lg); }
+
+.card-inner {
+  position: relative; display: block; width: 100%; height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.65s var(--ease-lux);
+}
+.nail-card:hover .card-inner, .nail-card:focus-visible .card-inner { transform: rotateY(180deg); }
+
+.card-front, .card-back {
+  backface-visibility: hidden; -webkit-backface-visibility: hidden;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: var(--shadow-soft);
+}
+.card-front {
+  position: relative; min-height: 100%;
+  display: flex; flex-direction: column; align-items: flex-start;
+  padding: 26px 28px;
+  background: linear-gradient(160deg, #fdf9f5, #f7ecf3);
+}
+.card-back {
+  position: absolute; inset: 0; transform: rotateY(180deg);
+  background-color: var(--cream);
+  background-size: cover; background-position: center;
+  overflow: hidden;
+  display: flex; flex-direction: column; justify-content: flex-end;
+}
+.card-back-label {
+  display: flex; flex-direction: column; gap: 3px;
+  padding: 34px 20px 16px; color: #fff;
+  font-family: "Fraunces", serif; font-size: 1.05rem; line-height: 1.3;
+  background: linear-gradient(180deg, rgba(28, 14, 26, 0) 0%, rgba(28, 14, 26, 0.82) 70%);
+}
+.card-back-label em {
+  font-family: var(--font-mono); font-style: normal; font-size: 0.62rem;
+  letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.8;
+}
+/* No shareable image (internal work): a designed accent card instead */
+.card-back-fallback {
+  background: linear-gradient(160deg,
+    color-mix(in srgb, var(--card-accent, #8fa3b8) 28%, #fdf9f5),
+    color-mix(in srgb, var(--card-accent, #8fa3b8) 72%, #2b1a2e));
+}
+.back-list {
+  display: flex; flex-direction: column; gap: 10px;
+  padding: 24px 20px; margin: auto 0;
+}
+.back-list span {
+  font-family: var(--font-mono); font-size: 0.78rem; color: #fff;
+  padding-left: 18px; position: relative; text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+.back-list span::before { content: "▹"; position: absolute; left: 0; }
 
 .card-shade {
   display: inline-block; font-size: 0.66rem; letter-spacing: 0.22em; text-transform: uppercase;
@@ -449,12 +498,12 @@ main { position: relative; z-index: 2; }
 }
 
 /* drafting registration marks in opposite corners of technical cards */
-.nail-card::before, .lead-card::before {
+.card-front::before, .lead-card::before {
   content: ""; position: absolute; top: 11px; left: 11px; width: 13px; height: 13px;
   border-top: 1.5px solid var(--tick); border-left: 1.5px solid var(--tick);
   border-radius: 2px 0 0 0; pointer-events: none;
 }
-.nail-card::after, .lead-card::after {
+.card-front::after, .lead-card::after {
   content: ""; position: absolute; bottom: 11px; right: 11px; width: 13px; height: 13px;
   border-bottom: 1.5px solid var(--tick); border-right: 1.5px solid var(--tick);
   border-radius: 0 0 2px 0; pointer-events: none;
