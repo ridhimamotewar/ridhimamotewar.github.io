@@ -18,7 +18,7 @@ const SITE_CONTENT = {
       tools: ["Claude Code", "Python", "AI agents", "BRDs & decision trees", "FP&A workflows"],
       impact: [
         "PO compliance: 25 hours of monthly analyst work now runs in ~5 minutes",
-        "Spend-routing bot live on Union and available to the entire organization",
+        "Spend-routing bot live on the internal app platform and available to the entire organization",
         "CIP dashboard tied out within 1% in its first month",
         "3+ business days returned to analysts every month, year after year",
       ],
@@ -222,7 +222,7 @@ const SITE_CONTENT = {
       {
         keys: ["coreweave", "intern", "fp&a", "fpa", "finance team", "agents", "analyst", "policy pilot", "union"],
         reply:
-          "Her freshest coat! ✨ In Summer 2026 Ridhima interned on CoreWeave's FP&A team and shipped three agents built in Claude Code: a spend-routing bot live on Union for the whole org, Policy Pilot (turns a 25-hour monthly PO compliance review into ~5 minutes), and a live CIP dashboard that tied out within 1%. The full case study is the first card in the Projects gallery.",
+          "Her freshest coat! ✨ In Summer 2026 Ridhima interned on CoreWeave's FP&A team and shipped three agents built in Claude Code: a spend-routing bot live on the internal app platform for the whole org, Policy Pilot (turns a 25-hour monthly PO compliance review into ~5 minutes), and a live CIP dashboard that tied out within 1%. The full case study is the first card in the Projects gallery.",
       },
       {
         keys: ["who", "about", "ridhima", "yourself", "she", "her story", "background", "bio"],
