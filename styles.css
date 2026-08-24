@@ -521,6 +521,7 @@ main { position: relative; z-index: 2; }
 .lead-toggle {
   display: flex; flex-direction: column; align-items: flex-start; width: 100%;
   text-align: left; padding: 30px 28px 24px; position: relative;
+  min-height: 202px; /* keeps every collapsed card the same height regardless of text length */
 }
 .lead-toggle .lead-badge { margin-bottom: 12px; }
 .lead-title {
@@ -921,6 +922,8 @@ main { position: relative; z-index: 2; }
   /* stack the pipeline vertically instead of wrapping mid-row */
   .pipe-step { flex: 1 1 100%; }
   .pipe-arrow { display: none; }
+  /* text wraps taller on narrow screens, so the equal-height floor needs to be too */
+  .lead-toggle { min-height: 228px; }
 }
 
 @media (max-width: 680px) {
