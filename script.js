@@ -59,6 +59,7 @@ const SITE_CONTENT = {
           { t: "Full deliverables", s: "Overview · 11-tab workbook · deck" },
         ],
       },
+      logo: "assets/projects/coreweave-logo.png",
       accent: "#8fa3b8",
     },
     {
@@ -266,12 +267,12 @@ const SITE_CONTENT = {
       {
         keys: ["lead", "leader", "team", "mentor", "president", "vice", "manage", "club", "society", "vita", "product space", "robotics", "nonprofit", "501c3", "volunteer", "hyperloop", "boring company", "girls into vc", "board", "akshaya"],
         reply:
-          "On campus she's VP of Fellowship at Product Space @ Penn, Lead Chamber Engineer on Penn Hyperloop (2nd at TBC's competition), an officer with the Volunteer Income Tax Association ($3M in refunds delivered), and part of Girls into VC and the M&T Board. Beyond Penn: co-founded Lunar Llamas (a 501c3 serving 800+ people), captained a 100-person FIRST Robotics team to Worlds 3×, and raised $19,690 as Akshaya Patra's Lead Youth Ambassador. Tap the plum Leadership bottle — every card expands. 🖌️",
+          "On campus she's VP of Fellowship at Product Space @ Penn, Lead Chamber Engineer on Penn Hyperloop (2nd at TBC's competition), an officer with the Volunteer Income Tax Association ($3M in refunds delivered), VP of Internal Affairs at Girls into VC (sourced and pitched a healthcare startup to the club), and part of the M&T Board. Beyond Penn: co-founded Lunar Llamas (a 501c3 serving 800+ people), captained a 100-person FIRST Robotics team to Worlds 3×, and raised $19,690 as Akshaya Patra's Lead Youth Ambassador. Tap the plum Leadership bottle — every card expands. 🖌️",
       },
       {
         keys: ["award", "win", "won", "competition", "hackathon", "finalist", "prize", "achievement", "honor", "deca", "trophy", "tbc"],
         reply:
-          "The chrome-blue Awards bottle opens the full trophy shelf, ranked by prestige: Track Winner at the Anthropic Hackathon (Ode), Winner of the Wharton Public Policy Competition (TEACHPhilly), Finalist in the National McKinsey Case Competition (EduFuture), 2nd place at The Boring Company's competition with Penn Hyperloop, Finalist in the Accenture Case Competition, 5th worldwide at DECA's ICDC, and Top 3 in the Congressional App Challenge (Echo Eyes). 🏆",
+          "The chrome-blue Awards bottle opens the full trophy shelf, ranked by prestige: Track Winner at the Anthropic Hackathon (Ode), 1st Place in the Wharton Undergraduate Public Policy Competition (TEACHPhilly), Finalist in the National McKinsey Case Competition (EduFuture), 2nd Place at The Boring Company's Not-A-Boring Competition with Penn Hyperloop, Finalist in the Accenture Case Competition, 5th Worldwide at DECA International (ICDC), and Top 3 in the Congressional App Challenge (Echo Eyes). 🏆",
       },
       {
         keys: ["innovation", "patent", "experiment", "ai agent", "timeline", "journey", "story so far"],
@@ -569,9 +570,15 @@ SITE_CONTENT.projects.forEach((p) => {
   const card = document.createElement("button");
   card.className = "nail-card";
   card.setAttribute("aria-haspopup", "dialog");
-  // Back face: the project's picture, or a designed accent card when no
-  // shareable image exists (e.g. internal work like CoreWeave).
-  const back = p.flip
+  // Back face: a company logo card (internal work with no shareable
+  // screenshot, e.g. CoreWeave), else the project's own picture, else a
+  // designed accent card listing its sub-systems.
+  const back = p.logo
+    ? `<span class="card-back card-back-logo">
+        <span class="logo-wrap"><img src="${p.logo}" alt="${p.title} logo" loading="lazy" /></span>
+        <span class="card-back-label card-back-label-light">${p.title}<em>Click for the case study →</em></span>
+      </span>`
+    : p.flip
     ? `<span class="card-back" style="background-image:url('${p.flip}')">
         <span class="card-back-label">${p.title}<em>Click for the case study →</em></span>
       </span>`

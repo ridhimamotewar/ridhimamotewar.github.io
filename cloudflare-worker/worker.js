@@ -56,18 +56,18 @@ LEADERSHIP (the plum Leadership bottle)
 - Officer, Volunteer Income Tax Association (VITA) @ Penn — CPA-supervised free tax prep; $3M in refunds delivered across 100+ Philadelphia households.
 - Co-founder, Lunar Llamas (see projects).
 - Engineer, Penn Hyperloop (see projects).
-- Girls into VC — startup analysis and sourcing with a community championing women in venture capital.
+- VP of Internal Affairs, Girls into VC — startup analysis and sourcing with a community championing women in venture capital; sourced and pitched a healthcare startup to the club, researched using PitchBook, Crunchbase, and newsletters.
 - Captain, FIRST Robotics (2021–2025) — $10K in grants from NASA, Google, Intuitive; tripled the team's social following.
 - Also on campus: BlackRock at Wharton, M&T Board.
 
 AWARDS (the chrome-blue Awards bottle), by prestige
-1. Anthropic Hackathon — Track Winner (Ode)
-2. Wharton Public Policy Competition — Winner (TEACHPhilly, a teacher-retention program for Philadelphia schools)
-3. National McKinsey Case Competition — Finalist (built the EduFuture MVP)
-4. The Boring Company Competition — 2nd Place (with Penn Hyperloop)
-5. Accenture Case Competition — Finalist (AI adoption strategy for Paramount)
+1. Ode — Anthropic Hackathon Track Winner
+2. TEACHPhilly — Wharton Undergraduate Public Policy Competition 1st Place (a teacher-retention program for Philadelphia schools)
+3. EduFuture — National McKinsey Case Competition Finalist (built the EduFuture MVP)
+4. Penn Hyperloop — The Boring Company Not-A-Boring Competition 2nd Place
+5. Accenture Case Competition Finalist (AI adoption strategy for Paramount)
 6. DECA International (ICDC) — 5th Worldwide
-7. Congressional App Challenge — Top 3 (Echo Eyes)
+7. Echo Eyes — Congressional App Challenge Top 3
 
 CREATIVITY (the rosé Creativity bottle)
 - Nail art is real: 10 hand-painted sets in the gallery (Merlot Leopard, Sapphire & Gold Leaf, Christmas Story, Celestial Navy, Winter Blooms, Cherry Blossom, Lilac Marble, Candy Cane, Champagne Gold, Royal Blue & Silver), more at Instagram @ridhima_nails. Also: painting, fantasy writing, karate, vlogging.
