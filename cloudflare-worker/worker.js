@@ -1,10 +1,12 @@
 /**
  * Nail Artist AI — Cloudflare Worker proxy
  *
- * Sits between the portfolio site and Groq's free API so the API key never
+ * Sits between the portfolio site and Groq's API so the API key never
  * appears in public site code. Deploy on Cloudflare Workers (free tier) and
- * set the secret GROQ_API_KEY. See README.md for steps. Groq's free tier
- * needs no credit card — Llama 3.3 70B is fast and strong for this job.
+ * set the secret GROQ_API_KEY. See README.md for steps. No credit card
+ * needed to sign up — GPT-OSS 20B is self-serve on a standard key (Groq has
+ * since moved Llama 3.1/3.3 behind an Enterprise/contact-sales plan, so
+ * don't switch back to those without checking they're self-serve again).
  */
 
 const ALLOWED_ORIGINS = [
@@ -13,8 +15,8 @@ const ALLOWED_ORIGINS = [
   "http://127.0.0.1:8321",
 ];
 
-const MODEL = "llama-3.3-70b-versatile";
-const MAX_TOKENS = 400; // keeps replies concise and comfortably inside free-tier limits
+const MODEL = "openai/gpt-oss-20b";
+const MAX_TOKENS = 400; // keeps replies concise and the per-token cost trivial
 const MAX_HISTORY = 12; // turns of context sent per request
 const MAX_MSG_CHARS = 1000;
 

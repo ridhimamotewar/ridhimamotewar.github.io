@@ -13,8 +13,8 @@ scripted mode — the chat never breaks.
 
 ## Step 1 — Get a free Groq API key
 
-1. Go to https://console.groq.com and sign up (no credit card required — the
-   free tier is genuinely free, with generous daily rate limits).
+1. Go to https://console.groq.com and sign up (no credit card required to
+   create a key).
 2. Go to **API Keys → Create API Key**, name it `portfolio-bot`, and copy the
    key (starts with `gsk_`). You'll paste it in step 3 — don't put it
    anywhere else, especially not in the website code.
@@ -65,10 +65,14 @@ scripted mode — the chat never breaks.
   free general-purpose chatbot.
 - To update the bot's knowledge later (new internship, new project), edit
   `SYSTEM_PROMPT` in `worker.js` and redeploy via **Edit code → Deploy**.
-- Groq's free tier has daily request/token limits (generous for a portfolio
-  site's traffic). If you ever exceed them, requests just fail over to the
-  scripted bot automatically — nothing breaks, visitors just get the
-  scripted answers until the limit resets.
-- Model choice: `llama-3.3-70b-versatile` is a strong, fast free-tier model.
-  If Groq retires it, swap `MODEL` in `worker.js` for whatever their current
-  best free model is listed at https://console.groq.com/docs/models.
+- Model choice: `openai/gpt-oss-20b` is fast and self-serve on a standard
+  key. Groq prices it per token (a portfolio bot's traffic costs fractions
+  of a cent — each reply is capped at 400 tokens), and new accounts
+  typically start with some free credit; check console.groq.com/settings/billing
+  for your balance. Groq has moved some other models (Llama 3.1 8B, Llama
+  3.3 70B) behind an Enterprise/contact-sales plan — a self-serve key can't
+  use those, so don't switch `MODEL` to them. If you ever hit a rate or
+  spend limit, requests fail over to the scripted bot automatically —
+  nothing breaks, visitors just get the scripted answers until it resets.
+  Current self-serve models are listed at https://console.groq.com/docs/models
+  (anything not tagged "Enterprise").
