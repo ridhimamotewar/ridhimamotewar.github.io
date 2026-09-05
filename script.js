@@ -768,7 +768,7 @@ addEventListener("keydown", (e) => {
 /* Real AI mode: paste your Cloudflare Worker URL here (see cloudflare-worker/README.md).
    Left empty, the chat uses the built-in scripted answers instead — and if the
    Worker ever errors, it silently falls back to them too. */
-const CHAT_API_URL = "";
+const CHAT_API_URL = "https://nail-artist-ai.motewar-ridhima.workers.dev/";
 
 const fab = $("#chat-fab");
 const chatPanel = $("#chat-panel");
