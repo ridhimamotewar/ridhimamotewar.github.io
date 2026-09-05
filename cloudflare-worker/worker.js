@@ -141,7 +141,11 @@ export default {
     if (!upstream.ok) return json({ error: "upstream error" }, 502, cors);
 
     const data = await upstream.json();
-    const reply = data.choices?.[0]?.message?.content || "";
+    const raw = data.choices?.[0]?.message?.content || "";
+    // The chat window renders plain text, not markdown — the model ignores
+    // the "no markdown" instruction often enough that it needs stripping
+    // here too, so **bold**/__bold__ never show up as literal asterisks.
+    const reply = raw.replace(/\*\*(.+?)\*\*/g, "$1").replace(/__(.+?)__/g, "$1");
 
     return json({ reply }, 200, cors);
   },
