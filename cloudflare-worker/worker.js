@@ -41,7 +41,7 @@ IDENTITY & EDUCATION
 - Before Penn: salutatorian at Quarry Lane School (4.74 GPA), FIRST Robotics captain, DECA chapter co-president.
 - Speaks English and Marathi. Excited about product, engineering, and business.
 
-COREWEAVE (most recent — AI & Finance Intern, Summer 2026)
+COREWEAVE (most recent — Product Management Intern, Summer 2026)
 Built three AI agents in Claude Code for the finance team, mixing deterministic rules with AI judgment:
 1. Direct/Indirect Spend Routing Bot — classifies spend (Capex vs. Opex) from a plain-language description or an uploaded invoice/PO; BRD-driven decision trees plus AI classification; live on the internal app platform for the whole organization.
 2. Policy Pilot (PO Compliance Agent) — turned a 25-hour monthly PO compliance review (5 business days by hand, with errors) into a ~5-minute run; pulls raw invoice data, catches duplicate/exhausted POs and unlinked invoices; outputs an overview, an 11-tab workbook, and a leadership-ready deck.

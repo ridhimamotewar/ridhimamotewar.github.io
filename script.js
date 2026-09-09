@@ -14,7 +14,7 @@ const SITE_CONTENT = {
       title: "CoreWeave FP&A Agent Suite",
       teaser: "Three production agents for the FP&A team — one turns a 25-hour monthly review into five minutes.",
       description:
-        "As an FP&A intern at CoreWeave, I shipped three AI agents (built in Claude Code) that automated the finance team's most manual workflows. To get the logic right, I first ran the worst of them by hand: a full month-end PO compliance review that took five business days and still had errors. Then I encoded what I'd learned into a mix of deterministic rules and AI judgment — hard rules where the answer is black-and-white, AI where a human would otherwise have to eyeball it.",
+        "As a Product Management intern at CoreWeave, I shipped three AI agents (built in Claude Code) that automated the finance team's most manual workflows. To get the logic right, I first ran the worst of them by hand: a full month-end PO compliance review that took five business days and still had errors. Then I encoded what I'd learned into a mix of deterministic rules and AI judgment — hard rules where the answer is black-and-white, AI where a human would otherwise have to eyeball it.",
       tools: ["Claude Code", "Python", "AI agents", "BRDs & decision trees", "FP&A workflows"],
       impact: [
         "PO compliance: 25 hours of monthly analyst work now runs in ~5 minutes",
