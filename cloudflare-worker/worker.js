@@ -125,27 +125,46 @@ export default {
 
     // Groq's API is OpenAI-compatible: system prompt is just the first message,
     // and max_tokens/response shape follow the OpenAI chat-completions format.
-    const upstream = await fetch("https://api.groq.com/openai/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${env.GROQ_API_KEY}`,
-      },
-      body: JSON.stringify({
-        model: MODEL,
-        max_tokens: MAX_TOKENS,
-        messages: [{ role: "system", content: SYSTEM_PROMPT }, ...messages],
-      }),
-    });
+    const callGroq = () =>
+      fetch("https://api.groq.com/openai/v1/chat/completions", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${env.GROQ_API_KEY}`,
+        },
+        body: JSON.stringify({
+          model: MODEL,
+          max_tokens: MAX_TOKENS,
+          messages: [{ role: "system", content: SYSTEM_PROMPT }, ...messages],
+        }),
+      });
 
-    if (!upstream.ok) return json({ error: "upstream error" }, 502, cors);
+    // Groq's free-tier rate limit is low enough that a normal multi-message
+    // chat can trip it (measured ~50% failure rate under back-to-back
+    // messages). Retry with backoff before giving up, instead of silently
+    // degrading every hiccup to the scripted fallback on the client.
+    const backoffsMs = [500, 1200];
+    let upstream = await callGroq();
+    for (let i = 0; !upstream.ok && i < backoffsMs.length; i++) {
+      await new Promise((r) => setTimeout(r, backoffsMs[i]));
+      upstream = await callGroq();
+    }
+    if (!upstream.ok) {
+      const detail = await upstream.text().catch(() => "");
+      return json({ error: "upstream error", status: upstream.status, detail: detail.slice(0, 300) }, 502, cors);
+    }
 
     const data = await upstream.json();
     const raw = data.choices?.[0]?.message?.content || "";
     // The chat window renders plain text, not markdown — the model ignores
     // the "no markdown" instruction often enough that it needs stripping
-    // here too, so **bold**/__bold__ never show up as literal asterisks.
-    const reply = raw.replace(/\*\*(.+?)\*\*/g, "$1").replace(/__(.+?)__/g, "$1");
+    // here too, so **bold**/__bold__/*italic*/_italic_ never show up as
+    // literal asterisks or underscores.
+    const reply = raw
+      .replace(/\*\*(.+?)\*\*/g, "$1")
+      .replace(/__(.+?)__/g, "$1")
+      .replace(/\*(.+?)\*/g, "$1")
+      .replace(/(?<!\w)_(.+?)_(?!\w)/g, "$1");
 
     return json({ reply }, 200, cors);
   },
