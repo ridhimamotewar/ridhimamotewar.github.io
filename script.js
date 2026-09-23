@@ -157,11 +157,11 @@ const SITE_CONTENT = {
     },
     {
       id: "penn-hyperloop",
-      tag: "Lead Chamber Engineer",
+      tag: "Lead Fluids Engineer",
       title: "Penn Hyperloop × The Boring Company",
       teaser: "Designed and fabricated the TBM muck chamber that helped take 2nd at TBC's competition.",
       description:
-        "As Lead Chamber Engineer on Penn Hyperloop, I designed and fabricated the muck chamber for the team's TBM (Tunnel Boring Machine) — the vessel that collects excavated material as the machine digs — for The Boring Company's international Not-A-Boring Competition, where teams present in front of representatives from The Boring Company, Boeing, and NASA.",
+        "As Lead Fluids Engineer on Penn Hyperloop, I designed and fabricated the muck chamber for the team's TBM (Tunnel Boring Machine) — the vessel that collects excavated material as the machine digs — for The Boring Company's international Not-A-Boring Competition, where teams present in front of representatives from The Boring Company, Boeing, and NASA.",
       tools: ["CAD — Onshape · SolidWorks", "Shop machinery", "Fabrication", "Systems integration"],
       impact: [
         "2nd place at The Boring Company's Not-A-Boring Competition",
@@ -267,7 +267,7 @@ const SITE_CONTENT = {
       {
         keys: ["lead", "leader", "team", "mentor", "president", "vice", "manage", "club", "society", "vita", "product space", "robotics", "nonprofit", "501c3", "volunteer", "hyperloop", "boring company", "girls into vc", "board", "akshaya"],
         reply:
-          "On campus she's VP of Fellowship at Product Space @ Penn, Lead Chamber Engineer on Penn Hyperloop (2nd at TBC's competition), an officer with the Volunteer Income Tax Association ($3M in refunds delivered), VP of Internal Affairs at Girls into VC (sourced and pitched a healthcare startup to the club), and part of the M&T Board. Beyond Penn: co-founded Lunar Llamas (a 501c3 serving 800+ people), captained a 100-person FIRST Robotics team to Worlds 3×, and raised $19,690 as Akshaya Patra's Lead Youth Ambassador. Tap the plum Leadership bottle — every card expands. 🖌️",
+          "On campus she's VP of Fellowship at Product Space @ Penn, Lead Fluids Engineer on Penn Hyperloop (2nd at TBC's competition), an officer with the Volunteer Income Tax Association ($3M in refunds delivered), VP of Internal Affairs at Girls into VC (sourced and pitched a healthcare startup to the club), and part of the M&T Board. Beyond Penn: co-founded Lunar Llamas (a 501c3 serving 800+ people), captained a 100-person FIRST Robotics team to Worlds 3×, and raised $19,690 as Akshaya Patra's Lead Youth Ambassador. Tap the plum Leadership bottle — every card expands. 🖌️",
       },
       {
         keys: ["award", "win", "won", "competition", "hackathon", "finalist", "prize", "achievement", "honor", "deca", "trophy", "tbc"],
