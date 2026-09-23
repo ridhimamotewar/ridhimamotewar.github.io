@@ -247,12 +247,12 @@ const SITE_CONTENT = {
       {
         keys: ["who", "about", "ridhima", "yourself", "she", "her story", "background", "bio"],
         reply:
-          "Ridhima is an M&T student at Penn — one of 50 selected worldwide — pursuing computer science at Penn Engineering and finance at Wharton (Class of 2029). Most recently she interned on CoreWeave's FP&A team building AI agents. She also co-founded a 501c3 with a patent-pending product, and yes, the nail art theme is a real hobby. Open the About Me bottle for the full story! ✨",
+          "Ridhima is an M&T student at Penn — one of 50 selected worldwide — pursuing computer science at Penn Engineering and finance at Wharton. Most recently she interned on CoreWeave's FP&A team building AI agents. She also co-founded a 501c3 with a patent-pending product, and yes, the nail art theme is a real hobby. Open the About Me bottle for the full story! ✨",
       },
       {
         keys: ["education", "study", "school", "college", "penn", "upenn", "wharton", "m&t", "mt program", "major", "degree", "university"],
         reply:
-          "She's at the University of Pennsylvania in the Jerome Fisher Program in Management & Technology (M&T) — just 50 students selected worldwide. Dual degree: B.S.E. in Mechanical Engineering at Penn Engineering plus a B.S. in Economics with a finance concentration at Wharton, Class of 2029, and she's a Joseph Wharton Scholar. Before Penn she was salutatorian at Quarry Lane School with a 4.74 GPA. 🎓",
+          "She's at the University of Pennsylvania in the Jerome Fisher Program in Management & Technology (M&T) — just 50 students selected worldwide. Dual degree: B.S.E. in Mechanical Engineering at Penn Engineering plus a B.S. in Economics with a finance concentration at Wharton, and she's a Joseph Wharton Scholar. Before Penn she was salutatorian at Quarry Lane School with a 4.74 GPA. 🎓",
       },
       {
         keys: ["project", "work", "portfolio", "built", "case study", "gallery", "app", "ode", "echo", "lunar", "dankmeyer", "prosthetic"],
